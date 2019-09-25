@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+
+  mg-webpage:
+    image: registry.gitlab.com/magnesiumcoop/magnesium.coop
+    networks:
+      - traefik_proxy
+    deploy:
+      labels:
+        - "traefik.port=1313"
+        - "traefik.backend=mg-webpage"
+        - "traefik.frontend.rule=Host:www.magnesium.coop,magnesium.coop"
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_proxy"
+        - "traefik.backend.loadbalancer.sticky=true"
+        - "traefik.frontend.passHostHeader=true"
+      restart_policy:
+        condition: on-failure
+
+networks:
+  traefik_proxy:
+    external: true
