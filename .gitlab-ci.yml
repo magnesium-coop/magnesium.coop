@@ -4,6 +4,8 @@ before_script:
   - docker info
 stages:
   - build
+  - deploy
+
 build_image:
   stage: build
   variables:
@@ -12,5 +14,24 @@ build_image:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
+  only:
+    - master
+
+
+deploy_service:
+  stage: deploy
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    DOCKER_HOST: ssh://ubuntu@$TESTING_HOST
+    DOCKER_STACK: $CI_PROJECT_NAME
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
+    - docker stack deploy --with-registry-auth -c docker-compose.swarm.yml $DOCKER_STACK
   only:
     - master
