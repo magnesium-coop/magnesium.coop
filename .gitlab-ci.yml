@@ -25,7 +25,8 @@ deploy_service:
     DOCKER_HOST: ssh://ubuntu@$TESTING_HOST
     DOCKER_STACK: $CI_PROJECT_NAME
   before_script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - apk update
+    - apk add openssh
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
