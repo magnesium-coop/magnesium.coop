@@ -23,7 +23,6 @@ deploy_service:
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     DOCKER_HOST: ssh://ubuntu@$TESTING_HOST
-    DOCKER_STACK: $CI_PROJECT_NAME
   before_script:
     - apk update
     - apk add openssh
@@ -35,6 +34,6 @@ deploy_service:
 
   script:
     #- docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-    - docker stack deploy --with-registry-auth -c docker-compose.swarm.yml $DOCKER_STACK
+    - docker stack deploy --with-registry-auth -c docker-compose.swarm.yml $CI_PROJECT_NAME
   only:
     - master
