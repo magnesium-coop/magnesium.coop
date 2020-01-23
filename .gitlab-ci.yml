@@ -31,6 +31,7 @@ deploy_service:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
+    - echo $CI_DEPLOY_USER $CI_DEPLOY_PASSWORD $CI_REGISTRY
   script:
     - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
     - docker stack deploy --with-registry-auth -c docker-compose.swarm.yml $DOCKER_STACK
