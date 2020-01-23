@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
 
-  mg-webpage:
+  webpage:
     image: registry.gitlab.com/magnesiumcoop/magnesium.coop
     networks:
       - traefik_proxy
