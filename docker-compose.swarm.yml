@@ -14,7 +14,7 @@ services:
       - traefik_proxy
     deploy:
       labels:
-        - "traefik.port=1313"
+        - "traefik.port=80"
         - "traefik.backend=service"
         - "traefik.frontend.rule=Host:$URL_LIST"
         - "traefik.enable=true"
