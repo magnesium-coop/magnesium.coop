@@ -47,7 +47,7 @@ deploy_prod:
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     DOCKER_HOST: ssh://docker@$PRODUCTION_HOST
-    URLS: $CI_PROJECT_NAMESPACE.$CI_ENVIRONMENT_SLUG.magnesium.coop
+    URLS: $CI_PROJECT_NAMESPACE.$CI_ENVIRONMENT_SLUG.magnesium.coop,magnesium.coop,www.magnesium.coop
   before_script:
     - apk update
     - apk add openssh
