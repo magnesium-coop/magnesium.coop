@@ -16,7 +16,7 @@ services:
       labels:
         - "traefik.port=1313"
         - "traefik.backend=service"
-        - "traefik.frontend.rule=Host:$DOCKER_STACK.$DEPLOY_ENV.magnesium.coop,$URL_LIST"
+        - "traefik.frontend.rule=Host:$URL_LIST"
         - "traefik.enable=true"
         - "traefik.docker.network=traefik_proxy"
         - "traefik.backend.loadbalancer.sticky=true"
