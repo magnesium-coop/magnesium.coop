@@ -42,7 +42,7 @@ deploy_testing:
 
 deploy_prod:
   stage: deploy
-    variables:
+  variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     DOCKER_HOST: ssh://ubuntu@$PRODUCTION_HOST
   before_script:
