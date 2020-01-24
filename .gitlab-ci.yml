@@ -32,7 +32,7 @@ deploy_testing:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - echo "$SSH_TESTING_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - env
   script:
@@ -52,7 +52,9 @@ deploy_prod:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - echo "$SSH_PRODUCTION_PEM_PRIVATE_KEY" > /tmp/key.pem && chmod 600 /tmp/key.pem
+    - ssh-add /tmp/key.pem
+#        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
     - DOCKER_IMAGE=$CI_REGISTRY_IMAGE DOCKER_TAG=$CI_COMMIT_SHORT_SHA DOCKER_STACK=$CI_PROJECT_NAMESPACE DEPLOY_ENV=$CI_ENVIRONMENT_SLUG docker stack deploy --with-registry-auth -c docker-compose.swarm.yml $CI_PROJECT_NAMESPACE
