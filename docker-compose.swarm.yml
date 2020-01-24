@@ -23,11 +23,11 @@ services:
         - "traefik.frontend.passHostHeader=true"
       restart_policy:
         condition: on-failure
-    healthcheck:
-      test: curl -sS http://127.0.0.1:1313 || exit 1
-      interval: 5s
-      timeout: 10s
-      retries: 3
+   # healthcheck:
+   #   test: curl -sS http://127.0.0.1:1313 || exit 1
+   #   interval: 5s
+   #   timeout: 10s
+   #   retries: 3
 
 networks:
   traefik_proxy:
