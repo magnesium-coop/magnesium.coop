@@ -45,7 +45,7 @@ deploy_prod:
   stage: deploy
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
-    DOCKER_HOST: ssh://ubuntu@$PRODUCTION_HOST
+    DOCKER_HOST: ssh://docker@$PRODUCTION_HOST
   before_script:
     - apk update
     - apk add openssh
