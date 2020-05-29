@@ -1,0 +1,57 @@
+version: '3.3'
+
+services:
+
+  mg_webpage:
+    environment:
+      - URL_LIST=${URL_LIST}
+      - DOCKER_IMAGE=${DOCKER_IMAGE}
+      - DOCKER_TAG=${DOCKER_TAG}
+      - DOCKER_STACK=${DOCKER_STACK}
+      - DEPLOY_ENV=${DEPLOY_ENV}
+    image: $DOCKER_IMAGE:$DOCKER_TAG
+    networks:
+      - traefik_proxy
+    secrets:
+      - mysql_host
+      - mysql_scandium_passwd
+      - mysql_scandium_user
+    environment:
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/mysql_scandium_passwd
+      WORDPRESS_DB_HOST_FILE: /run/secrets/mysql_host
+      WORDPRESS_DB_USER_FILE: /run/secrets/mysql_scandium_user
+      WORDPRESS_DB_NAME: scandium
+    volumes:
+      - scandium-swarm-volume:/var/www/html/wp-content
+    command: "apache2-custom.sh"
+    deploy:
+      placement:
+        constraints: [node.hostname == ip-172-31-17-85.ec2.internal]
+      labels:
+        - "traefik.port=80"
+        - "traefik.backend=mg_webpage"
+        - "traefik.frontend.rule=Host:$URL_LIST"
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_proxy"
+        - "traefik.backend.loadbalancer.sticky=true"
+        - "traefik.frontend.passHostHeader=true"
+      restart_policy:
+        condition: on-failure
+ 
+networks:
+  traefik_proxy:
+    external: true
+
+volumes:
+  scandium-swarm-volume:
+    external: true
+
+
+secrets:
+  mysql_host:
+    external: true
+  mysql_scandium_passwd:
+    external: true
+  mysql_scandium_user:
+    external: true
+

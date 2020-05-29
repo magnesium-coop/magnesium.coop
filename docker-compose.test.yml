@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
 
-  service:
+  mg_webpage:
     environment:
       - URL_LIST=${URL_LIST}
       - DOCKER_IMAGE=${DOCKER_IMAGE}
@@ -12,10 +12,18 @@ services:
     image: $DOCKER_IMAGE:$DOCKER_TAG
     networks:
       - traefik_proxy
+    environment:
+      WORDPRESS_DB_PASSWORD: pass
+      WORDPRESS_DB_HOST: mg_webpage_db
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_NAME: database
+    volumes:
+      - files_vol:/var/www/html/wp-content
+    command: "apache2-custom.sh"
     deploy:
       labels:
         - "traefik.port=80"
-        - "traefik.backend=service"
+        - "traefik.backend=mg_webpage"
         - "traefik.frontend.rule=Host:$URL_LIST"
         - "traefik.enable=true"
         - "traefik.docker.network=traefik_proxy"
@@ -23,12 +31,23 @@ services:
         - "traefik.frontend.passHostHeader=true"
       restart_policy:
         condition: on-failure
-   # healthcheck:
-   #   test: curl -sS http://127.0.0.1:1313 || exit 1
-   #   interval: 5s
-   #   timeout: 10s
-   #   retries: 3
-
+  mg_webpage_db:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - traefik_proxy
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    volumes:
+      - db_vol:/var/lib/mysql
+ 
 networks:
   traefik_proxy:
     external: true
+
+volumes:
+  files_vol:
+  db_vol:
