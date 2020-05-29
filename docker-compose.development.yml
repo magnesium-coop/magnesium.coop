@@ -2,15 +2,18 @@ version: '3.1'
 
 services:
 
-  web_:
-    image: wordpress
+  mg_webpage:
+    build: .
     ports:
       - 80:80
     environment:
       WORDPRESS_DB_PASSWORD: password      
     volumes:
       - ./themes:/var/www/html/wp-content/themes
+      - ./plugins:/var/www/html/wp-content/plugins
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./startup.sh:/startup.sh
+    entrypoint: /startup.sh
     links: 
       - mysql
 
