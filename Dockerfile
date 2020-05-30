@@ -1,7 +1,13 @@
-FROM wordpress
-ADD ./uploads.ini /usr/local/etc/php/conf.d/uploads.ini
-ADD ./themes /var/www/html/wp-content/themes
-RUN chown www-data:www-data /var/www/html/wp-content/themes
-ADD ./themes /tmp/themes/
-COPY apache2-custom.sh /usr/local/bin/apache2-custom.sh
-RUN chmod +x /usr/local/bin/apache2-custom.sh
+FROM node:12-alpine as builder
+# Get the necessary build tools
+RUN apk update && apk add build-base autoconf automake libtool pkgconfig nasm
+
+# Add the package.json file and build the node_modules folder
+WORKDIR /app
+COPY ./package*.json ./
+RUN mkdir node_modules && npm install
+
+# Get a clean image with gatsby-cli and the pre-built node modules
+FROM node:12-alpine
+RUN npm install --global gatsby-cli && gatsby telemetry --disable && mkdir /save
+COPY --from=builder /app/node_modules /save/node_modules
