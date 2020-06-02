@@ -7,20 +7,21 @@ import Bio from "../components/bio"
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const { allAuthorYaml } = data
+  const { allAuthorYaml, markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
   const authors = allAuthorYaml.nodes
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="About us" />
+      <SEO title={frontmatter.title} />
       <article>
         <header>
-      <h1>About us</h1>
+      <h1>{frontmatter.title} </h1>
         </header>
         <section>
-          <p>
-            We are two Software Developers with degrees in Engineering that love
-            to talk about programming, tech culture and other random stuff.
-          </p>
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </section>
         {authors.map((author) => (
           <Bio author={author} key={author.id}/>
@@ -53,6 +54,14 @@ export const pageQuery = graphql`
               }
             }
           }
+      }
+    }
+    markdownRemark(frontmatter: { id: { eq: "quehacemos" } }) {
+      html
+      frontmatter {
+        id
+        title
+        description
       }
     }
   }
