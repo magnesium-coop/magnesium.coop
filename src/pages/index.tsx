@@ -12,7 +12,15 @@ type Data = {
       title: string
     }
   }
-  allMarkdownRemark: {
+  queHacemos: {
+    html: string
+    frontmatter: {
+      id: string
+      title: string
+      description: string
+    }
+  }
+  blogPosts: {
     edges: {
       node: {
         excerpt: string
@@ -31,11 +39,19 @@ type Data = {
 
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.blogPosts.edges
+  const queHacemos = data.queHacemos
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="All posts"/>
+      <section>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: queHacemos.html
+          }}
+        />
+      </section>
       <p>
         <Link to="/about/">About</Link>
       </p>
@@ -46,7 +62,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
             <header>
               <h3
                 style={{
-                  marginBottom: rhythm(1 / 4),
+                  marginBottom: rhythm(1 / 4)
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -58,7 +74,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
             <section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.frontmatter.description || node.excerpt
                 }}
               />
             </section>
@@ -78,7 +94,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    blogPosts: allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
     filter: {fileAbsolutePath: {regex: "/(blog)/.*\\\\.md$/"}}
     ) {
@@ -94,6 +110,14 @@ export const pageQuery = graphql`
             description
           }
         }
+      }
+    }
+    queHacemos: markdownRemark(frontmatter: { id: { eq: "que-hacemos" } }) {
+      html
+      frontmatter {
+        id
+        title
+        description
       }
     }
   }

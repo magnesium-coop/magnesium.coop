@@ -56,7 +56,7 @@ export const pageQuery = graphql`
           }
       }
     }
-    markdownRemark(frontmatter: { id: { eq: "quehacemos" } }) {
+    markdownRemark(frontmatter: { id: { eq: "quienes-somos" } }) {
       html
       frontmatter {
         id
