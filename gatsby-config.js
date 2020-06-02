@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Magnesium.coop`,
     author: {
       name: `Kyle Mathews`,
       summary: `who lives and works in San Francisco building useful things.`
@@ -27,6 +27,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/data`,
+        name: `data`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -50,6 +57,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -75,9 +83,13 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`
       }
-    }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ]
+  ],
+  mapping: {
+    // 3. map author to author.yaml
+    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+  },
 }

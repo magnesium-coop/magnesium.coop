@@ -9,8 +9,9 @@ import { rhythm, scale } from "../utils/typography"
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const author = post.frontmatter.author
 
+  const { previous, next } = pageContext
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -44,7 +45,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }}
         />
         <footer>
-          <Bio />
+          <Bio author={author}/>
         </footer>
       </article>
 
@@ -95,6 +96,19 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        author {
+          id
+          bio
+          name
+          twitter
+          profilepicture {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }

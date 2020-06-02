@@ -1,0 +1,12 @@
+- id: raul
+  email: rsperoni@magnesium.coop
+  name: raul
+  twitter: raulsperoni
+  bio: I am Author 1
+  profilepicture: ../assets/raul.jpg
+- id: author2
+  email: nada
+  name: pedro
+  twitter: nada
+  bio: I am Author 2
+  profilepicture: ../assets/profile-pic.jpg
