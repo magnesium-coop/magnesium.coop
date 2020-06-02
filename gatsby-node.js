@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
       {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          filter: {fileAbsolutePath: {regex: "/(blog)/.*\\\\.md$/"}}
+          filter: {fileAbsolutePath: {regex: "/(blog|projects)/.*\\\\.md$/"}}
           limit: 1000
         ) {
           edges {
