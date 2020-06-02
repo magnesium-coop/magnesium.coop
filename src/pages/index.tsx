@@ -52,9 +52,11 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           }}
         />
       </section>
-      <p>
-        <Link to="/about/">About</Link>
-      </p>
+      <ul>
+        <li><Link to="/about/">About</Link></li>
+        <li><Link to="/projects/">Projects</Link></li>
+      </ul>
+   
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
