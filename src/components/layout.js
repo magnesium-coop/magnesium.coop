@@ -45,7 +45,7 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div
+    <div className="container mx-auto" //Esto esta haciendo uso del tailwind
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
