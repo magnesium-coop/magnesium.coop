@@ -45,7 +45,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts"/>
       <section>
-        <p
+        <div
           dangerouslySetInnerHTML={{
             __html: queHacemos.html
           }}
