@@ -16,7 +16,9 @@
 
 * Proyectos (Portfolio) `pages/projects.js`
     * Grilla o listado de proyectos. Una idea es jugar con la Tabla Periódica ya que cada proyecto nuestro se mapea internamente a un elemento químico.
-* Proyecto `content/projects/project1/index.md`
+* Proyecto 
+    * Contenido: `content/projects/project1/index.md`
+    * Template: `src/templates/project.js`
     * Cada proyecto es como si fuera una entrada de blog, puede tener más o menos detalle, imágenes (capturas de pantalla), etc. Se puede nombrar al cliente o hablar en general.
 
 * Nosotros (coop y open source) `pages/about.js`
@@ -30,5 +32,7 @@
     * Fotitos de cada uno, además de los socios podríamos tener una sección de colaboradores.
 * Blog `pages/blog.js`
     * Página de blog habitual ordenando posts por fecha.
-* Post `content/blog/hello-world/index.md`
+* Post 
+    * Contenido: `content/blog/hello-world/index.md`
+    * Template: `src/templates/blog-post.js`
     * Pequeñas entradas contando cosas, puede ser cuando sale un proyecto, o antes de que salga, la idea es al leerlos la gente se pueda dar una idea de quiénes somos más subjetiva digamos. Debería servirnos para mover las redes sociales. Va con autor.

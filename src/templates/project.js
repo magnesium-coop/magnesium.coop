@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const ProjectTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const author = post.frontmatter.author
@@ -24,7 +24,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            Post: {post.frontmatter.title}
+            Proyecto: {post.frontmatter.title}
           </h1>
           <p
             style={{
@@ -74,10 +74,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default ProjectTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query ProjectBySlug($slug: String!) {
     site {
       siteMetadata {
         title
