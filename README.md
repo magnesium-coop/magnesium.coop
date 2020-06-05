@@ -3,16 +3,16 @@
     * Qué hacemos `content/texts/que-hacemos.md`
         * Texto Breve fijo
     * Contacto 
-      * Mail, teléfono dirección. No formulario.
-      * Redes sociales
+      * Mail, teléfono dirección. No formulario. `siteMetadata`
+      * Redes sociales `siteMetadata`
     * En qué estamos trabajando ahora `content/texts/en-que-estamos.md`
       * Una breve redacción que enlace a posts del blog o a fichas de proyectos según convenga. Ver sitio actual
     * Enlaces a Proyectos/Nosotros/Blog según corresponda.
-    * Enlaces a redes sociales
+    * Enlaces a redes sociales `siteMetadata`
 
 * Contacto `pages/contact.js`
-    * Mail, teléfono dirección. No formulario.
-    * Redes Sociales
+    * Mail, teléfono dirección. `siteMetadata`
+    * Redes Sociales `siteMetadata`
 
 * Proyectos (Portfolio) `pages/projects.js`
     * Grilla o listado de proyectos. Una idea es jugar con la Tabla Periódica ya que cada proyecto nuestro se mapea internamente a un elemento químico.

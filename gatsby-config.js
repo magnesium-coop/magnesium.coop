@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
     title: `Magnesium.coop`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`
-    },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://magnesium.coop`,
     social: {
-      twitter: `kylemathews`
+      twitter: `magnesiumcoop`
+    },
+    contacto: {
+      telefono: ``,
+      direccion: ``,
+      email: `info@magnesium.coop`
     }
   },
   plugins: [

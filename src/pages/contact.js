@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 
 const ContactPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+  const contacto = data.site.siteMetadata.contacto
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Contact" />
@@ -14,7 +15,9 @@ const ContactPage = ({ data, location }) => {
       <h1>Contacto </h1>
         </header>
         <section>
-
+          <p>{contacto.direccion}</p>
+          <p>{contacto.telefono}</p>
+        <p><a href={contacto.email}>{contacto.email}</a></p>
         </section>
 
         <footer></footer>
@@ -30,6 +33,11 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        contacto {
+          email
+          direccion
+          telefono
+        }
       }
     }
    }
