@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 const ProjectsPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -24,7 +23,6 @@ const ProjectsPage = ({ data, location }) => {
               <header>
                 <h3
                   style={{
-                    marginBottom: rhythm(1 / 4)
                   }}
                 >
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
