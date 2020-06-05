@@ -54,6 +54,8 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
       <ul>
         <li><Link to="/about/">About</Link></li>
         <li><Link to="/projects/">Projects</Link></li>
+        <li><Link to="/blog/">Blog</Link></li>
+        <li><Link to="/contact/">Contact</Link></li>
       </ul>
    
       {posts.map(({ node }) => {
