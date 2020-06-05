@@ -3,9 +3,10 @@ services:
   gatsby:
     build: .
     working_dir: /app
-    command: ./run-develop.sh
+    command: ./run-prod.sh
     ports:
-      - "8000:8000"
+      - 9000:9000
+      - 8000:8000
     volumes:
       - .:/app
       - /app/node_modules/
