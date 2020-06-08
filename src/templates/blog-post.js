@@ -24,7 +24,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            Post: {post.frontmatter.title}
+            {post.frontmatter.title}
           </h1>
           <p
             style={{

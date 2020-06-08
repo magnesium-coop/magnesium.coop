@@ -5,13 +5,40 @@
 h1 {
     @apply text-2xl;
 }
+
 h2 {
-    @apply text-xl;
+    @apply text-xl mb-2 mt-10;
 }
+
 h3 {
-    @apply text-lg;
+    @apply text-lg mt-8 -mb-2;
 }
+
 a {
     @apply text-blue-600 underline;
 }
 
+p {
+    @apply mt-6;
+}
+
+strong {
+    @apply text-black font-bold;
+}
+
+a {
+    @apply text-black font-semibold;
+}
+
+strong a {
+    @apply font-bold;
+}
+
+blockquote {
+    @apply border-l-4 pl-4 italic;
+}
+
+ul, ol {
+    @apply list-disc pl-5;
+
+}
