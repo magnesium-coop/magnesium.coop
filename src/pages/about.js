@@ -23,9 +23,13 @@ const AboutPage = ({ data, location }) => {
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </section>
-        {authors.map((author) => (
-          <Bio author={author} key={author.id}/>
-        ))}
+        <section>
+          <h1>El Equipo </h1>
+          {authors.map((author) => (
+            <Bio author={author} key={author.id}/>
+          ))}
+        </section>
+
         <footer></footer>
       </article>
     </Layout>

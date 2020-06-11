@@ -45,19 +45,23 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts"/>
       <section>
+        <h2>¿Qué hacemos?</h2>
+
         <div
           dangerouslySetInnerHTML={{
             __html: queHacemos.html
           }}
         />
       </section>
+      <h2>Links</h2>
       <ul>
-        <li><Link to="/about/">About</Link></li>
-        <li><Link to="/projects/">Projects</Link></li>
+        <li><Link to="/about/">¿Quiénes somos?</Link></li>
+        <li><Link to="/projects/">Proyectos</Link></li>
         <li><Link to="/blog/">Blog</Link></li>
-        <li><Link to="/contact/">Contact</Link></li>
+        <li><Link to="/contact/">Contacto</Link></li>
       </ul>
-   
+      <h2>Blog</h2>
+
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
