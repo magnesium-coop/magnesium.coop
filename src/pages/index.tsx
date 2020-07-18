@@ -1,6 +1,7 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
+import ReactFullpage from '@fullpage/react-fullpage';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -42,7 +43,74 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const queHacemos = data.queHacemos
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <ReactFullpage
+      //fullpage options
+      licenseKey = {'YOUR_KEY_HERE'}
+      scrollingSpeed = {500} /* Options here */
+
+      render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            <div className="section bg-gray-100">
+              <section>
+                <h2>¿Qué hacemos?</h2>
+
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: queHacemos.html
+                  }}
+                />
+              </section>
+              <p>Section 1 (welcome to fullpage.js)</p>
+              <button onClick={() => fullpageApi.moveSectionDown()}>
+                Click me to move down
+              </button>
+            </div>
+            <div className="section bg-red-500">
+              <div className="slide">
+              <h2>Links</h2>
+              <ul>
+                <li><Link to="/about/">¿Quiénes somos?</Link></li>
+                <li><Link to="/projects/">Proyectos</Link></li>
+                <li><Link to="/blog/">Blog</Link></li>
+                <li><Link to="/contact/">Contacto</Link></li>
+              </ul>
+              </div>
+              <div className="slide">
+              <h2>Blog</h2>
+
+              {posts.map(({ node }) => {
+                const title = node.frontmatter.title || node.fields.slug
+                return (
+                  <article key={node.fields.slug}>
+                    <header>
+                      <h3
+                        style={{
+                        }}
+                      >
+                        <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                          {title}
+                        </Link>
+                      </h3>
+                      <small>{node.frontmatter.date}</small>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt
+                        }}
+                      />
+                    </section>
+                  </article>
+                )
+              })}
+              </div>
+            </div>
+          </ReactFullpage.Wrapper>
+        );
+      }}
+    />
+    /*<Layout location={location} title={siteTitle}>
       <SEO title="All posts"/>
       <section>
         <h2>¿Qué hacemos?</h2>
@@ -87,7 +155,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </article>
         )
       })}
-    </Layout>
+    </Layout>*/
   )
 }
 
