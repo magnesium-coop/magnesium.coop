@@ -18,7 +18,7 @@ build_image:
     - docker build --pull -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
   only:
-    - master
+    - fullpagejs
 
 
 deploy_testing:
@@ -42,7 +42,7 @@ deploy_testing:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - URL_LIST=$URLS DOCKER_IMAGE=$CI_REGISTRY_IMAGE DOCKER_TAG=$CI_COMMIT_SHORT_SHA DOCKER_STACK=$CI_PROJECT_TITLE DEPLOY_ENV=$CI_ENVIRONMENT_SLUG docker stack deploy --with-registry-auth -c docker-compose.$CI_ENVIRONMENT_SLUG.yml magnesium_web
   only:
-    - master
+    - fullpagejs
 
 deploy_prod:
   stage: deploy
