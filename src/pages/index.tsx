@@ -50,7 +50,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <ReactFullpage
       licenseKey = {'YOUR_KEY_HERE'}
       scrollingSpeed = {700}
-      menu = {'#menu-principal'}
+      menu = {'#hola2222'}
       scrollOverflow = {true}
 
       render={({ state, fullpageApi }) => {
