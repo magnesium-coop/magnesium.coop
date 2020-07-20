@@ -1,0 +1,76 @@
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+const IntroPage = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const queHacemos = data.queHacemos
+  const { frontmatter, html } = queHacemos
+
+  return (
+    <Layout location={location} title={siteTitle} color={"bg-red-800"}>
+      <article>
+        <SEO title={frontmatter.title}/>
+        <header>
+          <h1>{frontmatter.title} </h1>
+        </header>
+        <section>
+          <h2>¿Qué hacemos?</h2>
+
+          <div
+            dangerouslySetInnerHTML={{
+              __html: html
+            }}
+          />
+        </section>
+
+
+        <footer></footer>
+      </article>
+    </Layout>
+  )
+}
+
+export default props => (
+  <StaticQuery query={pageQuery}
+               render={data => <IntroPage data={data} {...props}/>}
+  />
+)
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    blogPosts: allMarkdownRemark(
+    sort: { fields: [frontmatter___date], order: DESC }
+    filter: {fileAbsolutePath: {regex: "/(blog)/.*\\\\.md$/"}}
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+    queHacemos: markdownRemark(frontmatter: { id: { eq: "que-hacemos" } }) {
+      html
+      frontmatter {
+        id
+        title
+        description
+      }
+    }
+  }
+`

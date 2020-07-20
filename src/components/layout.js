@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, color, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
@@ -45,19 +45,10 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div className="container mx-auto" //Esto esta haciendo uso del tailwind
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+    <div className={"section "+color} data-anchor={location}>
+      <main>
+       {children}
+      </main>
     </div>
   )
 }

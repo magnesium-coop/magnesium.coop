@@ -5,7 +5,8 @@ import ReactFullpage from '@fullpage/react-fullpage';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import AboutPage from "../pages/about"
+import IntroPage from "../pages/intro"
 type Data = {
   site: {
     siteMetadata: {
@@ -44,14 +45,12 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
 
   return (
     <ReactFullpage
-      //fullpage options
       licenseKey = {'YOUR_KEY_HERE'}
-      scrollingSpeed = {500} /* Options here */
-
+      scrollingSpeed = {500}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            <div className="section bg-gray-100">
+            {/*<div className="section bg-gray-100">
               <section>
                 <h2>¿Qué hacemos?</h2>
 
@@ -65,8 +64,9 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
               <button onClick={() => fullpageApi.moveSectionDown()}>
                 Click me to move down
               </button>
-            </div>
-            <div className="section bg-red-500">
+            </div>*/}
+            <IntroPage location={"que-hacemos"}></IntroPage>
+           {/* <div className="section bg-red-500">
               <div className="slide">
               <h2>Links</h2>
               <ul>
@@ -105,14 +105,15 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
                 )
               })}
               </div>
-            </div>
+            </div>*/}
+              <AboutPage location={"nosotros"}></AboutPage>
           </ReactFullpage.Wrapper>
         );
-      }}
-    />
+      }}/>
+
     /*<Layout location={location} title={siteTitle}>
       <SEO title="All posts"/>
-      <section>
+      <section className="section">
         <h2>¿Qué hacemos?</h2>
 
         <div
