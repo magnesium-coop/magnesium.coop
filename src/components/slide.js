@@ -6,6 +6,7 @@ const Slide = ({ location, color, title, children }) => {
 
   return (
     <div className={"slide " + color}>
+      <div className="h-full">
       <SEO title={title}/>
       <Header location={location} color={color}>
       </Header>
@@ -13,6 +14,7 @@ const Slide = ({ location, color, title, children }) => {
         {children}
       </main>
       <footer></footer>
+      </div>
     </div>
   )
 }
