@@ -1,6 +1,6 @@
 import React from "react"
 
-const Layout = ({ location, color, title, children }) => {
+const LayoutLong = ({ location, color, title, children }) => {
 
   return (
     <div className={"section fp-auto-height-responsive"} data-anchor={location}>
@@ -11,4 +11,4 @@ const Layout = ({ location, color, title, children }) => {
   )
 }
 
-export default Layout
+export default LayoutLong

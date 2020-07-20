@@ -9,7 +9,7 @@ const Slide = ({ location, color, title, children }) => {
       <SEO title={title}/>
       <Header location={location} color={color}>
       </Header>
-      <main className="h-screen container mx-auto">
+      <main className="container mx-auto">
         {children}
       </main>
       <footer></footer>

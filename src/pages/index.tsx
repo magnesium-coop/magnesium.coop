@@ -1,12 +1,15 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
+import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 import ReactFullpage from '@fullpage/react-fullpage';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
+import BlogPage from "../pages/blog"
+
 type Data = {
   site: {
     siteMetadata: {
@@ -47,6 +50,9 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <ReactFullpage
       licenseKey = {'YOUR_KEY_HERE'}
       scrollingSpeed = {700}
+      menu = {'#menu-principal'}
+      scrollOverflow = {true}
+
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
@@ -107,6 +113,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
               </div>
             </div>*/}
               <AboutPage location={"nosotros"}></AboutPage>
+            <BlogPage location={"blog"}></BlogPage>
           </ReactFullpage.Wrapper>
         );
       }}/>
