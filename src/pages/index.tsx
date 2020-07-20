@@ -46,7 +46,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <ReactFullpage
       licenseKey = {'YOUR_KEY_HERE'}
-      scrollingSpeed = {500}
+      scrollingSpeed = {700}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
+import Slide from "../components/slide"
 import SEO from "../components/seo"
 
 const IntroPage = ({ data, location }) => {
@@ -10,13 +11,10 @@ const IntroPage = ({ data, location }) => {
   const { frontmatter, html } = queHacemos
 
   return (
-    <Layout location={location} title={siteTitle} color={"bg-red-800"}>
+    <Layout location={location} title={siteTitle}>
       <article>
-        <SEO title={frontmatter.title}/>
-        <header>
-          <h1>{frontmatter.title} </h1>
-        </header>
-        <section>
+        <Slide color="bg-gray" location={location} title={siteTitle}>
+          <SEO title={frontmatter.title}/>
           <h2>¿Qué hacemos?</h2>
 
           <div
@@ -24,10 +22,7 @@ const IntroPage = ({ data, location }) => {
               __html: html
             }}
           />
-        </section>
-
-
-        <footer></footer>
+        </Slide>
       </article>
     </Layout>
   )
