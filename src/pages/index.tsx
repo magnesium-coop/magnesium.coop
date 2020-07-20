@@ -1,7 +1,7 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
+//import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 import ReactFullpage from '@fullpage/react-fullpage';
 
 import Layout from "../components/layout"
