@@ -46,6 +46,7 @@ const Layout = ({ location, color, title, children }) => {
   }
   return (
     <div className={"section "+color} data-anchor={location}>
+      <header></header>
       <main>
        {children}
       </main>
