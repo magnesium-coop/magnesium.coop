@@ -7,63 +7,65 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby" // to query for image data
-import magnesiumnegro from "../../content/assets/magnesium-negro.png"
+import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({location, backgroundColor, color}) => {
-  const data = useStaticQuery(graphql`
-  query {
-    file(relativePath: { eq: "magnesium-negro.png" }) {
-      childImageSharp {
-        fluid(maxWidth:100){
-          ...GatsbyImageSharpFluid
-        }
-      }
+const Header = ({ location, backgroundColor, color }) => {
+
+  function getImg() {
+    if (backgroundColor !== "negro") {
+      return (<img style={{ filter: "invert(100%)" }} src={logomg01}/>)
+    } else {
+      return (<img src={logomg01}/>)
     }
   }
-`)
+
   return (
 
     <header>
-          <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-tranparent rounded">
-            <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-              <div className="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-                <a className="w-1/2 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase" href="#que-hacemos">
-                  <img src={magnesiumnegro}/>
-                </a>
-                <button className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid rounded block lg:hidden outline-none focus:outline-none" type="button">
-                  <span className="block relative w-6 h-px rounded-sm"></span>
-                  <span className="block relative w-6 h-px rounded-sm mt-1"></span>
-                  <span className="block relative w-6 h-px rounded-sm mt-1"></span>
-                </button>
-              </div>
-              <div className="flex lg:flex-grow items-center" id="example-navbar-info">
-                <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
-                  <li className="nav-item" data-menuanchor="que-hacemos">
-                    <a className={"px-3 py-2 flex items-center no-underline leading-snug hover:opacity-75 text-"+color} href="#que-hacemos" >
-                      Qué hacemos
-                    </a>
-                  </li>
-                  <li className="nav-item" data-menuanchor="nosotros">
-                    <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-"+color} href="#nosotros" >
-                      Nosotros
-                    </a>
-                  </li>
-                  <li className="nav-item" data-menuanchor="blog">
-                    <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-"+color} href="#blog" >
-                      Blog
-                    </a>
-                  </li>
-                  <li className="nav-item" data-menuanchor="proyectos">
-                    <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-"+color} href="#proyectos" >
-                      Proyectos
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-    </header>
-  )
+      <nav className="">
+        <div className="flex items-center justify-between m-5">
+          <div className="w-64">
+            {getImg()}
+        </div>
+        <button
+          className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid rounded block lg:hidden outline-none focus:outline-none"
+          type="button">
+          <span className="block relative w-6 h-px rounded-sm"></span>
+          <span className="block relative w-6 h-px rounded-sm mt-1"></span>
+          <span className="block relative w-6 h-px rounded-sm mt-1"></span>
+        </button>
+        <div className="flex lg:flex-grow items-center" id="example-navbar-info">
+          <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
+            <li className="nav-item" data-menuanchor="que-hacemos">
+              <a className={"px-3 py-2 flex items-center no-underline leading-snug hover:opacity-75 text-" + color}
+                 href="#que-hacemos">
+                Qué hacemos
+              </a>
+            </li>
+            <li className="nav-item" data-menuanchor="nosotros">
+              <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-" + color}
+                 href="#nosotros">
+                Nosotros
+              </a>
+            </li>
+            <li className="nav-item" data-menuanchor="blog">
+              <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + color}
+                 href="#blog">
+                Blog
+              </a>
+            </li>
+            <li className="nav-item" data-menuanchor="proyectos">
+              <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + color}
+                 href="#proyectos">
+                Proyectos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+)
 }
 
 export default Header

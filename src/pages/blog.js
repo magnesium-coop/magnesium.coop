@@ -20,7 +20,7 @@ const BlogPage = ({ data, location, fullPageApi }) => {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article>
+            <article key={"#" + location + node.fields.slug}>
               <header>
                 <h3>
                   <a href={"#" + location + node.fields.slug}
