@@ -7,6 +7,7 @@ import ReactFullpage from "@fullpage/react-fullpage"
 import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
 import BlogPage from "../pages/blog"
+import ProjectsPage from "../pages/projects"
 import HeaderIndicator from "../components/headerIndicator"
 
 
@@ -27,6 +28,7 @@ const BlogIndex = ({ data, location }) => {
               <IntroPage location={"que-hacemos"}></IntroPage>
               <AboutPage location={"nosotros"}></AboutPage>
               <BlogPage location={"blog"} fullPageApi={fullpageApi}></BlogPage>
+              <ProjectsPage location={"proyectos"} fullPageApi={fullpageApi}></ProjectsPage>
             </ReactFullpage.Wrapper>
           )
         }}
