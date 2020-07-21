@@ -3,7 +3,7 @@ import React from "react"
 const Layout = ({ location, color, title, children }) => {
 
   return (
-    <div className={"section"} data-anchor={location}>
+    <div className={"section font-mgbook"} data-anchor={location}>
        {children}
     </div>
   )

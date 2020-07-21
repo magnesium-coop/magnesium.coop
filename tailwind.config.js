@@ -8,7 +8,13 @@ module.exports = {
       mgbook: ['Circular Std Book'],
       mgannotated: ['Reenie Beanie']
     },
-    extend: {},
+    extend: {
+      colors: {
+        naranja: '#f15d4f',
+        negro: '#000000',
+        blanco: '#ffffff'
+      },
+    },
   },
   variants: {},
   plugins: [],

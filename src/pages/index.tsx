@@ -7,14 +7,14 @@ import ReactFullpage from "@fullpage/react-fullpage"
 import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
 import BlogPage from "../pages/blog"
-import Header from "../components/header"
+import HeaderIndicator from "../components/headerIndicator"
 
 
 const BlogIndex = ({ data, location }) => {
 
   return (
     <div>
-      <Header/>
+      <HeaderIndicator location={location}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
