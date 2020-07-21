@@ -9,7 +9,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby" // to query for image data
 import magnesiumnegro from "../../content/assets/magnesium-negro.png"
 
-const Header = ({ location, color }) => {
+const Header = ({ }) => {
   const data = useStaticQuery(graphql`
   query {
     file(relativePath: { eq: "magnesium-negro.png" }) {
@@ -23,7 +23,7 @@ const Header = ({ location, color }) => {
 `)
 
   return (
-    <header>
+    <header className="w-full top-0 z-70 absolute" id="header-principal">
           <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-tranparent rounded">
             <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
               <div className="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
@@ -37,24 +37,24 @@ const Header = ({ location, color }) => {
                 </button>
               </div>
               <div className="flex lg:flex-grow items-center" id="example-navbar-info">
-                <ul className="flex flex-col lg:flex-row list-none ml-auto" id="hola">
-                  <li className="nav-item active:bg-blue-700" data-menuanchor="#que-hacemos">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug hover:opacity-75 active:bg-blue-700" href="#que-hacemos" >
+                <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
+                  <li className="nav-item " data-menuanchor="que-hacemos">
+                    <a className="px-3 py-2 flex items-center  font-bold leading-snug hover:opacity-75" href="#que-hacemos" >
                       Qué hacemos
                     </a>
                   </li>
-                  <li className="nav-item active:bg-blue-700" data-menuanchor="#nosotros">
-                    <a className="px-3 py-2 flex items-center font-bold leading-snug  hover:opacity-75 active:bg-blue-700" href="#nosotros" >
+                  <li className="nav-item" data-menuanchor="nosotros">
+                    <a className="px-3 py-2 flex items-center font-bold leading-snug  hover:opacity-75" href="#nosotros" >
                       Nosotros
                     </a>
                   </li>
-                  <li className="nav-item active:bg-blue-700" data-menuanchor="#blog">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75 active:bg-blue-700" href="#blog" >
+                  <li className="nav-item" data-menuanchor="blog">
+                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75" href="#blog" >
                       Blog
                     </a>
                   </li>
-                  <li className="nav-item active:bg-blue-700" data-menuanchor="#blog">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75 active:bg-blue-700" href="#blog" >
+                  <li className="nav-item" data-menuanchor="proyectos">
+                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75" href="#proyectos" >
                       Proyectos
                     </a>
                   </li>

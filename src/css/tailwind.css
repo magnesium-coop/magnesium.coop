@@ -1,3 +1,55 @@
+@font-face {
+    font-family: 'Circular Std Black';
+    src: url('CircularStd-Black.otf');
+}
+
+@font-face {
+    font-family: 'Circular Std Black';
+    src: url('CircularStd-BlackItalic.otf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: url('CircularStd-Bold.otf');
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: url('CircularStd-BoldItalic.otf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: url('CircularStd-Medium.otf');
+}
+
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: url('CircularStd-MediumItalic.otf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('CircularStd-Book.otf');
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('CircularStd-BookItalic.otf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Reenie Beanie';
+    src: url('ReenieBeanie-Regular.ttf');
+}
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,4 +93,12 @@ blockquote {
 ul, ol {
     @apply list-disc pl-5;
 
+}
+
+
+
+#menu-principal li.active{
+    background:#666;
+    background: rgba(0,0,0, 0.5);
+    color: #fff;
 }

@@ -1,37 +1,30 @@
 import React from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
-
-import LayoutLong from "../components/layoutLong"
+import { graphql, StaticQuery } from "gatsby"
 import Layout from "../components/layout"
-
-import SEO from "../components/seo"
 import Slide from "../components/slide"
 import Bio from "../components/bio"
 
-const BlogPage = ({ data, location }) => {
+function removeSlash(text) {
+  return text.replace("/", "")
+}
+
+const BlogPage = ({ data, location, fullPageApi }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
+
   return (
     <Layout location={location} title={siteTitle}>
-      <article>
-        <Slide color="bg-green-500" location={location} title="Blog">
-
+      <Slide color="bg-green-500" title="Blog">
         <h1>Blog</h1>
-
-
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={node.fields.slug}>
+            <article>
               <header>
-                <h3
-                  style={{
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
+                <h3>
+                  <a href={"#" + location + node.fields.slug}
+                     onClick={() => fullPageApi.silentMoveTo(location, removeSlash(node.fields.slug))}>{title}</a>
                 </h3>
                 <small>{node.frontmatter.date}</small>
               </header>
@@ -45,43 +38,42 @@ const BlogPage = ({ data, location }) => {
             </article>
           )
         })}
-        </Slide>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          const author = node.frontmatter.author
-          return (
-            <Slide color="bg-purple-200" title={node.frontmatter.title}>
-              <SEO
-                title={node.frontmatter.title}
-                description={node.frontmatter.description || node.excerpt}
-              />
-              <article >
-                <header>
-                  <h1
-                    style={{
-                      marginBottom: 0,
-                    }}
-                  >
-                    {node.frontmatter.title}
-                  </h1>
-                  <p
-                    style={{
-                      display: `block`,
-                    }}
-                  >
-                    {node.frontmatter.date}
-                  </p>
-                </header>
-                <section dangerouslySetInnerHTML={{ __html: node.html }} />
+      </Slide>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        const author = node.frontmatter.author
+        return (
+          <Slide
+            color="bg-purple-200"
+            location={removeSlash(node.fields.slug)}
+            title={node.frontmatter.title}
+            description={node.frontmatter.description || node.excerpt}>
+            <article>
+              <header>
+                <h1 className="font-mgblack"
+                  style={{
+                    marginBottom: 0
+                  }}
+                >
+                  {node.frontmatter.title}
+                </h1>
+                <p
+                  style={{
+                    display: `block`
+                  }}
+                >
+                  {node.frontmatter.date}
+                </p>
+              </header>
+              <section dangerouslySetInnerHTML={{ __html: node.html }}/>
 
-                <footer>
-                  <Bio author={author}/>
-                </footer>
-              </article>
-            </Slide>
-          )
-        })}
-      </article>
+              <footer>
+                <Bio author={author}/>
+              </footer>
+            </article>
+          </Slide>
+        )
+      })}
     </Layout>
   )
 }
@@ -109,6 +101,7 @@ export const pageQuery = graphql`
         node {
           excerpt
           html
+          id
           fields {
             slug
           }

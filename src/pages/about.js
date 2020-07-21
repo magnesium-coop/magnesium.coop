@@ -14,6 +14,8 @@ const AboutPage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <article>
         <Slide title={siteTitle} location={location} color="bg-blue-400">
+          <h2>Nosotros</h2>
+
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}

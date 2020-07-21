@@ -1,16 +1,13 @@
 import React from "react"
-import Header from "../components/header"
 import SEO from "./seo"
 
-const Slide = ({ location, color, title, children }) => {
+const Slide = ({ location, color, title, description, children }) => {
 
   return (
-    <div className={"slide " + color}>
-      <div className="h-full">
-      <SEO title={title}/>
-      <Header location={location} color={color}>
-      </Header>
-      <main className="container mx-auto">
+    <div className={"slide " + color} data-anchor={location}>
+      <div className="h-full mt-40">
+      <SEO title={title} description={description}/>
+      <main className="container mx-auto ">
         {children}
       </main>
       <footer></footer>
