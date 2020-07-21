@@ -15,7 +15,7 @@ const BlogPage = ({ data, location, fullPageApi }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Slide color="bg-green-500" title="Blog">
+      <Slide backgroundColor="naranja" color="negro" title="Blog">
         <h1>Blog</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
@@ -44,7 +44,8 @@ const BlogPage = ({ data, location, fullPageApi }) => {
         const author = node.frontmatter.author
         return (
           <Slide
-            color="bg-purple-200"
+            backgroundColor="blanco"
+            color="negro"
             location={removeSlash(node.fields.slug)}
             title={node.frontmatter.title}
             description={node.frontmatter.description || node.excerpt}>
