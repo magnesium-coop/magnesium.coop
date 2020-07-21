@@ -1,10 +1,8 @@
 import React from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Slide from "../components/slide"
-import Bio from "../components/bio"
 
 function removeSlash(text) {
   return text.replace("/", "")
@@ -24,8 +22,7 @@ const ProjectsPage = ({ data, location, fullPageApi }) => {
             <article key={"#" + location + node.fields.slug}>
               <header>
                 <h3
-                  style={{
-                  }}
+                  style={{}}
                 >
                   <a href={"#" + location + node.fields.slug}
                      onClick={() => fullPageApi.silentMoveTo(location, removeSlash(node.fields.slug))}>{title}</a>
@@ -44,8 +41,6 @@ const ProjectsPage = ({ data, location, fullPageApi }) => {
         })}
       </Slide>
       {projects.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        const author = node.frontmatter.author
         return (
           <Slide
             backgroundColor="blanco"

@@ -14,18 +14,18 @@ const Header = ({ location, backgroundColor, color }) => {
 
   function getImg(classname) {
     if (backgroundColor !== "negro") {
-      return (<img className={classname} style={{ filter: "invert(100%)" }} src={logomg01}/>)
+      return (<img className={classname} style={{ filter: "invert(100%)" }} src={logomg01} alt="Magnesium.coop logo"/>)
     } else {
-      return (<img className={classname} src={logomg01}/>)
+      return (<img className={classname} src={logomg01} alt="Magnesium.coop logo"/>)
     }
   }
 
   return (
 
-    <header>
-      <nav className="flex items-center justify-between flex-wrap p-6">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          {getImg("fill-current h-12 mr-2")}
+    <header className="font-mgbook text-l">
+      <nav className="flex items-center justify-between flex-wrap mr-16 ml-16 mt-12">
+        <div className="flex items-center flex-shrink-0">
+          {getImg("fill-current h-10")}
         </div>
         <div className="block lg:hidden">
           <button onClick={() => toggleExpansion(!isExpanded)} className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">

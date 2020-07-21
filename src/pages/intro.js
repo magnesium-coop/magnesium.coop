@@ -3,21 +3,18 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import Slide from "../components/slide"
-import SEO from "../components/seo"
 
 const IntroPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const queHacemos = data.queHacemos
-  const { frontmatter, html } = queHacemos
+  const { html } = queHacemos
 
   return (
     <Layout location={location} title={siteTitle}>
       <article>
         <Slide backgroundColor="negro" color="blanco" location={location} title={siteTitle}>
-          <SEO title={frontmatter.title}/>
-          <h2>¿Qué hacemos?</h2>
 
-          <div
+          <div className="text-6xl"
             dangerouslySetInnerHTML={{
               __html: html
             }}

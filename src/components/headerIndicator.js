@@ -6,9 +6,8 @@
  */
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby" // to query for image data
 
-const HeaderIndicator = ({location}) => {
+const HeaderIndicator = () => {
 
   return (
 

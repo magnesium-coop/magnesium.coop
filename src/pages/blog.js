@@ -40,7 +40,6 @@ const BlogPage = ({ data, location, fullPageApi }) => {
         })}
       </Slide>
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
         const author = node.frontmatter.author
         return (
           <Slide
