@@ -13,7 +13,7 @@ const AboutPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <article>
-        <Slide title={siteTitle} location={location} color="bg-white">
+        <Slide title={siteTitle} location={location} backgroundColor="blanco" color="negro">
           <h2>Nosotros</h2>
 
           <div
@@ -21,14 +21,14 @@ const AboutPage = ({ data, location }) => {
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </Slide>
-        <Slide title={siteTitle} location={location} color="bg-naranja">
+        <Slide title={siteTitle} location={location} backgroundColor="naranja" color="negro">
           <h1>El Equipo </h1>
           {authors.map((author) => (
             <Bio author={author} key={author.id}/>
           ))}
         </Slide>
 
-        <Slide title={siteTitle} location={location} color="bg-naranja">
+        <Slide title={siteTitle} location={location} backgroundColor="naranja" color="negro">
           <h1>Colaboradores</h1>
           {authors.map((author) => (
             <Bio author={author} key={author.id}/>

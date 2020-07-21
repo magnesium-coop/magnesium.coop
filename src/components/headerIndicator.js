@@ -20,7 +20,7 @@ const HeaderIndicator = ({location}) => {
               </div>
               <div className="flex lg:flex-grow items-center" id="example-navbar-info">
                 <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
-                  <li className="nav-item " data-menuanchor="que-hacemos">
+                  <li className="nav-item" data-menuanchor="que-hacemos">
 
                   </li>
                   <li className="nav-item" data-menuanchor="nosotros">

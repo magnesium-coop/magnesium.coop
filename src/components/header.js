@@ -38,23 +38,23 @@ const Header = ({location, backgroundColor, color}) => {
               </div>
               <div className="flex lg:flex-grow items-center" id="example-navbar-info">
                 <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
-                  <li className="nav-item " data-menuanchor="que-hacemos">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug hover:opacity-75" href="#que-hacemos" >
+                  <li className="nav-item" data-menuanchor="que-hacemos">
+                    <a className={"px-3 py-2 flex items-center no-underline leading-snug hover:opacity-75 text-"+color} href="#que-hacemos" >
                       Qué hacemos
                     </a>
                   </li>
                   <li className="nav-item" data-menuanchor="nosotros">
-                    <a className="px-3 py-2 flex items-center font-bold leading-snug  hover:opacity-75" href="#nosotros" >
+                    <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-"+color} href="#nosotros" >
                       Nosotros
                     </a>
                   </li>
                   <li className="nav-item" data-menuanchor="blog">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75" href="#blog" >
+                    <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-"+color} href="#blog" >
                       Blog
                     </a>
                   </li>
                   <li className="nav-item" data-menuanchor="proyectos">
-                    <a className="px-3 py-2 flex items-center  font-bold leading-snug  hover:opacity-75" href="#proyectos" >
+                    <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-"+color} href="#proyectos" >
                       Proyectos
                     </a>
                   </li>

@@ -98,7 +98,6 @@ ul, ol {
 
 
 #menu-principal li.active{
-    background:#666;
-    background: rgba(0,0,0, 0.5);
-    color: #fff;
+    border-bottom: #f15d4f;
+    border-bottom-style: solid;
 }

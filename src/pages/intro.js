@@ -13,7 +13,7 @@ const IntroPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <article>
-        <Slide color="bg-negro text-white" location={location} title={siteTitle}>
+        <Slide backgroundColor="negro" color="blanco" location={location} title={siteTitle}>
           <SEO title={frontmatter.title}/>
           <h2>¿Qué hacemos?</h2>
 
