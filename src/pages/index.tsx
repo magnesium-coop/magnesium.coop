@@ -24,31 +24,31 @@ const BlogIndex = ({ data, location }) => {
     {
       title: "Qué Hacemos",
       anchor: "intro",
-      backgroundColor: "negro",
-      textColor: "blanco",
-      titleColor: "naranja"
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja"
     },
     {
       title: "Nosotros",
       anchor: "nosotros",
-      backgroundColor: "blanco",
-      textColor: "negro",
-      titleColor: "naranja"
+      backgroundColor: "bg-blanco",
+      textColor: "text-negro",
+      titleColor: "text-naranja"
     },
     {
       title: "Blog",
       anchor: "blog",
-      backgroundColor: "negro",
-      textColor: "blanco",
-      titleColor: "naranja"
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja"
 
     },
     {
       title: "Proyectos",
       anchor: "proyectos",
-      backgroundColor: "blanco",
-      textColor: "negro",
-      titleColor: "naranja"
+      backgroundColor: "bg-blanco",
+      textColor: "text-negro",
+      titleColor: "text-naranja"
     }
   ]
   const [fullpages] = useState(initialFullPages)

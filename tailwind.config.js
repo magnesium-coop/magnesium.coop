@@ -15,7 +15,5 @@ module.exports = {
         blanco: '#ffffff'
       },
     },
-  },
-  variants: {},
-  plugins: [],
+  }
 }

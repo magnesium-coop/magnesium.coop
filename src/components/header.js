@@ -13,7 +13,7 @@ const Header = ({ pages, anchor, backgroundColor, textColor }) => {
   const [isExpanded, toggleExpansion] = useState(false)
 
   function getImg(classname) {
-    if (backgroundColor !== "negro") {
+    if (backgroundColor !== "bg-negro") {
       return (<img className={classname} style={{ filter: "invert(100%)" }} src={logomg01} alt="Magnesium.coop logo"/>)
     } else {
       return (<img className={classname} src={logomg01} alt="Magnesium.coop logo"/>)
@@ -23,7 +23,7 @@ const Header = ({ pages, anchor, backgroundColor, textColor }) => {
   function getMenuItem(anchor, title) {
     return (
       <li key={"menu-"+anchor} className="nav-item" data-menuanchor={anchor}>
-        <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-" + textColor}
+        <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 " + textColor}
            href={"#" + anchor}>
           {title}
         </a>

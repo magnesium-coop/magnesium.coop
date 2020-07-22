@@ -22,7 +22,7 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
             <article key={"#" + anchor + node.fields.slug}>
               <header>
                 <h3>
-                  <a href={"#" + anchor + node.fields.slug} className={"color-" + textColor}
+                  <a href={"#" + anchor + node.fields.slug} className={textColor}
                      onClick={() => fullPageApi.silentMoveTo(anchor, removeSlash(node.fields.slug))}>{title}</a>
                 </h3>
                 <small>{node.frontmatter.date}</small>
@@ -42,18 +42,15 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
         return (
           <div key={removeSlash(node.fields.slug)}>
             <Slide
-              backgroundColor="blanco"
-              color="negro"
+              backgroundColor={backgroundColor}
+              textColor={textColor}
+              titleColor={titleColor}
               slideAnchor={removeSlash(node.fields.slug)}
               seoTitle={node.frontmatter.title}
               seoDescription={node.frontmatter.description || node.excerpt}>
               <article>
                 <header>
-                  <h1 className="font-mgblack"
-                      style={{
-                        marginBottom: 0
-                      }}
-                  >
+                  <h1 className={"font-mgblack "+titleColor}>
                     {node.frontmatter.title}
                   </h1>
                   <p
