@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Slide from "../components/slide"
 
 function removeSlash(text) {
-  return text.replace("/", "")
+  return text.replace(/\//g, '')
 }
 
 const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textColor, titleColor }) => {
@@ -14,17 +14,15 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
 
   return (
     <Layout anchor={anchor}>
-      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={""}>
+      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={"Blog"}>
         <h1 className={titleColor}>{title}</h1>
         {projects.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <article key={"#" + anchor + node.fields.slug}>
               <header>
-                <h3
-                  style={{}}
-                >
-                  <a href={"#" + anchor + node.fields.slug}
+                <h3>
+                  <a href={"#" + anchor + node.fields.slug} className={"color-" + textColor}
                      onClick={() => fullPageApi.silentMoveTo(anchor, removeSlash(node.fields.slug))}>{title}</a>
                 </h3>
                 <small>{node.frontmatter.date}</small>
@@ -42,33 +40,35 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
       </Slide>
       {projects.map(({ node }) => {
         return (
-          <Slide
-            backgroundColor="blanco"
-            color="negro"
-            location={removeSlash(node.fields.slug)}
-            title={node.frontmatter.title}
-            description={node.frontmatter.description || node.excerpt}>
-            <article>
-              <header>
-                <h1 className="font-mgblack"
+          <div key={removeSlash(node.fields.slug)}>
+            <Slide
+              backgroundColor="blanco"
+              color="negro"
+              slideAnchor={removeSlash(node.fields.slug)}
+              seoTitle={node.frontmatter.title}
+              seoDescription={node.frontmatter.description || node.excerpt}>
+              <article>
+                <header>
+                  <h1 className="font-mgblack"
+                      style={{
+                        marginBottom: 0
+                      }}
+                  >
+                    {node.frontmatter.title}
+                  </h1>
+                  <p
                     style={{
-                      marginBottom: 0
+                      display: `block`
                     }}
-                >
-                  {node.frontmatter.title}
-                </h1>
-                <p
-                  style={{
-                    display: `block`
-                  }}
-                >
-                  {node.frontmatter.date}
-                </p>
-              </header>
-              <section dangerouslySetInnerHTML={{ __html: node.html }}/>
+                  >
+                    {node.frontmatter.date}
+                  </p>
+                </header>
+                <section dangerouslySetInnerHTML={{ __html: node.html }}/>
 
-            </article>
-          </Slide>
+              </article>
+            </Slide>
+          </div>
         )
       })}
     </Layout>

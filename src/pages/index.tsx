@@ -68,7 +68,8 @@ const BlogIndex = ({ data, location }) => {
         scrollingSpeed={700}
         menu='#menu-principal'
         scrollOverflow={true}
-        fixedElements='#header-principal'
+        recordHistory={true}
+        navigation={true}
         onLeave={onLeavePage.bind(this)}
         render={({ fullpageApi }) => {
           return (
@@ -76,6 +77,7 @@ const BlogIndex = ({ data, location }) => {
               {
                 fullpages.map(({ anchor, title, backgroundColor, textColor, titleColor }) => (
                   React.createElement(components[anchor], {
+                    key: "page-"+anchor,
                     anchor: anchor,
                     title: title,
                     backgroundColor: backgroundColor,

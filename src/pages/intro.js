@@ -13,16 +13,19 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
       <article>
         {fragments.map(({ node }) => {
           return (
-            <Slide backgroundColor={backgroundColor}
-                   textColor={textColor}
-                   seoTitle={title}
-                   seoDescription={"Magnesium.coop"}>
-              <div className={"text-6xl color-"+textColor}
-                   dangerouslySetInnerHTML={{
-                     __html: node.html
-                   }}
-              />
-            </Slide>
+            <div key={"slide-" + node.frontmatter.anchor}>
+              <Slide backgroundColor={backgroundColor}
+                     textColor={textColor}
+                     seoTitle={title}
+                     seoDescription={node.frontmatter.seoDescription}
+                     slideAnchor={node.frontmatter.anchor}>
+                <div className={"text-6xl color-" + textColor}
+                     dangerouslySetInnerHTML={{
+                       __html: node.html
+                     }}
+                />
+              </Slide>
+            </div>
           )
         })}
 
@@ -41,11 +44,15 @@ export const pageQuery = graphql`
   query {
     queHacemosFragments: allMarkdownRemark(
       sort: { fields: [frontmatter___order], order: ASC }
-      filter: {fileAbsolutePath: {regex: "/que-hacemos.*.md$/"}}
+      filter: {fileAbsolutePath: {regex: "/que-hacemos-.*.md$/"}}
       ) {
       edges {
         node {
           html
+          frontmatter {
+            anchor
+            seoDescription
+          }
         }
       }
     }
