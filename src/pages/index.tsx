@@ -55,7 +55,7 @@ const BlogIndex = ({ data, location }) => {
   const [currentPage, setCurrentPage] = useState(fullpages[0])
 
   function onLeavePage(origin, destination, direction) {
-    console.log("onLeave", { origin, destination, direction })
+    //console.log("onLeave", { origin, destination, direction })
     setCurrentPage(fullpages[destination.index])
   }
 
@@ -67,9 +67,11 @@ const BlogIndex = ({ data, location }) => {
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
         menu='#menu-principal'
+        animateAnchor={false}
         scrollOverflow={true}
         recordHistory={true}
         navigation={true}
+        slidesNavigation={true}
         onLeave={onLeavePage.bind(this)}
         render={({ fullpageApi }) => {
           return (

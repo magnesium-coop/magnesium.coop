@@ -36,7 +36,7 @@ const Header = ({ pages, anchor, backgroundColor, textColor }) => {
     <header className={"absolute top-0 w-full z-40 font-mgbook text-l bg-transparent"} id="header-principal">
       <nav className={"flex items-center justify-between flex-wrap pr-20 pl-20 pt-12"}>
         <div className="flex items-center flex-shrink-0">
-          {getImg("fill-current w-48")}
+          <a href={'#'+pages[0].anchor}>{getImg("fill-current w-48")}</a>
         </div>
         <div className="block lg:hidden">
           <button onClick={() => toggleExpansion(!isExpanded)}
