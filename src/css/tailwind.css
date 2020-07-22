@@ -100,4 +100,5 @@ ul, ol {
 #menu-principal li.active{
     border-bottom: #f15d4f;
     border-bottom-style: solid;
+    border-bottom-width: thin;
 }

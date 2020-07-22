@@ -1,6 +1,5 @@
 import React from "react"
 import SEO from "./seo"
-import Header from "./header"
 
 const Slide = ({ titleColor, textColor, backgroundColor, seoTitle, seoDescription, children }) => {
 
