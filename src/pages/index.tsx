@@ -1,4 +1,5 @@
 // Gatsby supports TypeScript natively!
+// @ts-ignore
 import React, { useState } from "react"
 import { PageProps, graphql } from "gatsby"
 import ReactFullpage from "@fullpage/react-fullpage"
@@ -21,7 +22,7 @@ const BlogIndex = ({ data, location }) => {
 
   const initialFullPages = [
     {
-      title: "Intro",
+      title: "Qué Hacemos",
       anchor: "intro",
       backgroundColor: "negro",
       textColor: "blanco",
@@ -54,13 +55,14 @@ const BlogIndex = ({ data, location }) => {
   const [currentPage, setCurrentPage] = useState(fullpages[0])
 
   function onLeavePage(origin, destination, direction) {
-    console.log('onLeave', { origin, destination, direction });
+    console.log("onLeave", { origin, destination, direction })
     setCurrentPage(fullpages[destination.index])
   }
 
   return (
     <div>
-      <Header anchor={currentPage.anchor} backgroundColor={currentPage.backgroundColor} textColor={currentPage.textColor}/>
+      <Header pages={fullpages} anchor={currentPage.anchor} backgroundColor={currentPage.backgroundColor}
+              textColor={currentPage.textColor}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
