@@ -68,6 +68,7 @@ const BlogIndex = ({ data, location }) => {
         scrollingSpeed={700}
         menu='#menu-principal'
         animateAnchor={false}
+        loopHorizontal={false}
         scrollOverflow={true}
         recordHistory={true}
         navigation={true}

@@ -12,4 +12,4 @@ Usamos y producimos software libre porque promueve la colaboración, el aprendiz
  
 Nos encantan los desafíos, más aún si están vinculados a la investigación científica o tienen fuerte impacto social. *¿a quién no le gusta ser parte de algo lindo?*
  
-No queremos reinventar la rueda, también implantamos y adaptamos herramientas de código abierto para su integración en empresas y organizaciones. *hay cosas maravillosas que ya están hechas, a veces hay que ajustarlas un poquito*
+No reinventamos la rueda, implantamos y adaptamos herramientas abiertas para su integración en empresas y organizaciones. *hay cosas maravillosas que ya están hechas, a veces hay que ajustarlas un poquito*
