@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
+import { ArcherContainer, ArcherElement } from "react-archer"
+import theme from '../../tailwind.config'
 
 import Layout from "../components/layout"
 import Slide from "../components/slide"
@@ -8,6 +10,8 @@ import tablaPeriodica from "../../content/assets/tabla-periodica-01.svg"
 const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor }) => {
 
   const fragments = data.queHacemosFragments.edges
+
+  function isOdd(num) { return num % 2;}
 
   function getFirstSlide(node) {
     return (
@@ -19,6 +23,7 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
                seoDescription={node.frontmatter.seoDescription}
                slideAnchor={node.frontmatter.anchor}>
 
+
           <div className="flex justify-between">
             <div className={"self-center w-6/12 text-5xl " + textColor}
                  dangerouslySetInnerHTML={{
@@ -29,6 +34,7 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
               <img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>
             </div>
           </div>
+
         </Slide>
       </div>
     )
@@ -43,14 +49,35 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
                seoTitle={title}
                seoDescription={node.frontmatter.seoDescription}
                slideAnchor={node.frontmatter.anchor}>
-          <div className="flex justify-between">
-            <div className={"self-center w-8/12 font-mgblack annotation text-6xl " + textColor}
-                 dangerouslySetInnerHTML={{
-                   __html: node.html
-                 }}
-            />
-            <div className="self-center w-4/12 font-mgannotated text-naranja text-4xl" dangerouslySetInnerHTML={{ __html: node.frontmatter.annotation }}/>
-          </div>
+
+          <ArcherContainer
+            strokeColor={theme.theme.extend.colors.naranja}
+            offset="-23"
+            svgContainerStyle={{zIndex:40}}>
+
+
+            <div className="flex justify-between">
+              <ArcherElement
+                id={"text-" + node.frontmatter.order}
+                relations={[{
+                  targetId: "annotation-" + node.frontmatter.order,
+                  targetAnchor: (isOdd(node.frontmatter.order) ? 'top' : 'left'),
+                  sourceAnchor: (isOdd(node.frontmatter.order) ? 'right' : 'right'),
+                }]}>
+                <div className={"self-center mb-16 mt-16 w-8/12 font-mgblack annotation text-6xl " + textColor}
+                     dangerouslySetInnerHTML={{
+                       __html: node.html
+                     }}
+                />
+              </ArcherElement>
+              <ArcherElement
+                id={"annotation-" + node.frontmatter.order}>
+                <div className={"w-3/12 font-mgannotated text-naranja leading-tight text-center text-4xl "+(isOdd(node.frontmatter.order) ? 'self-end' : 'self-start')}
+                     dangerouslySetInnerHTML={{ __html: node.frontmatter.annotation }}/>
+              </ArcherElement>
+            </div>
+
+          </ArcherContainer>
         </Slide>
       </div>
     )
@@ -65,9 +92,7 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
           } else {
             return getSlide(node)
           }
-
         })}
-
       </article>
     </Layout>
   )
