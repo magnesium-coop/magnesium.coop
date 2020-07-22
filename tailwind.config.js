@@ -10,7 +10,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        naranja: '#f15d4f',
+        naranja: '#f25c4a',
         negro: '#000000',
         blanco: '#ffffff'
       },

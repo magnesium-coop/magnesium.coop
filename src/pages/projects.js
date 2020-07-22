@@ -8,24 +8,24 @@ function removeSlash(text) {
   return text.replace("/", "")
 }
 
-const ProjectsPage = ({ data, location, fullPageApi }) => {
+const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textColor, titleColor }) => {
   const siteTitle = data.site.siteMetadata.title
   const projects = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Slide backgroundColor="naranja" color="negro" title="Blog">
-        <h1>Proyectos</h1>
+    <Layout anchor={anchor}>
+      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={""}>
+        <h1 className={titleColor}>{title}</h1>
         {projects.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={"#" + location + node.fields.slug}>
+            <article key={"#" + anchor + node.fields.slug}>
               <header>
                 <h3
                   style={{}}
                 >
-                  <a href={"#" + location + node.fields.slug}
-                     onClick={() => fullPageApi.silentMoveTo(location, removeSlash(node.fields.slug))}>{title}</a>
+                  <a href={"#" + anchor + node.fields.slug}
+                     onClick={() => fullPageApi.silentMoveTo(anchor, removeSlash(node.fields.slug))}>{title}</a>
                 </h3>
                 <small>{node.frontmatter.date}</small>
               </header>

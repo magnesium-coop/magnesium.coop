@@ -8,7 +8,7 @@
 import React, { useState } from "react"
 import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({ location, backgroundColor, color }) => {
+const Header = ( {anchor, backgroundColor, textColor} ) => {
 
   const [isExpanded, toggleExpansion] = useState(false)
 
@@ -22,10 +22,10 @@ const Header = ({ location, backgroundColor, color }) => {
 
   return (
 
-    <header className="font-mgbook text-l">
-      <nav className="flex items-center justify-between flex-wrap mr-16 ml-16 mt-12">
+    <header className={"absolute top-0 w-full z-40 font-mgbook text-l bg-transparent"} id="header-principal">
+      <nav className={"flex items-center justify-between flex-wrap pr-20 pl-20 pt-12"}>
         <div className="flex items-center flex-shrink-0">
-          {getImg("fill-current h-10")}
+          {getImg("fill-current w-48")}
         </div>
         <div className="block lg:hidden">
           <button onClick={() => toggleExpansion(!isExpanded)} className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -35,25 +35,25 @@ const Header = ({ location, backgroundColor, color }) => {
         <div className={`${ isExpanded ? `block` : `hidden` } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
             <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
               <li className="nav-item" data-menuanchor="que-hacemos">
-                <a className={"px-3 py-2 flex items-center no-underline leading-snug hover:opacity-75 text-" + color}
+                <a className={"px-3 py-2 flex items-center no-underline leading-snug hover:opacity-75 text-" + textColor}
                    href="#que-hacemos">
                   Qué hacemos
                 </a>
               </li>
               <li className="nav-item" data-menuanchor="nosotros">
-                <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-" + color}
+                <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 text-" + textColor}
                    href="#nosotros">
                   Nosotros
                 </a>
               </li>
               <li className="nav-item" data-menuanchor="blog">
-                <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + color}
+                <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + textColor}
                    href="#blog">
                   Blog
                 </a>
               </li>
               <li className="nav-item" data-menuanchor="proyectos">
-                <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + color}
+                <a className={"px-3 py-2 flex items-center  no-underline leading-snug  hover:opacity-75 text-" + textColor}
                    href="#proyectos">
                   Proyectos
                 </a>

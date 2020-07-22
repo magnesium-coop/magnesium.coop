@@ -5,31 +5,30 @@ import Layout from "../components/layout"
 import Slide from "../components/slide"
 import Bio from "../components/bio"
 
-const AboutPage = ({ data, location }) => {
+const AboutPage = ({ data, anchor, title, backgroundColor, textColor, titleColor }) => {
   const siteTitle = data.site.siteMetadata.title
   const { allAuthorYaml, markdownRemark } = data
   const { html } = markdownRemark
   const authors = allAuthorYaml.nodes
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout anchor={anchor}>
       <article>
-        <Slide title={siteTitle} location={location} backgroundColor="blanco" color="negro">
-          <h2>Nosotros</h2>
-
+        <Slide seoTitle={siteTitle} seoDescription={""} backgroundColor={backgroundColor} textColor={textColor}> {/*TODO:desc*/}
+          <h2 className={"color-"+titleColor}>{title}</h2>
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </Slide>
-        <Slide title={siteTitle} location={location} backgroundColor="naranja" color="negro">
-          <h1>El Equipo </h1>
+        <Slide seoTitle={"El Equipo"} seoDescription={""} backgroundColor={"negro"} textColor={"blanco"}>
+          <h1 className={"color-naranja"}>El Equipo</h1>
           {authors.map((author) => (
             <Bio author={author} key={author.id}/>
           ))}
         </Slide>
 
-        <Slide title={siteTitle} location={location} backgroundColor="naranja" color="negro">
-          <h1>Colaboradores</h1>
+        <Slide seoTitle={"Colaboradores"} seoDescription={""} backgroundColor={"naranja"} textColor={"blanco"}>
+          <h1 className={"color-negro"}>Colaboradores</h1>
           {authors.map((author) => (
             <Bio author={author} key={author.id}/>
           ))}

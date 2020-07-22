@@ -1,9 +1,9 @@
 import React from "react"
 
-const Layout = ({ location, color, title, children }) => {
+const Layout = ({ anchor, children }) => {
 
   return (
-    <div className={"section font-mgbook"} data-anchor={location}>
+    <div className={"section font-mgbook"} data-anchor={anchor}>
        {children}
     </div>
   )
