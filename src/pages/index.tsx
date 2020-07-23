@@ -8,7 +8,7 @@ import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
 import BlogPage from "../pages/blog"
 import Header from "../components/header"
-
+import ArrowNext from "../components/arrowNext"
 
 const BlogIndex = ({ data }) => {
 
@@ -70,7 +70,12 @@ const BlogIndex = ({ data }) => {
       backgroundColor: initialFullPages[1].backgroundColor,
       textColor: initialFullPages[1].textColor,
       titleColor: initialFullPages[1].titleColor,
-      title: quienesSomos.frontmatter.title
+      title: quienesSomos.frontmatter.title,
+      arrowNext: {
+        backgroundColor: "bg-negro",
+        textColor: "text-blanco",
+        titleColor: "text-naranja",
+      }
     })
     //Second
     initialFullPages[1]["slides"].push({
@@ -161,7 +166,7 @@ const BlogIndex = ({ data }) => {
               <IntroPage pages={fullpages} pagePos="0"/>
               <AboutPage pages={fullpages} pagePos="1"/>
               <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
-
+              <ArrowNext arrow={currentPage.arrowNext}/>
             </ReactFullpage.Wrapper>
           )
         }}
