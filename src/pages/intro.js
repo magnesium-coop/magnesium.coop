@@ -7,27 +7,25 @@ import Layout from "../components/layout"
 import Slide from "../components/slide"
 import tablaPeriodica from "../../content/assets/tabla-periodica-01.svg"
 
-const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor }) => {
-
-  const fragments = data.queHacemosFragments.edges
-
+const IntroPage = (props) => {
+  
   function isOdd(num) { return num % 2;}
 
-  function getFirstSlide(node) {
+  function getFirstSlide(slide) {
     return (
-      <div key={"slide-" + node.frontmatter.order}>
+      <div key={"slide-" + slide.order}>
 
-        <Slide backgroundColor={backgroundColor}
-               textColor={textColor}
-               seoTitle={title}
-               seoDescription={node.frontmatter.seoDescription}
-               slideAnchor={node.frontmatter.anchor}>
+        <Slide backgroundColor={slide.backgroundColor}
+               textColor={slide.textColor}
+               seoTitle={slide.title}
+               seoDescription={slide.seoDescription}
+               slideAnchor={slide.anchor}>
 
 
           <div className="flex justify-between">
-            <div className={"self-center w-6/12 text-5xl " + textColor}
+            <div className={"self-center w-6/12 text-5xl " + slide.textColor}
                  dangerouslySetInnerHTML={{
-                   __html: node.html
+                   __html: slide.html
                  }}
             />
             <div className="justify-end w-1/3">
@@ -40,15 +38,15 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
     )
   }
 
-  function getSlide(node) {
+  function getSlide(slide) {
     return (
-      <div key={"slide-" + node.frontmatter.order}>
+      <div key={"slide-" + slide.order}>
 
-        <Slide backgroundColor={backgroundColor}
-               textColor={textColor}
-               seoTitle={title}
-               seoDescription={node.frontmatter.seoDescription}
-               slideAnchor={node.frontmatter.anchor}>
+        <Slide backgroundColor={slide.backgroundColor}
+               textColor={slide.textColor}
+               seoTitle={slide.title}
+               seoDescription={slide.seoDescription}
+               slideAnchor={slide.anchor}>
 
           <ArcherContainer
             strokeColor={theme.theme.extend.colors.naranja}
@@ -58,22 +56,22 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
 
             <div className="flex justify-between">
               <ArcherElement
-                id={"text-" + node.frontmatter.order}
+                id={"text-" + slide.order}
                 relations={[{
-                  targetId: "annotation-" + node.frontmatter.order,
-                  targetAnchor: (isOdd(node.frontmatter.order) ? 'top' : 'left'),
-                  sourceAnchor: (isOdd(node.frontmatter.order) ? 'right' : 'right'),
+                  targetId: "annotation-" + slide.order,
+                  targetAnchor: (isOdd(slide.order) ? 'top' : 'left'),
+                  sourceAnchor: (isOdd(slide.order) ? 'right' : 'right'),
                 }]}>
-                <div className={"self-center mb-16 mt-16 w-8/12 font-mgblack annotation text-6xl " + textColor}
+                <div className={"self-center mb-16 mt-16 w-8/12 font-mgblack annotation text-6xl " + slide.textColor}
                      dangerouslySetInnerHTML={{
-                       __html: node.html
+                       __html: slide.html
                      }}
                 />
               </ArcherElement>
               <ArcherElement
-                id={"annotation-" + node.frontmatter.order}>
-                <div className={"w-3/12 font-mgannotated text-naranja leading-tight text-center text-4xl "+(isOdd(node.frontmatter.order) ? 'self-end' : 'self-start')}
-                     dangerouslySetInnerHTML={{ __html: node.frontmatter.annotation }}/>
+                id={"annotation-" + slide.order}>
+                <div className={"w-3/12 font-mgannotated text-naranja leading-tight text-center text-4xl "+(isOdd(slide.order) ? 'self-end' : 'self-start')}
+                     dangerouslySetInnerHTML={{ __html: slide.annotation }}/>
               </ArcherElement>
             </div>
 
@@ -84,13 +82,13 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
   }
 
   return (
-    <Layout anchor={anchor}>
+    <Layout anchor={props.pages[props.pagePos].anchor}>
       <article>
-        {fragments.map(({ node }) => {
-          if (node.frontmatter.order === 0) {
-            return getFirstSlide(node)
+        {props.pages[props.pagePos].slides.map((slide) => {
+          if (slide.order === 0) {
+            return getFirstSlide(slide)
           } else {
-            return getSlide(node)
+            return getSlide(slide)
           }
         })}
       </article>
@@ -98,29 +96,4 @@ const IntroPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
   )
 }
 
-export default props => (
-  <StaticQuery query={pageQuery}
-               render={data => <IntroPage data={data} {...props}/>}
-  />
-)
-
-export const pageQuery = graphql`
-  query {
-    queHacemosFragments: allMarkdownRemark(
-      sort: { fields: [frontmatter___order], order: ASC }
-      filter: {fileAbsolutePath: {regex: "/que-hacemos-.*.md$/"}}
-      ) {
-      edges {
-        node {
-          html
-          frontmatter {
-            anchor
-            seoDescription
-            order
-            annotation
-          }
-        }
-      }
-    }
-  }
-`
+export default IntroPage

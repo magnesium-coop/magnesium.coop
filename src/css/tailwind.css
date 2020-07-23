@@ -101,3 +101,34 @@ ul, ol {
     border-bottom-width: thin;
 }
 
+.customArrow {
+    @apply absolute;
+    @apply mb-auto;
+    @apply mt-auto;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    height: 200px;
+}
+
+.customArrowNext {
+
+    border-top-left-radius: 110px;
+    border-bottom-left-radius: 110px;
+
+    /*Alinear a la derecha*/
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+
+}
+
+.customArrowPrev {
+
+    border-top-right-radius: 110px;
+    border-bottom-right-radius: 110px;
+
+
+}

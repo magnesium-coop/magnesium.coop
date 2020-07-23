@@ -8,7 +8,7 @@
 import React, { useState } from "react"
 import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({ pages, anchor, backgroundColor, textColor }) => {
+const Header = ({ pages, backgroundColor, textColor }) => {
 
   const [isExpanded, toggleExpansion] = useState(false)
 

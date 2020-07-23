@@ -1,35 +1,36 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import Slide from "../components/slide"
 import Bio from "../components/bio"
 
-const AboutPage = ({ data, anchor, title, backgroundColor, textColor, titleColor }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const { allAuthorYaml, markdownRemark } = data
-  const { html } = markdownRemark
-  const authors = allAuthorYaml.nodes
+const AboutPage = (props) => {
+
+  const slides = props.pages[props.pagePos].slides
+
   return (
-    <Layout anchor={anchor}>
+    <Layout anchor={props.pages[props.pagePos].anchor}>
       <article>
-        <Slide seoTitle={siteTitle} seoDescription={""} backgroundColor={backgroundColor} textColor={textColor}> {/*TODO:desc*/}
-          <h2 className={"color-"+titleColor}>{title}</h2>
+        <Slide backgroundColor={slides[0].backgroundColor} textColor={slides[0].textColor}
+               slideAnchor={slides[0].anchor}>
+          <h2 className={slides[0].titleColor}>{slides[0].title}</h2>
           <div
             className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={{ __html: slides[0].html }}
           />
         </Slide>
-        <Slide seoTitle={"El Equipo"} seoDescription={""} backgroundColor={"negro"} textColor={"blanco"}>
-          <h1 className={"color-naranja"}>El Equipo</h1>
-          {authors.map((author) => (
+        <Slide backgroundColor={slides[1].backgroundColor} textColor={slides[1].textColor}
+               slideAnchor={slides[1].anchor}>
+          <h1 className={slides[1].titleColor}>{slides[1].title}</h1>
+          {slides[1].autores.map((author) => (
             <Bio author={author} key={author.id}/>
           ))}
         </Slide>
 
-        <Slide seoTitle={"Colaboradores"} seoDescription={""} backgroundColor={"naranja"} textColor={"blanco"}>
-          <h1 className={"color-negro"}>Colaboradores</h1>
-          {authors.map((author) => (
+        <Slide backgroundColor={slides[2].backgroundColor} textColor={slides[2].textColor}
+               slideAnchor={slides[2].anchor}>
+          <h1 className={slides[2].titleColor}>{slides[2].title}</h1>
+          {slides[2].autores.map((author) => (
             <Bio author={author} key={author.id}/>
           ))}
         </Slide>
@@ -38,42 +39,4 @@ const AboutPage = ({ data, anchor, title, backgroundColor, textColor, titleColor
   )
 }
 
-//export default AboutPage
-export default props => (
-  <StaticQuery query={pageQuery}
-               render={data => <AboutPage data={data} {...props}/>}
-  />
-)
-
-export const pageQuery = graphql`
-query AboutPage {
-site {
-siteMetadata {
-title
-}
-}
-allAuthorYaml {
-nodes {
-bio
-name
-id
-twitter
-profilepicture {
-childImageSharp {
-fluid {
-...GatsbyImageSharpFluid
-}
-}
-}
-}
-}
-markdownRemark(frontmatter: { id: { eq: "quienes-somos" } }) {
-html
-frontmatter {
-id
-title
-description
-}
-}
-}
-`
+export default AboutPage

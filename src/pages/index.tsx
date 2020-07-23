@@ -1,25 +1,20 @@
 // Gatsby supports TypeScript natively!
 // @ts-ignore
 import React, { useState } from "react"
-import { PageProps, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import ReactFullpage from "@fullpage/react-fullpage"
 
 import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
 import BlogPage from "../pages/blog"
-import ProjectsPage from "../pages/projects"
 import Header from "../components/header"
 
-const components = {
-  nosotros: AboutPage,
-  intro: IntroPage,
-  blog: BlogPage,
-  proyectos: ProjectsPage
-}
 
+const BlogIndex = ({ data }) => {
 
-const BlogIndex = ({ data, location }) => {
-
+  /**
+   * La estrategia es recorres todas las queries necesarias y armar todo aca el arbol. Luego tenerlo como referencia.
+   */
   const initialFullPages = [
     {
       title: "Qué Hacemos",
@@ -42,26 +37,111 @@ const BlogIndex = ({ data, location }) => {
       textColor: "text-blanco",
       titleColor: "text-naranja"
 
-    },
-    {
-      title: "Proyectos",
-      anchor: "proyectos",
-      backgroundColor: "bg-blanco",
-      textColor: "text-negro",
-      titleColor: "text-naranja"
     }
   ]
+
+  function getQueHacemosSlides() {
+    initialFullPages[0]["slides"] = []
+    data.queHacemosFragments.edges.map(({ node }) => {
+      initialFullPages[0]["slides"].push({
+        order: node.frontmatter.order,
+        seoDescription: node.frontmatter.seoDescription,
+        anchor: node.frontmatter.anchor,
+        html: node.html,
+        annotation: node.frontmatter.annotation,
+        backgroundColor: initialFullPages[0].backgroundColor,
+        textColor: initialFullPages[0].textColor,
+        titleColor: initialFullPages[0].titleColor,
+        title: initialFullPages[0].title
+      })
+    })
+
+  }
+
+  function getNosotrosSlides() {
+    const { autores, quienesSomos } = data
+    const authors = autores.nodes
+
+    initialFullPages[1]["slides"] = []
+    //First
+    initialFullPages[1]["slides"].push({
+      anchor: "nosotros",
+      html: quienesSomos.html,
+      backgroundColor: initialFullPages[1].backgroundColor,
+      textColor: initialFullPages[1].textColor,
+      titleColor: initialFullPages[1].titleColor,
+      title: quienesSomos.frontmatter.title
+    })
+    //Second
+    initialFullPages[1]["slides"].push({
+      anchor: "equipo",
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja",
+      title: "El Equipo",
+      autores: authors
+    })
+    //Third
+    initialFullPages[1]["slides"].push({
+      anchor: "colaboradores",
+      backgroundColor: "bg-naranja",
+      textColor: "text-blanco",
+      titleColor: "text-negro",
+      title: "Colaboradores",
+      autores: authors
+    })
+
+  }
+
+  function getBlogPosts() {
+    initialFullPages[2]["slides"] = []
+    //First
+    initialFullPages[2]["slides"].push({
+      anchor: "blog",
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja",
+      title: "Blog"
+    })
+    //Rest
+    data.blogPosts.edges.map(({ node }) => {
+      initialFullPages[2]["slides"].push({
+        slug: node.fields.slug,
+        description: node.frontmatter.description,
+        excerpt: node.excerpt,
+        date: node.frontmatter.date,
+        html: node.html,
+        backgroundColor: "bg-blanco",
+        textColor: "text-negro",
+        titleColor: "text-naranja",
+        title: node.frontmatter.title,
+        author: node.frontmatter.author
+      })
+    })
+
+  }
+
+
+  getQueHacemosSlides()
+  getNosotrosSlides()
+  getBlogPosts()
+
+
   const [fullpages] = useState(initialFullPages)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
 
   function onLeavePage(origin, destination, direction) {
-    //console.log("onLeave", { origin, destination, direction })
-    setCurrentPage(fullpages[destination.index])
+    setCurrentPage(fullpages[destination.index].slides[0])
+  }
+
+  function onLeaveSlide(section, origin, destination, direction) {
+    setCurrentPage(fullpages[section.index].slides[destination.index])
+
   }
 
   return (
     <div>
-      <Header pages={fullpages} anchor={currentPage.anchor} backgroundColor={currentPage.backgroundColor}
+      <Header pages={fullpages} backgroundColor={currentPage.backgroundColor}
               textColor={currentPage.textColor}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
@@ -74,22 +154,14 @@ const BlogIndex = ({ data, location }) => {
         navigation={true}
         slidesNavigation={true}
         onLeave={onLeavePage.bind(this)}
+        onSlideLeave={onLeaveSlide.bind(this)}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              {
-                fullpages.map(({ anchor, title, backgroundColor, textColor, titleColor }) => (
-                  React.createElement(components[anchor], {
-                    key: "page-"+anchor,
-                    anchor: anchor,
-                    title: title,
-                    backgroundColor: backgroundColor,
-                    textColor: textColor,
-                    titleColor: titleColor,
-                    fullPageApi: fullpageApi
-                  })
-                ))
-              }
+              <IntroPage pages={fullpages} pagePos="0"/>
+              <AboutPage pages={fullpages} pagePos="1"/>
+              <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
+
             </ReactFullpage.Wrapper>
           )
         }}
@@ -100,3 +172,80 @@ const BlogIndex = ({ data, location }) => {
 }
 
 export default BlogIndex
+
+export const pageQuery = graphql`
+  query {
+    queHacemosFragments: allMarkdownRemark(
+      sort: { fields: [frontmatter___order], order: ASC }
+      filter: {fileAbsolutePath: {regex: "/que-hacemos-.*.md$/"}}
+      ) {
+      edges {
+        node {
+          html
+          frontmatter {
+            anchor
+            seoDescription
+            order
+            annotation
+          }
+        }
+      }
+    }
+    autores: allAuthorYaml {
+    nodes {
+      bio
+      name
+      id
+      twitter
+      profilepicture {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+  quienesSomos: markdownRemark(frontmatter: {id: {eq: "quienes-somos"}}) {
+    html
+    frontmatter {
+      id
+      title
+      description
+    }
+  }
+  blogPosts:allMarkdownRemark(
+    sort: { fields: [frontmatter___date], order: DESC }
+    filter: {fileAbsolutePath: {regex: "/(blog)/.*\\\\.md$/"}}
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+              author {
+              id
+              bio
+              name
+              twitter
+              profilepicture {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+             }
+          }
+        }
+      }
+    }
+  }
+`
