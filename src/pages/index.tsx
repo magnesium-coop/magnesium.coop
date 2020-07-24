@@ -170,9 +170,9 @@ const BlogIndex = ({ data }) => {
         loopHorizontal={false}
         scrollOverflow={true}
         recordHistory={true}
-        navigation={false}
+        navigation={true}
         controlArrows={false}
-        slidesNavigation={false}
+        slidesNavigation={true}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
         afterSlideLoad={onSlideLoad.bind(this)}
