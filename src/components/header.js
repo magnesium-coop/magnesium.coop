@@ -22,7 +22,7 @@ const Header = ({ pages, backgroundColor, textColor }) => {
 
   function getMenuItem(anchor, title) {
     return (
-      <li key={"menu-"+anchor} className="nav-item" data-menuanchor={anchor}>
+      <li key={"menu-" + anchor} className="nav-item" data-menuanchor={anchor}>
         <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 " + textColor}
            href={"#" + anchor}>
           {title}
@@ -36,7 +36,7 @@ const Header = ({ pages, backgroundColor, textColor }) => {
     <header className={"absolute top-0 w-full z-40 font-mgbook text-l bg-transparent"} id="header-principal">
       <nav className={"flex items-center justify-between flex-wrap pr-20 pl-20 pt-12"}>
         <div className="flex items-center flex-shrink-0">
-          <a href={'#'+pages[0].anchor}>{getImg("fill-current w-48")}</a>
+          <a href={"#" + pages[0].anchor}>{getImg("fill-current w-48")}</a>
         </div>
         <div className="block lg:hidden">
           <button onClick={() => toggleExpansion(!isExpanded)}

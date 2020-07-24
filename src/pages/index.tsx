@@ -41,7 +41,9 @@ const BlogIndex = ({ data }) => {
       slides: []
     }
   ]
-  const initialLastSlides = initialFullPages.map((section) => { return {section:section.anchor, lastSlide:0}})
+  const initialLastSlides = initialFullPages.map((section) => {
+    return { section: section.anchor, lastSlide: 0 }
+  })
 
   function getQueHacemosSlides() {
     initialFullPages[0]["slides"] = []
@@ -147,7 +149,7 @@ const BlogIndex = ({ data }) => {
     setLastSlides(lastSlides)
     //console.debug('OnSlideLoad ',{section, origin,destination,direction})
   }
-  
+
   function onLeavePage(origin, destination, direction) {
     setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     //console.debug('OnLeavePage ',{origin,destination,direction})

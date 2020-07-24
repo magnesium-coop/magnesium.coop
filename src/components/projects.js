@@ -5,7 +5,7 @@ import Layout from "./layout"
 import Slide from "./slide"
 
 function removeSlash(text) {
-  return text.replace(/\//g, '')
+  return text.replace(/\//g, "")
 }
 
 const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textColor, titleColor }) => {
@@ -50,7 +50,7 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
               seoDescription={node.frontmatter.description || node.excerpt}>
               <article>
                 <header>
-                  <h1 className={"font-mgblack "+titleColor}>
+                  <h1 className={"font-mgblack " + titleColor}>
                     {node.frontmatter.title}
                   </h1>
                   <p

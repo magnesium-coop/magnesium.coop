@@ -4,7 +4,7 @@ const Layout = ({ anchor, children }) => {
 
   return (
     <div className={"section font-mgbook"} data-anchor={anchor}>
-       {children}
+      {children}
     </div>
   )
 }

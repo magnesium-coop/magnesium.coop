@@ -13,7 +13,7 @@ const Bio = ({ author }) => {
   return (
     <div
       style={{
-        display: `flex`,
+        display: `flex`
       }}
     >
       <Image

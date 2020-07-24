@@ -31,7 +31,8 @@ const IntroPage = (props) => {
                      __html: slide.html
                    }}
               />
-              <a href={"#" + props.pages[props.pagePos].anchor + "/" + props.pages[props.pagePos].slides[1].anchor} className={"text-6xl " + slide.titleColor}
+              <a href={"#" + props.pages[props.pagePos].anchor + "/" + props.pages[props.pagePos].slides[1].anchor}
+                 className={"text-6xl " + slide.titleColor}
                  onClick={(e) => {
                    e.preventDefault()
                    props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, props.pages[props.pagePos].slides[1].anchor)

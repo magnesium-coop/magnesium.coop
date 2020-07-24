@@ -48,8 +48,6 @@
 }
 
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,7 +93,7 @@ ul, ol {
 
 }
 
-#menu-principal li.active{
+#menu-principal li.active {
     @apply border-naranja;
     border-bottom-style: solid;
     border-bottom-width: thin;
