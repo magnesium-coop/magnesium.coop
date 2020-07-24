@@ -21,24 +21,27 @@ const BlogIndex = ({ data }) => {
       anchor: "intro",
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
-      titleColor: "text-naranja"
+      titleColor: "text-naranja",
+      slides: []
     },
     {
       title: "Nosotros",
       anchor: "nosotros",
       backgroundColor: "bg-blanco",
       textColor: "text-negro",
-      titleColor: "text-naranja"
+      titleColor: "text-naranja",
+      slides: []
     },
     {
       title: "Blog",
       anchor: "blog",
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
-      titleColor: "text-naranja"
-
+      titleColor: "text-naranja",
+      slides: []
     }
   ]
+  const initialLastSlides = initialFullPages.map((section) => { return {section:section.anchor, lastSlide:0}})
 
   function getQueHacemosSlides() {
     initialFullPages[0]["slides"] = []
@@ -133,15 +136,23 @@ const BlogIndex = ({ data }) => {
 
 
   const [fullpages] = useState(initialFullPages)
+  const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
 
+  function onSlideLoad(section, origin, destination, direction) {
+    lastSlides[section.index].lastSlide = destination.index
+    setLastSlides(lastSlides)
+    //console.debug('OnSlideLoad ',{section, origin,destination,direction})
+  }
+  
   function onLeavePage(origin, destination, direction) {
-    setCurrentPage(fullpages[destination.index].slides[0])
+    setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
+    //console.debug('OnLeavePage ',{origin,destination,direction})
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
     setCurrentPage(fullpages[section.index].slides[destination.index])
-
+    //console.debug('OnLeaveSlide ',{section, origin,destination,direction})
   }
 
   return (
@@ -160,6 +171,7 @@ const BlogIndex = ({ data }) => {
         slidesNavigation={true}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
+        afterSlideLoad={onSlideLoad.bind(this)}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
