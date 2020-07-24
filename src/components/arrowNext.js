@@ -6,20 +6,18 @@
  */
 
 import React, { useState } from "react"
-import logomg01 from "../../content/assets/logo-mg-01.svg"
 
 const ArrowNext = ({ arrow }) => {
-
- // if (arrow !== undefined) {
+  if (arrow !== undefined) {
+    console.log(arrow)
 
     return (
-      <div className={"z-40 customArrow customArrowNext bg-naranja"}>
+      <div className={"customArrow customArrowNext "+arrow.backgroundColor}>
 
       </div>
     )
- // } else {
- //   return <div className="hidden"></div>
- // }
+  } else {
+    return (null)  }
 }
 
 export default ArrowNext

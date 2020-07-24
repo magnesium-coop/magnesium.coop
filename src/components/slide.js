@@ -1,16 +1,18 @@
 import React from "react"
 import SEO from "./seo"
+import ArrowNext from "./arrowNext"
+import ArrowPrev from "./arrowPrev"
 
-const Slide = ({ titleColor, textColor, backgroundColor, seoTitle, seoDescription, children, slideAnchor }) => {
+const Slide = (props) => {
 
 
   return (
-    <div className={"slide " + backgroundColor + " " + textColor} data-anchor={slideAnchor}>
-        <SEO title={seoTitle} description={seoDescription}/>
+    <div className={"slide " + props.backgroundColor + " " + props.textColor} data-anchor={props.slideAnchor}>
         <main className="ml-40 mr-40 self-center">
-          {children}
+          {props.children}
         </main>
         <footer></footer>
+
     </div>
   )
 }

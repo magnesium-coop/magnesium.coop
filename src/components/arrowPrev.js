@@ -5,18 +5,20 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from "react"
-import logomg01 from "../../content/assets/logo-mg-01.svg"
+import React from "react"
 
 const ArrowPrev = ({ arrow }) => {
+  if (arrow !== undefined) {
 
 
     return (
-      <div className={"z-40 customArrow customArrowPrev " + arrow.backgroundColor}>
+      <div className={"z-3 customArrow customArrowPrev " + arrow.backgroundColor}>
 
       </div>
     )
-
+  } else {
+    return (null)
+  }
 
 }
 

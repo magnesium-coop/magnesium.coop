@@ -109,6 +109,7 @@ ul, ol {
     bottom: 0;
     width: 100px;
     height: 200px;
+    z-index: 3;
 }
 
 .customArrowNext {
@@ -116,12 +117,7 @@ ul, ol {
     border-top-left-radius: 110px;
     border-bottom-left-radius: 110px;
 
-    /*Alinear a la derecha*/
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
+    right: 0;
 
 }
 

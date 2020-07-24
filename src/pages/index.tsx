@@ -74,11 +74,7 @@ const BlogIndex = ({ data }) => {
       textColor: initialFullPages[1].textColor,
       titleColor: initialFullPages[1].titleColor,
       title: quienesSomos.frontmatter.title,
-      arrowNext: {
-        backgroundColor: "bg-negro",
-        textColor: "text-blanco",
-        titleColor: "text-naranja",
-      }
+      next: null
     })
     //Second
     initialFullPages[1]["slides"].push({
@@ -87,7 +83,9 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-naranja",
       title: "El Equipo",
-      autores: authors
+      autores: authors,
+      prev: initialFullPages[1]["slides"][0],
+      next: null
     })
     //Third
     initialFullPages[1]["slides"].push({
@@ -96,8 +94,13 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-negro",
       title: "Colaboradores",
-      autores: authors
+      autores: authors,
+      prev: initialFullPages[1]["slides"][1]
     })
+
+    //Arrows
+    initialFullPages[1]["slides"][0].next = initialFullPages[1]["slides"][1]
+    initialFullPages[1]["slides"][1].next = initialFullPages[1]["slides"][2]
 
   }
 
@@ -167,8 +170,8 @@ const BlogIndex = ({ data }) => {
         loopHorizontal={false}
         scrollOverflow={true}
         recordHistory={true}
-        navigation={true}
-        slidesNavigation={true}
+        navigation={false}
+        slidesNavigation={false}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
         afterSlideLoad={onSlideLoad.bind(this)}
@@ -176,9 +179,8 @@ const BlogIndex = ({ data }) => {
           return (
             <ReactFullpage.Wrapper>
               <IntroPage pages={fullpages} pagePos="0"/>
-              <AboutPage pages={fullpages} pagePos="1"/>
+              <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1"/>
               <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
-              <ArrowNext arrow={currentPage.arrowNext}/>
             </ReactFullpage.Wrapper>
           )
         }}
