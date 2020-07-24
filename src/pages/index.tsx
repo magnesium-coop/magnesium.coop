@@ -179,7 +179,7 @@ const BlogIndex = ({ data }) => {
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <IntroPage pages={fullpages} pagePos="0"/>
+              <IntroPage pages={fullpages} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1" fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
