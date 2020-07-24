@@ -2,8 +2,8 @@ import React from "react"
 import { ArcherContainer, ArcherElement } from "react-archer"
 import theme from "../../tailwind.config"
 
-import Layout from "../components/layout"
-import Slide from "../components/slide"
+import Layout from "./layout"
+import Slide from "./slide"
 import tablaPeriodica from "../../content/assets/tabla-periodica-01.svg"
 import { IoIosArrowForward } from "react-icons/io"
 

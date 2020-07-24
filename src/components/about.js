@@ -1,10 +1,10 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import Slide from "../components/slide"
-import Bio from "../components/bio"
-import ArrowNext from "../components/arrowNext"
-import ArrowPrev from "../components/arrowPrev"
+import Layout from "./layout"
+import Slide from "./slide"
+import Bio from "./bio"
+import ArrowNext from "./arrowNext"
+import ArrowPrev from "./arrowPrev"
 
 const AboutPage = (props) => {
 

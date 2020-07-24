@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
-import Slide from "../components/slide"
+import Layout from "./layout"
+import Slide from "./slide"
 
 function removeSlash(text) {
   return text.replace(/\//g, '')

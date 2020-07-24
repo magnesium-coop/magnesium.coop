@@ -1,7 +1,7 @@
 import React from "react"
-import Layout from "../components/layout"
-import Slide from "../components/slide"
-import Bio from "../components/bio"
+import Layout from "./layout"
+import Slide from "./slide"
+import Bio from "./bio"
 
 function removeSlash(text) {
   return text.replace(/\//g, "")

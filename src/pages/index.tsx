@@ -4,9 +4,9 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import ReactFullpage from "@fullpage/react-fullpage"
 
-import AboutPage from "../pages/about"
-import IntroPage from "../pages/intro"
-import BlogPage from "../pages/blog"
+import AboutPage from "../components/about"
+import IntroPage from "../components/intro"
+import BlogPage from "../components/blog"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
