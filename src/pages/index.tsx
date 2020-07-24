@@ -8,7 +8,7 @@ import AboutPage from "../pages/about"
 import IntroPage from "../pages/intro"
 import BlogPage from "../pages/blog"
 import Header from "../components/header"
-import ArrowNext from "../components/arrowNext"
+import Footer from "../components/footer"
 
 const BlogIndex = ({ data }) => {
 
@@ -186,6 +186,7 @@ const BlogIndex = ({ data }) => {
           )
         }}
       />
+      <Footer/>
     </div>
 
   )
