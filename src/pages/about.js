@@ -43,8 +43,8 @@ const AboutPage = (props) => {
           ))}
         </Slide>
 
-      <ArrowNext arrow={props.currentPage.next}/>
-      <ArrowPrev arrow={props.currentPage.prev}/>
+      <ArrowNext arrow={props.currentPage.next} fullPageApi={props.fullPageApi} anchor={props.pages[props.pagePos].anchor}/>
+      <ArrowPrev arrow={props.currentPage.prev} fullPageApi={props.fullPageApi} anchor={props.pages[props.pagePos].anchor}/>
       </article>
     </Layout>
   )

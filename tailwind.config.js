@@ -14,6 +14,9 @@ module.exports = {
         negro: '#000000',
         blanco: '#ffffff'
       },
+      fontSize: {
+        superbig: '6.2rem'
+      }
     },
   }
 }

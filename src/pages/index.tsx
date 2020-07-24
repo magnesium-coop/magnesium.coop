@@ -171,6 +171,7 @@ const BlogIndex = ({ data }) => {
         scrollOverflow={true}
         recordHistory={true}
         navigation={false}
+        controlArrows={false}
         slidesNavigation={false}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
@@ -179,7 +180,7 @@ const BlogIndex = ({ data }) => {
           return (
             <ReactFullpage.Wrapper>
               <IntroPage pages={fullpages} pagePos="0"/>
-              <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1"/>
+              <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1" fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )

@@ -6,14 +6,20 @@
  */
 
 import React from "react"
+import { IoIosArrowBack } from "react-icons/io"
 
-const ArrowPrev = ({ arrow }) => {
+const ArrowPrev = ({ arrow, anchor, fullPageApi }) => {
   if (arrow !== undefined) {
-
-
     return (
-      <div className={"z-3 customArrow customArrowPrev " + arrow.backgroundColor}>
+      <div className={"flex items-center customArrow customArrowPrev " + arrow.backgroundColor}>
+        <a href={"#" + anchor + "/" + arrow.anchor} className={"mx-auto text-5xl " + arrow.textColor}
+           onClick={(e) => {
+             e.preventDefault()
+             fullPageApi.moveTo(anchor, arrow.anchor)
+           }}>
+          <span className={""}><IoIosArrowBack/></span>
 
+        </a>
       </div>
     )
   } else {

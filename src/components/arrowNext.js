@@ -1,23 +1,23 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from "react"
+import { IoIosArrowForward } from "react-icons/io"
 
-import React, { useState } from "react"
-
-const ArrowNext = ({ arrow }) => {
+const ArrowNext = ({ arrow, anchor, fullPageApi }) => {
   if (arrow !== undefined) {
-    console.log(arrow)
-
     return (
-      <div className={"customArrow customArrowNext "+arrow.backgroundColor}>
+      <div className={"flex items-center customArrow customArrowNext " + arrow.backgroundColor}>
+        <a href={"#" + anchor + "/" + arrow.anchor} className={"mx-auto text-5xl " + arrow.textColor}
+           onClick={(e) => {
+             e.preventDefault()
+             fullPageApi.moveTo(anchor, arrow.anchor)
+           }}>
+          <span className={""}><IoIosArrowForward/></span>
 
+        </a>
       </div>
     )
   } else {
-    return (null)  }
+    return (null)
+  }
 }
 
 export default ArrowNext
