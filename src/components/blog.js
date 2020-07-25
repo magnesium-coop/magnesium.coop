@@ -13,7 +13,7 @@ const BlogPage = (props) => {
 
 
   return (
-    <Layout anchor={anchor}>
+    <Layout anchor={anchor} backgroundColor={props.currentPage.backgroundColor}>
       <Slide
         backgroundColor={slides[0].backgroundColor}
         textColor={slides[0].textColor}>

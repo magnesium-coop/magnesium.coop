@@ -5,7 +5,7 @@ const Slide = (props) => {
 
   return (
     <div className={"slide " + props.backgroundColor + " " + props.textColor} data-anchor={props.slideAnchor}>
-      <main className="ml-40 mr-40 self-center">
+      <main className="ml-16 mr-16 md:ml-32 md:mr-32 lg:ml-40 lg:mr-40 self-center">
         {props.children}
       </main>
       <footer></footer>

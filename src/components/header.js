@@ -33,7 +33,7 @@ const Header = ({ pages, backgroundColor, textColor }) => {
 
   return (
 
-    <header className={"absolute top-0 w-full z-40 font-mgbook text-l bg-transparent"} id="header-principal">
+    <header className={"fixed top-0 w-full z-40 font-mgbook text-l h-40 "} id="header-principal">
       <nav className={"flex items-center justify-between flex-wrap pr-20 pl-20 pt-12"}>
         <div className="flex items-center flex-shrink-0">
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-48")}</a>

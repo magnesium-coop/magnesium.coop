@@ -10,7 +10,7 @@ const AboutPage = (props) => {
 
   const slides = props.pages[props.pagePos].slides
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor}>
+    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
       <article>
         <Slide backgroundColor={slides[0].backgroundColor}
                textColor={slides[0].textColor}

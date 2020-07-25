@@ -144,19 +144,27 @@ const BlogIndex = ({ data }) => {
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
 
-  function onSlideLoad(section, origin, destination, direction) {
-    lastSlides[section.index].lastSlide = destination.index
-    setLastSlides(lastSlides)
-    //console.debug('OnSlideLoad ',{section, origin,destination,direction})
-  }
+  /*function onSlideLoad(section, origin, destination, direction) {
+    setCurrentPage(fullpages[section.index].slides[destination.index])
+    console.debug('OnSlideLoad ',{section, origin,destination,direction})
+  }*/
 
   function onLeavePage(origin, destination, direction) {
     setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
+
     //console.debug('OnLeavePage ',{origin,destination,direction})
   }
 
+ /* function afterLoadPage(origin, destination, direction) {
+    setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
+
+
+  }*/
+
   function onLeaveSlide(section, origin, destination, direction) {
     setCurrentPage(fullpages[section.index].slides[destination.index])
+    lastSlides[section.index].lastSlide = destination.index
+    setLastSlides(lastSlides)
     //console.debug('OnLeaveSlide ',{section, origin,destination,direction})
   }
 
@@ -177,13 +185,15 @@ const BlogIndex = ({ data }) => {
         slidesNavigation={true}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
-        afterSlideLoad={onSlideLoad.bind(this)}
+        //afterLoad={afterLoadPage.bind(this)}
+        //afterSlideLoad={onSlideLoad.bind(this)}
+        //paddingTop={"10em"}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <IntroPage pages={fullpages} pagePos="0" fullPageApi={fullpageApi}/>
+              <IntroPage pages={fullpages} currentPage={currentPage} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1" fullPageApi={fullpageApi}/>
-              <BlogPage pages={fullpages} pagePos="2" fullPageApi={fullpageApi}/>
+              <BlogPage pages={fullpages} currentPage={currentPage} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}

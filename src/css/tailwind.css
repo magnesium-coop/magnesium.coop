@@ -105,26 +105,18 @@ ul, ol {
     @apply mt-auto;
     top: 0;
     bottom: 0;
-    width: 100px;
-    height: 200px;
     z-index: 3;
 }
 
 .customArrowNext {
-
-    border-top-left-radius: 110px;
-    border-bottom-left-radius: 110px;
-
+    @apply rounded-tl-full;
+    @apply rounded-bl-full;
     right: 0;
-
 }
 
 .customArrowPrev {
-
-    border-top-right-radius: 110px;
-    border-bottom-right-radius: 110px;
-
-
+    @apply rounded-tr-full;
+    @apply rounded-br-full;
 }
 
 /*
@@ -138,3 +130,4 @@ Indicadores abajo
     right: 0;
     text-align: center;
 }
+

@@ -95,7 +95,7 @@ const IntroPage = (props) => {
   }
 
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor}>
+    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
       <article>
         {props.pages[props.pagePos].slides.map((slide) => {
           if (slide.order === 0) {
