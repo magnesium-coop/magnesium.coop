@@ -68,7 +68,7 @@ const IntroPage = (props) => {
 
             <div className="flex justify-between">
               <ArcherElement
-                id={"text-" + slide.order}
+                id={"text1-" + slide.order}
                 relations={[{
                   targetId: "annotation-" + slide.order,
                   targetAnchor: (isOdd(slide.order) ? "top" : "left"),
