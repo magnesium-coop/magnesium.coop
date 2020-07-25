@@ -187,7 +187,7 @@ const BlogIndex = ({ data }) => {
         onSlideLeave={onLeaveSlide.bind(this)}
         //afterLoad={afterLoadPage.bind(this)}
         //afterSlideLoad={onSlideLoad.bind(this)}
-        //paddingTop={"10em"}
+        fixedElements={"#header-principal"}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
