@@ -22,17 +22,15 @@ const IntroPage = (props) => {
                seoTitle={slide.title}
                seoDescription={slide.seoDescription}
                slideAnchor={slide.anchor}>
-
-
-          <div className="flex justify-between">
-            <div className={"self-center w-6/12"}>
-              <div className={"text-5xl " + slide.textColor}
+          <div className="flex flex-wrap justify-between">
+            <div className={"self-center w-full lg:w-6/12"}>
+              <div className={"text-3xl md:text-4xl lg:text-5xl " + slide.textColor}
                    dangerouslySetInnerHTML={{
                      __html: slide.html
                    }}
               />
               <a href={"#" + props.pages[props.pagePos].anchor + "/" + props.pages[props.pagePos].slides[1].anchor}
-                 className={"text-6xl " + slide.titleColor}
+                 className={"text-4xl md:text-5xl lg:text-6xl " + slide.titleColor}
                  onClick={(e) => {
                    e.preventDefault()
                    props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, props.pages[props.pagePos].slides[1].anchor)
@@ -40,11 +38,10 @@ const IntroPage = (props) => {
                 <span className={""}><IoIosArrowForward/></span>
               </a>
             </div>
-            <div className="justify-end w-1/3">
+            <div className="justify-end w-full lg:w-1/3">
               <img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>
             </div>
           </div>
-
         </Slide>
       </div>
     )
@@ -52,7 +49,7 @@ const IntroPage = (props) => {
 
   function getSlide(slide) {
     return (
-      <div key={"slide-" + slide.order}>
+      <div key={"h-screen slide-" + slide.order}>
 
         <Slide backgroundColor={slide.backgroundColor}
                textColor={slide.textColor}
@@ -66,15 +63,15 @@ const IntroPage = (props) => {
             svgContainerStyle={{ zIndex: 40 }}>
 
 
-            <div className="flex justify-between">
+            <div className="flex flex-wrap justify-between">
               <ArcherElement
-                id={"text1-" + slide.order}
+                id={"text-" + slide.order}
                 relations={[{
                   targetId: "annotation-" + slide.order,
                   targetAnchor: (isOdd(slide.order) ? "top" : "left"),
                   sourceAnchor: (isOdd(slide.order) ? "right" : "right")
                 }]}>
-                <div className={"self-center mb-16 mt-16 w-8/12 font-mgblack annotation text-6xl " + slide.textColor}
+                <div className={"mb-16 mt-16 w-full lg:w-8/12 font-mgblack annotation text-4xl md:text-5xl lg:text-6xl " + slide.textColor}
                      dangerouslySetInnerHTML={{
                        __html: slide.html
                      }}
@@ -83,7 +80,7 @@ const IntroPage = (props) => {
               <ArcherElement
                 id={"annotation-" + slide.order}>
                 <div
-                  className={"w-3/12 font-mgannotated text-naranja leading-tight text-center text-4xl " + (isOdd(slide.order) ? "self-end" : "self-start")}
+                  className={"w-full lg:w-3/12 font-mgannotated text-naranja leading-tight text-center text-2xl md:text-3xl lg:text-4xl " + (isOdd(slide.order) ? "self-end" : "self-start")}
                   dangerouslySetInnerHTML={{ __html: slide.annotation }}/>
               </ArcherElement>
             </div>
