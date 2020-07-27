@@ -15,8 +15,7 @@ const IntroPage = (props) => {
 
   function getFirstSlide(slide) {
     return (
-      <div key={"slide-" + slide.order}>
-
+      <div key={"slide-" + slide.order} className="h-full">
         <Slide backgroundColor={slide.backgroundColor}
                textColor={slide.textColor}
                seoTitle={slide.title}
@@ -49,8 +48,7 @@ const IntroPage = (props) => {
 
   function getSlide(slide) {
     return (
-      <div key={"h-screen slide-" + slide.order}>
-
+      <div key={"slide-" + slide.order} className="h-full">
         <Slide backgroundColor={slide.backgroundColor}
                textColor={slide.textColor}
                seoTitle={slide.title}
@@ -93,7 +91,6 @@ const IntroPage = (props) => {
 
   return (
     <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
-      <article>
         {props.pages[props.pagePos].slides.map((slide) => {
           if (slide.order === 0) {
             return getFirstSlide(slide)
@@ -101,7 +98,6 @@ const IntroPage = (props) => {
             return getSlide(slide)
           }
         })}
-      </article>
     </Layout>
   )
 }

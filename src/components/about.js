@@ -11,7 +11,6 @@ const AboutPage = (props) => {
   const slides = props.pages[props.pagePos].slides
   return (
     <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
-      <article>
         <Slide backgroundColor={slides[0].backgroundColor}
                textColor={slides[0].textColor}
                slideAnchor={slides[0].anchor}
@@ -47,7 +46,6 @@ const AboutPage = (props) => {
                    anchor={props.pages[props.pagePos].anchor}/>
         <ArrowPrev arrow={props.currentPage.prev} fullPageApi={props.fullPageApi}
                    anchor={props.pages[props.pagePos].anchor}/>
-      </article>
     </Layout>
   )
 }
