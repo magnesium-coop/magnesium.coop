@@ -60,7 +60,6 @@ const IntroPage = (props) => {
             offset="-23"
             svgContainerStyle={{ zIndex: 40 }}>
 
-
             <div className="flex flex-wrap justify-between">
               <ArcherElement
                 id={"text-" + slide.order}

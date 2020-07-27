@@ -23,17 +23,21 @@ const Footer = (props) => {
         </div>
       </footer>
 
-      <footer className={"hidden md:block flex absolute bottom-0 right-0 w-56 z-40 mb-24 text-l bg-naranja"} id="footer-principal-side">
-        <div className={"flex w-10 h-full"}>
-          <a href="#" className={"flex w-full h-full items-center justify-center text-white font-mgbook no-underline"}
+      <footer className={"block md:hidden flex absolute bottom-0 right-0 h-40 w-8 z-40 mb-24 bg-naranja"}
+              id="footer-principal-side">
+        <div className={"flex h-full w-full"}>
+          <a href="#"
+             className={"flex text-white font-mgbook no-underline transform -rotate-90"}
              onClick={() => toggleExpansion(!isExpanded)}>
-            <span>Contacto</span><span className={"w-3"}></span>
-            <span className={`${isExpanded ? `block` : `hidden`} text-xl`}><IoIosArrowDown/></span>
-            <span className={`${isExpanded ? `hidden` : `block`} text-xl`}><IoIosArrowUp/></span>
+            <div className="flex h-10 w-40 items-center justify-center pb-2">
+              <span className="text-base">Contacto</span><span className={"w-3"}></span>
+              <span className={`${isExpanded ? `block` : `hidden`} text-l`}><IoIosArrowDown/></span>
+              <span className={`${isExpanded ? `hidden` : `block`} text-l`}><IoIosArrowUp/></span>
+            </div>
           </a>
 
         </div>
-        <div className={`${isExpanded ? `block` : `hidden`} flex-grow h-48`}>
+        <div className={`${isExpanded ? `block` : `block`} flex-grow w-40`}>HOLA
         </div>
       </footer>
     </div>
