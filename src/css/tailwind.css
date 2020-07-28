@@ -123,6 +123,8 @@ ul, ol {
 Indicadores abajo
 */
 
+
+
 .fp-slidesNav.fp-bottom {
     margin-left: auto;
     margin-right: auto;
@@ -131,9 +133,3 @@ Indicadores abajo
     text-align: center;
 }
 
-#header-principal {
-    -webkit-transition: all 0.7s cubic-bezier(0.895, 0.030, 0.685, 0.220);
-    -moz-transition: all 0.7s cubic-bezier(0.895, 0.030, 0.685, 0.220);
-    -o-transition: all 0.7s cubic-bezier(0.895, 0.030, 0.685, 0.220);
-    transition: all 0.7s cubic-bezier(0.895, 0.030, 0.685, 0.220);
-}
