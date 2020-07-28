@@ -1,0 +1,26 @@
+- elementname: Sulfur
+- name: Gestión de Horas
+- shortdescription: Sistema de gestión de horas de funcionarios mediante el registro de las horas trabajadas.
+- startdate: Octubre 2017
+- duration: 7 meses
+- totalbudget: USD 1500
+- managers:
+    - raul:
+        authorid: 1
+    - cristian:
+        authorid: 2
+- client: MarQ
+- clientcontact:
+    - contact1:
+        name:
+        position:
+        phone:
+        email:
+- satisfactionletter: NO
+- technologies:
+    - tech1:
+        technologyid: 1
+    - tech2:
+        technologyid: 2
+- image:
+- link:

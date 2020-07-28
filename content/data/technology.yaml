@@ -1,0 +1,25 @@
+- id: java
+  name: Java EE
+  version: 8+
+  description:
+  url:
+- id: angular
+  name: Angular
+  version: 6+
+  description:
+  url:
+- id: postgres
+  name: PostgreSQL
+  version: 6+
+  description:
+  url:
+- id: aws
+  name: Amazon Web Services
+  version:
+  description:
+  url:
+- id: docker
+  name: Docker
+  version:
+  description:
+  url:
