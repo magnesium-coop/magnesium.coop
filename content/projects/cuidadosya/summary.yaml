@@ -1,0 +1,24 @@
+- elementname: Iron
+- name: CuidadosYa
+- shortdescription: Aplicación para la contratación a demanda de servicios de cuidados durante internación.
+- startdate: Diciembre 2018
+- duration: 6 meses
+- totalbudget: USD 9000
+- managers:
+    - cristian:
+        authorid: 2
+- client: Giroplus S.A.
+- clientcontact:
+    - contact1:
+        name:
+        position:
+        phone:
+        email:
+- satisfactionletter: NO
+- technologies:
+    - tech1:
+        technologyid: 1
+    - tech2:
+        technologyid: 2
+- image:
+- link:
