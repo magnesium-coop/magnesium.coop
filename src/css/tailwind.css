@@ -53,7 +53,8 @@
 @tailwind utilities;
 
 h1 {
-    @apply text-2xl;
+    @apply text-4xl;
+    @apply font-mgblack;
 }
 
 h2 {
@@ -69,7 +70,7 @@ a {
 }
 
 p {
-    @apply mt-6;
+    @apply mt-3;
 }
 
 strong {
@@ -118,6 +119,8 @@ ul, ol {
     @apply rounded-tr-full;
     @apply rounded-br-full;
 }
+
+
 
 /*
 Indicadores abajo
