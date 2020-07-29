@@ -1,14 +1,16 @@
 ---
-title: Iron
+title: Sulfur
 author: raul
-elementname: Iron
-name: CuidadosYa
-description: Aplicación para la contratación a demanda de servicios de cuidados durante internación.
-startdate: Diciembre 2018
-duration: 6 meses
-totalbudget: USD 9000
-manager: cbauza
-client: Giroplus S.A.
+elementname: Sulfur
+name: Gestión de Horas
+description: Sistema de gestión de horas de funcionarios mediante el registro de las horas trabajadas.
+startdate: Octubre 2017
+duration: 7 meses
+totalbudget: USD 1500
+manager: 
+    - cbauza
+    - rsperoni
+client: MarQ
 clientcontact:
     - contact1:
         name:

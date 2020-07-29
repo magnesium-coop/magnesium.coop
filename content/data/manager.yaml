@@ -8,3 +8,23 @@
   name: Pablo Olivera
   twitter: polivera
   bio: I am Manager
+- id: mberguer
+  email: mberguer@magnesium.coop
+  name: Martin Berguer
+  twitter:
+  bio: I am Manager
+- id: rsperoni
+  email: rsperoni@magnesium.coop
+  name: Raul Speroni
+  twitter:
+  bio: I am Manager
+- id: gjaviel
+  email: gjaviel@magnesium.coop
+  name: Gonzalo Javiel
+  twitter:
+  bio: I am Manager
+- id: msteglich
+  email: msteglich@magnesium.coop
+  name: Martín Steglich
+  twitter:
+  bio: I am Manager
