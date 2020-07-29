@@ -7,6 +7,7 @@ import ReactFullpage from "@fullpage/react-fullpage"
 import AboutPage from "../components/about"
 import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
+import ProjectsPage from "../components/projects"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
@@ -37,6 +38,14 @@ const BlogIndex = ({ data }) => {
       anchor: "blog",
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
+      titleColor: "text-naranja",
+      slides: []
+    },
+    {
+      title: "Proyectos",
+      anchor: "projects",
+      backgroundColor: "bg-blanco",
+      textColor: "text-negro",
       titleColor: "text-naranja",
       slides: []
     }
@@ -195,6 +204,7 @@ const BlogIndex = ({ data }) => {
               <IntroPage pages={fullpages} currentPage={currentPage} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1" fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentPage} pagePos="2" fullPageApi={fullpageApi}/>
+              <ProjectsPage pages={fullpages} currentPage={currentPage} pagePos="3" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}

@@ -14,7 +14,7 @@ const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textC
 
   return (
     <Layout anchor={anchor}>
-      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={"Blog"}>
+      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={"Projects"}>
         <h1 className={titleColor}>{title}</h1>
         {projects.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
