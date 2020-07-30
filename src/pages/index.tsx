@@ -143,10 +143,40 @@ const BlogIndex = ({ data }) => {
 
   }
 
+  function getProjects() {
+    initialFullPages[3]["slides"] = []
+    //First
+    initialFullPages[3]["slides"].push({
+      anchor: "projects",
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja",
+      title: "Proyectos"
+    })
+    //Rest
+    data.projects.edges.map(({ node }) => {
+      initialFullPages[2]["slides"].push({
+        slug: node.fields.slug,
+        description: node.frontmatter.description,
+        excerpt: node.excerpt,
+        date: node.frontmatter.date,
+        html: node.html,
+        backgroundColor: "bg-blanco",
+        textColor: "text-negro",
+        titleColor: "text-naranja",
+        title: node.frontmatter.title,
+        author: node.frontmatter.author
+      })
+    })
+
+  }
+
+
 
   getQueHacemosSlides()
   getNosotrosSlides()
   getBlogPosts()
+  getProjects()
 
 
   const [fullpages] = useState(initialFullPages)
@@ -287,6 +317,66 @@ export const pageQuery = graphql`
                 }
               }
              }
+          }
+        }
+      }
+    }
+  
+  projects:allMarkdownRemark(
+    sort: {fields: [frontmatter___date], order: DESC}
+    filter: {fileAbsolutePath: {regex: "/(projects)/.*\\\\.md$/"}}
+    limit: 1000
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          id
+          fields {
+            slug
+          }
+          frontmatter {          
+            title
+            author {
+              id
+              bio
+              name
+              twitter
+              profilepicture {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            elementname
+            name          
+            description
+            startdate
+            duration
+            totalbudget
+            client
+            satisfactionletter
+            technologies{
+              technology {
+                id
+                name
+                version
+                description
+                url
+              }
+            }
+            image
+            link          
+            managers {
+              manager{
+                id
+                email
+                name
+                twitter
+              }
+            }
           }
         }
       }
