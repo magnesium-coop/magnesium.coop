@@ -1,8 +1,8 @@
 - id: java
   name: Java EE
   version: 8+
-  description:
-  url:
+  description: java language
+  url: java.com
 - id: angular
   name: Angular
   version: 6+
@@ -11,15 +11,15 @@
 - id: postgres
   name: PostgreSQL
   version: 6+
-  description:
+  description: postgres DBMS
   url:
 - id: aws
   name: Amazon Web Services
   version:
-  description:
+  description: Amazon Cloud
   url:
 - id: docker
   name: Docker
   version:
-  description:
+  description: Docker Container
   url:

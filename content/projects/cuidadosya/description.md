@@ -8,6 +8,9 @@ startdate: Diciembre 2018
 duration: 6 meses
 totalbudget: USD 9000
 manager: cbauza
+managers:
+    - manager: cbauza
+    - manager: rsperoni
 client: Giroplus S.A.
 clientcontact:
     - contact1:
@@ -17,12 +20,10 @@ clientcontact:
         email:
 satisfactionletter: NO
 technologies:
-    - tech1:
-        technologyid: java
-    - tech2:
-        technologyid: angular
-image:
-link:
+    - technology: java
+    - technology: angular
+image: test.png
+link: example.net
 ---
 
 El proyecto consistió en el desarrollo de una aplicación móvil multiplataforma cuyo objetivo fundamental es el de la contratación a demanda de servicios de cuidados durante la internación hospitalaria.
