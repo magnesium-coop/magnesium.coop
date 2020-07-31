@@ -1,106 +1,114 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-
 import Layout from "./layout"
 import Slide from "./slide"
+import Bio from "./bio"
 
 function removeSlash(text) {
   return text.replace(/\//g, "")
 }
 
-const ProjectsPage = ({ data, fullPageApi, anchor, title, backgroundColor, textColor, titleColor }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const projects = data.allMarkdownRemark.edges
+const ProjectsPage = (props) => {
+  const slides = props.pages[props.pagePos].slides
+  const anchor = props.pages[props.pagePos].anchor
+
+  // console.log("slides", slides )
 
   return (
-    <Layout anchor={anchor}>
-      <Slide backgroundColor={backgroundColor} textColor={textColor} seoTitle={siteTitle} seoDescription={"Projects"}>
-        <h1 className={titleColor}>{title}</h1>
-        {projects.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={"#" + anchor + node.fields.slug}>
-              <header>
-                <h3>
-                  <a href={"#" + anchor + node.fields.slug} className={textColor}
-                     onClick={() => fullPageApi.silentMoveTo(anchor, removeSlash(node.fields.slug))}>{title}</a>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt
-                  }}
-                />
-              </section>
-            </article>
-          )
+    <Layout anchor={anchor} backgroundColor={props.currentPage.backgroundColor}>
+      <Slide
+        backgroundColor={slides[0].backgroundColor}
+        textColor={slides[0].textColor}>
+        <h1 className={slides[0].titleColor}>
+          {slides[0].title}
+        </h1>
+        {slides.map((slide, index) => {
+          if (index !== 0) {
+            return (
+              <article key={"#" + anchor + slide.slug}>
+                <header>
+                  <h3>
+                    <a href={"#" + anchor + slide.slug} className={slides[0].textColor}
+                       onClick={() => props.fullPageApi.moveTo(anchor, removeSlash(slide.slug))}>{slide.title}</a>
+                  </h3>
+                  <small>{slide.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: slide.description || slide.excerpt
+                    }}
+                  />
+                </section>
+              </article>
+            )
+          }
         })}
       </Slide>
-      {projects.map(({ node }) => {
-        return (
-          <div key={removeSlash(node.fields.slug)}>
-            <Slide
-              backgroundColor={backgroundColor}
-              textColor={textColor}
-              titleColor={titleColor}
-              slideAnchor={removeSlash(node.fields.slug)}
-              seoTitle={node.frontmatter.title}
-              seoDescription={node.frontmatter.description || node.excerpt}>
-              <article>
-                <header>
-                  <h1 className={"font-mgblack " + titleColor}>
-                    {node.frontmatter.title}
-                  </h1>
-                  <p
-                    style={{
-                      display: `block`
-                    }}
-                  >
-                    {node.frontmatter.date}
-                  </p>
-                </header>
-                <section dangerouslySetInnerHTML={{ __html: node.html }}/>
+      {slides.map((slide, index) => {
+        const author = slide.author
+        if (index !== 0) {
+          return (
+            <div key={removeSlash(slide.slug)}>
+              <Slide
+                backgroundColor={slide.backgroundColor}
+                textColor={slide.textColor}
+                titleColor={slide.titleColor}
+                slideAnchor={removeSlash(slide.slug)}
+                seoTitle={slide.title}
+                seoDescription={slide.description}>
+                <article>
+                  <header>
+                    <h1 className={"font-mgblack " + slide.titleColor}>
+                      [{slide.title}] - {slide.name}
+                    </h1>
+                    <p
+                      style={{
+                        display: `block`
+                      }}
+                    >
+                      {slide.date}
+                    </p>
+                  </header>
 
-              </article>
-            </Slide>
-          </div>
-        )
+                  <span className={"font-mgblack " + slide.titleColor}>
+                    Description
+                  </span>
+                  <section dangerouslySetInnerHTML={{ __html: slide.html }}/>
+
+                  <span className={"font-mgblack " + slide.titleColor}>
+                    Data
+                  </span>
+                  <section>
+                    <ul>
+
+                    <li> startdate: { slide.startdate }</li>
+                    <li> duration: { slide.duration }</li>
+                    <li> totalbudget: { slide.totalbudget }</li>
+                    <li> client: { slide.client }</li>
+                    <li> satisfactionletter: { slide.satisfactionletter }</li>
+                    <li> technologies: { slide.technologies.map((tecno, index) => {
+                      let tec = tecno.technology;
+                      return tec.name + " (" + tec.version + ")"
+                    }).join(", ") }</li>
+                    {/*<li> image: { slide.image }</li>*/}
+                    <li> link: { slide.link }</li>
+                    <li> managers: { slide.managers .map((mana, index) => {
+                      let man = mana.manager;
+                      return man.name + " (" + man.email + ")"
+                    }).join(", ") }</li>
+                    </ul>
+                  </section>
+                  <footer>
+                    <Bio author={author}/>
+                  </footer>
+                </article>
+              </Slide>
+            </div>
+          )
+        }
       })}
     </Layout>
   )
 }
 
-export default props => (
-  <StaticQuery query={pageQuery}
-               render={data => <ProjectsPage data={data} {...props}/>}
-  />
-)
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(
-    sort: { fields: [frontmatter___date], order: DESC }
-    filter: {fileAbsolutePath: {regex: "/(projects)/.*\\\\.md$/"}}
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
-  }
-`
+export default ProjectsPage;

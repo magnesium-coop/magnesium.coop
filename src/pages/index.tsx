@@ -155,17 +155,28 @@ const BlogIndex = ({ data }) => {
     })
     //Rest
     data.projects.edges.map(({ node }) => {
-      initialFullPages[2]["slides"].push({
-        slug: node.fields.slug,
-        description: node.frontmatter.description,
+      initialFullPages[3]["slides"].push({
         excerpt: node.excerpt,
-        date: node.frontmatter.date,
         html: node.html,
+        id: node.id,
+        slug: node.fields.slug,
+        title: node.frontmatter.title,
+        author: node.frontmatter.author,
+        elementname: node.frontmatter.elementname,
+        name: node.frontmatter.name,
+        description: node.frontmatter.description,
+        startdate: node.frontmatter.startdate,
+        duration: node.frontmatter.duration,
+        totalbudget: node.frontmatter.totalbudget,
+        client: node.frontmatter.client,
+        satisfactionletter: node.frontmatter.satisfactionletter,
+        technologies: node.frontmatter.technologies || [],
+        image: node.frontmatter.image,
+        link: node.frontmatter.link,
+        managers: node.frontmatter.managers || [],
         backgroundColor: "bg-blanco",
         textColor: "text-negro",
-        titleColor: "text-naranja",
-        title: node.frontmatter.title,
-        author: node.frontmatter.author
+        titleColor: "text-naranja"
       })
     })
 
