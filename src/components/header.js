@@ -35,8 +35,8 @@ const Header = ({ pages, backgroundColor, textColor }) => {
 
     <header className={"fixed top-0 w-full z-40 font-mgbook text-l h-20 md:h-32 lg:h-40 "} id="header-principal">
       <nav
-        className={"flex items-center justify-between flex-wrap pl-10 pt-8 pr-10 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
-        <div className="flex items-center flex-shrink-0">
+        className={"flex flex-col pl-10 pt-8 pr-10 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
+        <div className="flex items-center pl-3">
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-48")}</a>
         </div>
         <div className="block lg:hidden">
@@ -48,8 +48,8 @@ const Header = ({ pages, backgroundColor, textColor }) => {
             </svg>
           </button>
         </div>
-        <div className={`${isExpanded ? `block` : `hidden`} w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
-          <ul id="menu-principal" className="flex flex-col lg:flex-col list-none text-right ml-auto">
+        <div className={`${isExpanded ? `block` : `hidden`}  lg:flex mt-5 text-sm`}>
+          <ul id="menu-principal" className="flex flex-col lg:flex-col list-none pl-0">
 
             {
               pages.map(({ anchor, title }) => (
