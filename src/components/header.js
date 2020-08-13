@@ -23,10 +23,10 @@ const Header = ({ pages, backgroundColor, textColor }) => {
   function getMenuItem(anchor, title) {
     return (
       <li key={"menu-" + anchor} className="nav-item" data-menuanchor={anchor}>
-        <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 " + textColor}
-           href={"#" + anchor}>
-          {title}
-        </a>
+          <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 " + textColor}
+             href={"#" + anchor}>
+            {title}
+          </a>
       </li>
     )
   }
@@ -34,7 +34,8 @@ const Header = ({ pages, backgroundColor, textColor }) => {
   return (
 
     <header className={"fixed top-0 w-full z-40 font-mgbook text-l h-20 md:h-32 lg:h-40 "} id="header-principal">
-      <nav className={"flex items-center justify-between flex-wrap pl-10 pt-8 pr-10 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
+      <nav
+        className={"flex items-center justify-between flex-wrap pl-10 pt-8 pr-10 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
         <div className="flex items-center flex-shrink-0">
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-48")}</a>
         </div>
@@ -48,7 +49,7 @@ const Header = ({ pages, backgroundColor, textColor }) => {
           </button>
         </div>
         <div className={`${isExpanded ? `block` : `hidden`} w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
-          <ul id="menu-principal" className="flex flex-col lg:flex-row list-none ml-auto">
+          <ul id="menu-principal" className="flex flex-col lg:flex-col list-none text-right ml-auto">
 
             {
               pages.map(({ anchor, title }) => (

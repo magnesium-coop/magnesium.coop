@@ -94,10 +94,15 @@ ul, ol {
 
 }
 
-#menu-principal li.active {
+
+#menu-principal li.active a:before{
     @apply border-naranja;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
+    color: transparent;
+    position: absolute;
+    content: "|";
+    border-left-style: solid;
+    border-left-width: medium;
+    @apply -ml-3;
 }
 
 .customArrow {
