@@ -22,8 +22,8 @@ const Header = ({ pages, backgroundColor, textColor }) => {
 
   function getMenuItem(anchor, title) {
     return (
-      <li key={"menu-" + anchor} className="nav-item" data-menuanchor={anchor}>
-          <a className={"px-3 py-2 flex items-center no-underline leading-snug  hover:opacity-75 " + textColor}
+      <li key={"menu-" + anchor} className="nav-item flex justify-end lg:justify-start" data-menuanchor={anchor}>
+          <a className={"self-end lg:px-3 py-1 lg:py-2 no-underline leading-snug  hover:opacity-75 " + textColor}
              href={"#" + anchor}>
             {title}
           </a>
@@ -32,31 +32,19 @@ const Header = ({ pages, backgroundColor, textColor }) => {
   }
 
   return (
-
-    <header className={"fixed top-0 w-full z-40 font-mgbook text-l h-20 md:h-32 lg:h-40 "} id="header-principal">
+    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l h-32 md:h-36 lg:h-40 "} id="header-principal">
       <nav
-        className={"flex flex-col pl-10 pt-8 pr-10 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
-        <div className="flex items-center pl-3">
-          <a href={"#" + pages[0].anchor}>{getImg("fill-current w-48")}</a>
+        className={"w-full flex justify-between lg:flex-col px-5 py-4 md:pl-16 md:pt-10 md:pr-16 lg:pr-20 lg:pl-20 lg:pt-12"}>
+        <div className="flex items-center lg:pl-3">
+          <a href={"#" + pages[0].anchor}>{getImg("fill-current w-40 lg:w-48")}</a>
         </div>
-        <div className="block lg:hidden">
-          <button onClick={() => toggleExpansion(!isExpanded)}
-                  className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-            </svg>
-          </button>
-        </div>
-        <div className={`${isExpanded ? `block` : `hidden`}  lg:flex mt-5 text-sm`}>
-          <ul id="menu-principal" className="flex flex-col lg:flex-col list-none pl-0">
-
+        <div className="lg:flex lg:mt-5 text-xs lg:text-sm">
+          <ul id="menu-principal" className="flex flex-col list-none pl-0">
             {
               pages.map(({ anchor, title }) => (
                 getMenuItem(anchor, title)
               ))
             }
-
           </ul>
           <div>
           </div>
