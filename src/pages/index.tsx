@@ -9,6 +9,7 @@ import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ProjectsPage from "../components/projects"
 
 const BlogIndex = ({ data }) => {
 
@@ -35,6 +36,14 @@ const BlogIndex = ({ data }) => {
     {
       title: "Blog",
       anchor: "blog",
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja",
+      slides: []
+    },
+    {
+      title: "Proyectos",
+      anchor: "proyectos",
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",

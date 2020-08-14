@@ -95,14 +95,45 @@ ul, ol {
 }
 
 
-#menu-principal li.active a:before{
+
+#menu-principal li.active a:after {
     @apply border-naranja;
     color: transparent;
     position: absolute;
     content: "|";
     border-left-style: solid;
     border-left-width: medium;
-    @apply -ml-3;
+}
+
+
+@screen md {
+    #menu-principal li.active a:after {
+        content: "";
+    }
+    #menu-principal li.active a:before {
+        @apply border-naranja;
+        color: transparent;
+        position: absolute;
+        content: "|";
+        border-left-style: solid;
+        border-left-width: medium;
+        @apply -ml-3;
+    }
+}
+
+@screen lg {
+    #menu-principal li.active a:after {
+        content: "";
+    }
+    #menu-principal li.active a:before {
+        @apply border-naranja;
+        color: transparent;
+        position: absolute;
+        content: "|";
+        border-left-style: solid;
+        border-left-width: medium;
+        @apply -ml-3;
+    }
 }
 
 .customArrow {
@@ -126,11 +157,9 @@ ul, ol {
 }
 
 
-
 /*
 Indicadores abajo
 */
-
 
 
 .fp-slidesNav.fp-bottom {
