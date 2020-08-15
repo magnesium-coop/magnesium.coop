@@ -178,7 +178,7 @@ const BlogIndex = ({ data }) => {
         menu='#menu-principal'
         animateAnchor={false}
         loopHorizontal={false}
-        scrollOverflow={true}
+        scrollOverflow={false}
         recordHistory={true}
         navigation={false}
         controlArrows={false}
@@ -186,6 +186,7 @@ const BlogIndex = ({ data }) => {
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
         verticalCentered={false}
+        normalScrollElements={".scrollable-content"}
         //afterLoad={afterLoadPage.bind(this)}
         //afterSlideLoad={onSlideLoad.bind(this)}
         //fixedElements={"#header-principal"}

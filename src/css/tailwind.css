@@ -94,6 +94,12 @@ ul, ol {
 
 }
 
+.scrollable-content{
+    overflow: scroll;
+    @apply w-auto;
+    @apply h-full;
+}
+
 #menu-secundario li.active {
     position: relative;
 }
