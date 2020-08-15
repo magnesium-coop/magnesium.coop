@@ -23,7 +23,7 @@ const Header = ({ pages, backgroundColor, textColor }) => {
   function getMenuItem(anchor, title) {
     return (
       <li key={"menu-" + anchor} className="nav-item flex justify-end lg:justify-start" data-menuanchor={anchor}>
-          <a className={"self-end lg:px-3 py-1 no-underline leading-snug  hover:opacity-75 " + textColor}
+          <a className={"self-end lg:px-3 pb-1 no-underline leading-snug  hover:opacity-75 " + textColor}
              href={"#" + anchor}>
             {title}
           </a>

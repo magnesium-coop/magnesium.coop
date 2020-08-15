@@ -20,7 +20,7 @@ const AboutPage = (props) => {
           <div>
             <div className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl "+slides[0].titleColor}>{slides[0].title}</div>
             <div
-              className="text-justify text-lg md:text-xl lg:text-2xl"
+              className="md:text-xl lg:text-2xl"
               dangerouslySetInnerHTML={{ __html: slides[0].html }}
             />
           </div>
