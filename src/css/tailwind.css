@@ -95,7 +95,7 @@ ul, ol {
 }
 
 .scrollable-content{
-    overflow: scroll;
+    @apply overflow-y-auto;
     @apply w-auto;
     @apply h-full;
 }

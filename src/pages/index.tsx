@@ -3,6 +3,8 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import ReactFullpage from "@fullpage/react-fullpage"
+import 'fullpage.js/vendors/scrolloverflow'; // Optional. When using scrollOverflow:true
+
 
 import AboutPage from "../components/about"
 import IntroPage from "../components/intro"
@@ -178,7 +180,8 @@ const BlogIndex = ({ data }) => {
         menu='#menu-principal'
         animateAnchor={false}
         loopHorizontal={false}
-        scrollOverflow={false}
+        scrollOverflow={true}
+        scrollOverflowReset={true}
         recordHistory={true}
         navigation={false}
         controlArrows={false}
@@ -186,7 +189,7 @@ const BlogIndex = ({ data }) => {
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
         verticalCentered={false}
-        normalScrollElements={".scrollable-content"}
+        //normalScrollElements={".scrollable-content"}
         //afterLoad={afterLoadPage.bind(this)}
         //afterSlideLoad={onSlideLoad.bind(this)}
         //fixedElements={"#header-principal"}
