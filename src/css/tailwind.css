@@ -103,22 +103,11 @@ ul, ol {
     content: "|";
     border-left-style: solid;
     border-left-width: medium;
+    @apply ml-1;
 }
 
-
-@screen md {
-    #menu-principal li.active a:after {
-        content: "";
-    }
-    #menu-principal li.active a:before {
-        @apply border-naranja;
-        color: transparent;
-        position: absolute;
-        content: "|";
-        border-left-style: solid;
-        border-left-width: medium;
-        @apply -ml-3;
-    }
+#menu-principal li.active a:before {
+    content: "";
 }
 
 @screen lg {
@@ -135,6 +124,22 @@ ul, ol {
         @apply -ml-3;
     }
 }
+
+/*@screen lg {
+    #menu-principal li.active a:after {
+        content: "";
+
+    }
+    #menu-principal li.active a:before {
+        @apply border-naranja;
+        color: transparent;
+        position: absolute;
+        content: "|";
+        border-left-style: solid;
+        border-left-width: medium;
+        @apply -ml-3;
+    }
+}*/
 
 .customArrow {
     @apply absolute;

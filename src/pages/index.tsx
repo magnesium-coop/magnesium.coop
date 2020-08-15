@@ -208,7 +208,7 @@ const BlogIndex = ({ data }) => {
           )
         }}
       />
-      <Footer/>
+      {/*<Footer/>*/}
     </div>
 
   )
