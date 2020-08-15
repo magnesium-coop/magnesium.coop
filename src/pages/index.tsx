@@ -10,7 +10,7 @@ import BlogPage from "../components/blog"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import ProjectsPage from "../components/projects"
-
+import SecondMenu from "../components/secondMenu"
 const BlogIndex = ({ data }) => {
 
   /**
@@ -66,7 +66,7 @@ const BlogIndex = ({ data }) => {
         backgroundColor: initialFullPages[0].backgroundColor,
         textColor: initialFullPages[0].textColor,
         titleColor: initialFullPages[0].titleColor,
-        title: initialFullPages[0].title
+        title: node.frontmatter.title
       })
     })
 
@@ -137,7 +137,8 @@ const BlogIndex = ({ data }) => {
         textColor: "text-negro",
         titleColor: "text-naranja",
         title: node.frontmatter.title,
-        author: node.frontmatter.author
+        author: node.frontmatter.author,
+        anchor: "blog" + node.fields.slug,
       })
     })
 
@@ -152,35 +153,25 @@ const BlogIndex = ({ data }) => {
   const [fullpages] = useState(initialFullPages)
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
+  const [currentSlide, setCurrentSlide] = useState(fullpages[0])
 
-  /*function onSlideLoad(section, origin, destination, direction) {
-    setCurrentPage(fullpages[section.index].slides[destination.index])
-    console.debug('OnSlideLoad ',{section, origin,destination,direction})
-  }*/
 
   function onLeavePage(origin, destination, direction) {
-    setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
-
-    //console.debug('OnLeavePage ',{origin,destination,direction})
+    setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
+    setCurrentPage(fullpages[destination.index])
   }
 
- /* function afterLoadPage(origin, destination, direction) {
-    setCurrentPage(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
-
-
-  }*/
-
   function onLeaveSlide(section, origin, destination, direction) {
-    setCurrentPage(fullpages[section.index].slides[destination.index])
+    setCurrentSlide(fullpages[section.index].slides[destination.index])
+    setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
-    //console.debug('OnLeaveSlide ',{section, origin,destination,direction})
   }
 
   return (
     <div>
-      <Header pages={fullpages} backgroundColor={currentPage.backgroundColor}
-              textColor={currentPage.textColor}/>
+      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor}
+              textColor={currentSlide.textColor}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
@@ -189,9 +180,9 @@ const BlogIndex = ({ data }) => {
         loopHorizontal={false}
         scrollOverflow={true}
         recordHistory={true}
-        navigation={true}
+        navigation={false}
         controlArrows={false}
-        slidesNavigation={true}
+        slidesNavigation={false}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
         verticalCentered={false}
@@ -201,14 +192,15 @@ const BlogIndex = ({ data }) => {
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <IntroPage pages={fullpages} currentPage={currentPage} pagePos="0" fullPageApi={fullpageApi}/>
-              <AboutPage pages={fullpages} currentPage={currentPage} pagePos="1" fullPageApi={fullpageApi}/>
-              <BlogPage pages={fullpages} currentPage={currentPage} pagePos="2" fullPageApi={fullpageApi}/>
+              <IntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <AboutPage pages={fullpages} currentPage={currentSlide} pagePos="1" fullPageApi={fullpageApi}/>
+              <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}
       />
       {/*<Footer/>*/}
+      <SecondMenu currentPage={currentPage} currentSlide={currentSlide}/>
     </div>
 
   )
