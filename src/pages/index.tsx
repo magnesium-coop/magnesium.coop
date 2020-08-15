@@ -2,17 +2,16 @@
 // @ts-ignore
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+
 import ReactFullpage from "@fullpage/react-fullpage"
-import 'fullpage.js/vendors/scrolloverflow'; // Optional. When using scrollOverflow:true
 
 
 import AboutPage from "../components/about"
 import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
 import Header from "../components/header"
-import Footer from "../components/footer"
-import ProjectsPage from "../components/projects"
 import SecondMenu from "../components/secondMenu"
+
 const BlogIndex = ({ data }) => {
 
   /**
@@ -140,7 +139,7 @@ const BlogIndex = ({ data }) => {
         titleColor: "text-naranja",
         title: node.frontmatter.title,
         author: node.frontmatter.author,
-        anchor: "blog" + node.fields.slug,
+        anchor: "blog" + node.fields.slug
       })
     })
 
