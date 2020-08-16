@@ -7,7 +7,7 @@
 
 import React from "react"
 
-const SecondMenu = ({ currentPage, currentSlide }) => {
+const SecondMenu = ({ currentPage, currentSlide, colors }) => {
 
 
   function getMenuItem(anchor, title) {
@@ -17,7 +17,7 @@ const SecondMenu = ({ currentPage, currentSlide }) => {
         <li key={"menu-" + anchor} className={"nav-item flex " + classActive}
             data-menuanchor={anchor}>
           <a
-            className={"self-end lg:px-3 py-1 no-underline leading-snug uppercase hover:opacity-75 " + currentSlide.textColor}
+            className={"self-end lg:px-3 py-1 no-underline leading-snug uppercase hover:opacity-75 " + colors.textColor}
             href={"#" + anchor}>
             {title}
           </a>
@@ -29,7 +29,7 @@ const SecondMenu = ({ currentPage, currentSlide }) => {
   }
 
   return (
-    <footer className={"fixed bottom-0 z-40 w-screen font-mgbook"} id="menu-secundario">
+    <footer className={"fixed bottom-0 z-40 w-screen font-mgbook "+colors.backgroundColor} id="menu-secundario">
       <nav className={"w-auto flex px-5 py-4"}>
         <ul id="ul-menu-secundario" className="w-full md:w-50 flex text-xs list-none justify-around md:justify-start pl-0">
           {

@@ -100,6 +100,16 @@ ul, ol {
     @apply h-full;
 }
 
+.iScrollVerticalScrollbar {
+    right: 2% !important;
+}
+
+.iScrollIndicator {
+    border: 0!important;
+    width: 60% !important;
+    @apply bg-naranja !important;
+}
+
 #menu-secundario li.active {
     position: relative;
 }

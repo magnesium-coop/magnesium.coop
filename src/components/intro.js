@@ -15,7 +15,7 @@ const IntroPage = (props) => {
 
   function getFirstSlide(slide) {
     return (
-      <div key={"slide-" + slide.order} className="h-full">
+      <div key={"slide-" + slide.order}>
         <Slide backgroundColor={slide.backgroundColor}
                textColor={slide.textColor}
                seoTitle={slide.title}

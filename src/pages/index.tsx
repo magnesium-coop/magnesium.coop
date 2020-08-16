@@ -150,16 +150,38 @@ const BlogIndex = ({ data }) => {
   getNosotrosSlides()
   getBlogPosts()
 
+  const transparentColors = {
+    textColor: "text-transparent",
+    titleColor: "text-transparent",
+    backgroundColor: "bg-transparent"
+  }
 
   const [fullpages] = useState(initialFullPages)
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
+  const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
+  function onAfterLoad (origin, destination, direction){
+    setFloatingComponentsColors({
+      backgroundColor: currentSlide.backgroundColor,
+      textColor: currentSlide.textColor,
+      titleColor: currentSlide.titleColor
+    })
+  }
 
   function onLeavePage(origin, destination, direction) {
     setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     setCurrentPage(fullpages[destination.index])
+    setFloatingComponentsColors(transparentColors)
+  }
+
+  function onAfterSlideLoad (section, origin, destination, direction) {
+    setFloatingComponentsColors({
+      backgroundColor: currentSlide.backgroundColor,
+      textColor: currentSlide.textColor,
+      titleColor: currentSlide.titleColor
+    })
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
@@ -167,6 +189,7 @@ const BlogIndex = ({ data }) => {
     setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
+    setFloatingComponentsColors(transparentColors)
   }
 
   return (
@@ -187,10 +210,11 @@ const BlogIndex = ({ data }) => {
         slidesNavigation={false}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
+
         verticalCentered={false}
         //normalScrollElements={".scrollable-content"}
-        //afterLoad={afterLoadPage.bind(this)}
-        //afterSlideLoad={onSlideLoad.bind(this)}
+        afterLoad={onAfterLoad.bind(this)}
+        afterSlideLoad={onAfterSlideLoad.bind(this)}
         //fixedElements={"#header-principal"}
         render={({ fullpageApi }) => {
           return (
@@ -202,7 +226,7 @@ const BlogIndex = ({ data }) => {
           )
         }}
       />
-      <SecondMenu currentPage={currentPage} currentSlide={currentSlide}/>
+      <SecondMenu currentPage={currentPage} currentSlide={currentSlide} colors={floatingComponentsColors}/>
 
       {/*<Footer/>*/}
     </div>
