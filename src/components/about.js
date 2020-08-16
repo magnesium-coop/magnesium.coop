@@ -5,7 +5,7 @@ import Slide from "./slide"
 import Bio from "./bio"
 import ArrowNext from "./arrowNext"
 import ArrowPrev from "./arrowPrev"
-
+import SecondMenu from "./secondMenu"
 const AboutPage = (props) => {
 
   const slides = props.pages[props.pagePos].slides
@@ -48,6 +48,8 @@ const AboutPage = (props) => {
         {slides[2].autores.map((author) => (
           <Bio author={author} key={author.id}/>
         ))}
+
+
       </Slide>
 
       <ArrowNext arrow={props.currentPage.next} fullPageApi={props.fullPageApi}

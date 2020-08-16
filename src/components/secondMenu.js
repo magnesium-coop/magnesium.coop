@@ -30,7 +30,7 @@ const SecondMenu = ({ currentPage, currentSlide }) => {
 
   return (
     <footer className={"fixed bottom-0 z-40 w-screen font-mgbook"} id="menu-secundario">
-      <nav className={"w-auto flex  px-5 py-4"}>
+      <nav className={"w-auto flex px-5 py-4"}>
         <ul id="ul-menu-secundario" className="w-full md:w-50 flex text-xs list-none justify-around md:justify-start pl-0">
           {
             currentPage.slides.map(({ anchor, title }) => (

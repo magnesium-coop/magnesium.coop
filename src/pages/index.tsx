@@ -170,7 +170,7 @@ const BlogIndex = ({ data }) => {
   }
 
   return (
-    <div>
+    <div className={currentSlide.backgroundColor+" ease-linear"}>
       <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor}
               textColor={currentSlide.textColor}/>
       <ReactFullpage
@@ -196,14 +196,15 @@ const BlogIndex = ({ data }) => {
           return (
             <ReactFullpage.Wrapper>
               <IntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
-              <AboutPage pages={fullpages} currentPage={currentSlide} pagePos="1" fullPageApi={fullpageApi}/>
+              <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1" fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}
       />
-      {/*<Footer/>*/}
       <SecondMenu currentPage={currentPage} currentSlide={currentSlide}/>
+
+      {/*<Footer/>*/}
     </div>
 
   )
