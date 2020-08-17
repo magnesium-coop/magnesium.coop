@@ -10,21 +10,19 @@ const AboutPage = (props) => {
 
   const slides = props.pages[props.pagePos].slides
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
+    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentSlide.backgroundColor}>
       <Slide backgroundColor={slides[0].backgroundColor}
              textColor={slides[0].textColor}
              slideAnchor={slides[0].anchor}
              nextSlide={slides[1]}>
-        <div className="flex">
-          <div className="w-0 md:w-1/6 lg:w-1/3"/>
-          <div>
-            <div className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl "+slides[0].titleColor}>{slides[0].title}</div>
+        <div className="flex justify-around">
+          <div className="lg:w-1/2 lg:px-10">
+            <div className={"text-justify font-mgblack text-2xl mg:text-3xl lg:text-4xl "+slides[0].titleColor}>{slides[0].title}</div>
             <div
-              className="md:text-xl lg:text-2xl"
+              className="mt-10 text-justify lg:text-base"
               dangerouslySetInnerHTML={{ __html: slides[0].html }}
             />
           </div>
-          <div className="w-0 md:w-1/6 lg:w-1/3"/>
 
         </div>
 
@@ -52,9 +50,9 @@ const AboutPage = (props) => {
 
       </Slide>
 
-      <ArrowNext arrow={props.currentPage.next} fullPageApi={props.fullPageApi}
+      <ArrowNext arrow={props.currentSlide.next} fullPageApi={props.fullPageApi}
                  anchor={props.pages[props.pagePos].anchor}/>
-      <ArrowPrev arrow={props.currentPage.prev} fullPageApi={props.fullPageApi}
+      <ArrowPrev arrow={props.currentSlide.prev} fullPageApi={props.fullPageApi}
                  anchor={props.pages[props.pagePos].anchor}/>
     </Layout>
   )
