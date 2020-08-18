@@ -186,10 +186,30 @@ ul, ol {
     right: 0;
 }
 
+.arrowText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+}
+
+.rotateArrowTextNext {
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+.rotateArrowTextPrev {
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
 .customArrowPrev {
     @apply rounded-tr-full;
     @apply rounded-br-full;
 }
+
 
 
 /*

@@ -94,7 +94,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
-      title: "El Equipo",
+      title: "Equipo",
       autores: authors,
       prev: initialFullPages[1]["slides"][0],
       next: null

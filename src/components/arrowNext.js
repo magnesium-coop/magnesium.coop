@@ -13,10 +13,13 @@ const ArrowNext = ({ arrow, anchor, fullPageApi }) => {
              e.preventDefault()
              fullPageApi.moveTo(anchor, arrow.anchor)
            }}>
-          <div className="flex justify-center">
-            <span className={"ml-3"}><IoIosArrowForward/></span>
-            <div className="text-lg whitespace-no-wrap uppercase transform -rotate-90 -ml-5">
-              <span className={arrow.titleColor}>{arrow.title}</span>
+          <div className="flex justify-center items-center">
+            <span><IoIosArrowForward/></span>
+            <div>
+              <div className="relative h-20 w-10 min-w-full">
+                <span
+                  className={"arrowText rotateArrowTextNext text-sm whitespace-no-wrap uppercase " + arrow.titleColor}>{arrow.title}</span>
+              </div>
             </div>
           </div>
         </a>
