@@ -24,6 +24,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       slides: []
     },
     {
@@ -32,6 +33,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-blanco",
       textColor: "text-negro",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       slides: []
     },
     {
@@ -40,6 +42,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       slides: []
     },
     {
@@ -48,6 +51,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       slides: []
     }
   ]
@@ -67,6 +71,7 @@ const BlogIndex = ({ data }) => {
         backgroundColor: initialFullPages[0].backgroundColor,
         textColor: initialFullPages[0].textColor,
         titleColor: initialFullPages[0].titleColor,
+        borderColor: initialFullPages[0].borderColor,
         title: node.frontmatter.title
       })
     })
@@ -85,6 +90,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: initialFullPages[1].backgroundColor,
       textColor: initialFullPages[1].textColor,
       titleColor: initialFullPages[1].titleColor,
+      borderColor: initialFullPages[1].borderColor,
       title: quienesSomos.frontmatter.title,
       next: null
     })
@@ -94,6 +100,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       title: "Equipo",
       autores: authors,
       prev: initialFullPages[1]["slides"][0],
@@ -105,6 +112,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-naranja",
       textColor: "text-blanco",
       titleColor: "text-negro",
+      borderColor: "border-negro",
       title: "Colaboradores",
       autores: authors,
       prev: initialFullPages[1]["slides"][1]
@@ -124,6 +132,7 @@ const BlogIndex = ({ data }) => {
       backgroundColor: "bg-negro",
       textColor: "text-blanco",
       titleColor: "text-naranja",
+      borderColor: "border-naranja",
       title: "Blog"
     })
     //Rest
@@ -137,6 +146,7 @@ const BlogIndex = ({ data }) => {
         backgroundColor: "bg-blanco",
         textColor: "text-negro",
         titleColor: "text-naranja",
+        borderColor: "border-naranja",
         title: node.frontmatter.title,
         author: node.frontmatter.author,
         anchor: "blog" + node.fields.slug
@@ -153,7 +163,8 @@ const BlogIndex = ({ data }) => {
   const transparentColors = {
     textColor: "text-transparent",
     titleColor: "text-transparent",
-    backgroundColor: "bg-transparent"
+    backgroundColor: "bg-transparent",
+    borderColor: "border-transparent"
   }
 
   const [fullpages] = useState(initialFullPages)
@@ -166,7 +177,8 @@ const BlogIndex = ({ data }) => {
     setFloatingComponentsColors({
       backgroundColor: currentSlide.backgroundColor,
       textColor: currentSlide.textColor,
-      titleColor: currentSlide.titleColor
+      titleColor: currentSlide.titleColor,
+      borderColor: currentSlide.borderColor
     })
   }
 
@@ -180,7 +192,8 @@ const BlogIndex = ({ data }) => {
     setFloatingComponentsColors({
       backgroundColor: currentSlide.backgroundColor,
       textColor: currentSlide.textColor,
-      titleColor: currentSlide.titleColor
+      titleColor: currentSlide.titleColor,
+      borderColor: currentSlide.borderColor
     })
   }
 

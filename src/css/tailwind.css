@@ -110,21 +110,6 @@ ul, ol {
     @apply bg-naranja !important;
 }
 
-#menu-secundario li.active {
-    position: relative;
-}
-#menu-secundario li.active:after {
-    /*@apply border-naranja;
-    border-bottom-style: solid;
-    border-bottom-width: medium;*/
-    @apply bg-naranja;
-    content:'';
-    height:3px;
-    width:40%;
-    position:absolute;
-    left:calc(50% - 40% / 2);
-    bottom:-0.3rem;
-}
 
 #menu-principal li.active a:after {
     @apply border-naranja;
@@ -134,6 +119,10 @@ ul, ol {
     border-left-style: solid;
     border-left-width: medium;
     @apply ml-1;
+}
+
+#menu-secundario li.active .indicator {
+    visibility: visible;
 }
 
 #menu-principal li.active a:before {

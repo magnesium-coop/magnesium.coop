@@ -1,4 +1,5 @@
 module.exports = {
+
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   theme: {
     fontFamily: {
@@ -17,6 +18,9 @@ module.exports = {
       fontSize: {
         superbig: '6.2rem'
       }
+    },
+    variants: {
+      visibility: ['responsive', 'hover', 'focus', 'active'],
     },
   }
 }
