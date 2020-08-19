@@ -18,7 +18,7 @@ console.log(colors.borderColor)
             data-menuanchor={anchor}>
           <div className="flex flex-col">
           <a
-            className={"self-end lg:px-3 py-1 no-underline leading-snug uppercase hover:opacity-75 border-tranparent"}
+            className={"self-end lg:px-3 py-1 no-underline leading-snug uppercase hover:opacity-75 border-tranparent "+colors.textColor}
             href={"#" + anchor}>
             {title}
           </a>
