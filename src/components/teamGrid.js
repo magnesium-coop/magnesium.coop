@@ -28,7 +28,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
                 alt={author.name}
                 className="teamImage"
               />
-              <div className={"pt-1 lg:pt-3 text-sm lg:text-lg text-right " + titleColor}>{author.name}</div>
+              <div className={"pt-1 lg:pt-3 text-sm lg:text-lg text-right font-mgmedium " + titleColor}>{author.name}</div>
               <div className="text-xs lg:text-sm text-right">{author.bio}</div>
               <IconContext.Provider value={{ color: "white", className: "mx-1 text-xs lg:text-sm" }}>
                 <div className="flex items-center justify-end">

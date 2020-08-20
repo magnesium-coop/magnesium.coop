@@ -79,8 +79,9 @@ const BlogIndex = ({ data }) => {
   }
 
   function getNosotrosSlides() {
-    const { autores, quienesSomos } = data
+    const { autores, colaboradores, quienesSomos } = data
     const authors = autores.nodes
+    const colaboradoresAll = colaboradores.nodes
 
     initialFullPages[1]["slides"] = []
     //First
@@ -113,8 +114,8 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-negro",
       borderColor: "border-negro",
-      title: "Colaboradores",
-      autores: authors,
+      title: "Colaboran",
+      autores: colaboradoresAll,
       prev: initialFullPages[1]["slides"][1]
     })
 
@@ -280,7 +281,24 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
+    }
+    colaboradores: allColaboradoresYaml {
+    nodes {
+      bio
+      name
+      email
+      gitlab
+      id
+      twitter
+      profilepicture {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    }
   quienesSomos: markdownRemark(frontmatter: {id: {eq: "quienes-somos"}}) {
     html
     frontmatter {
@@ -324,4 +342,5 @@ export const pageQuery = graphql`
       }
     }
   }
+  
 `

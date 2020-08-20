@@ -39,11 +39,7 @@ const AboutPage = (props) => {
              textColor={slides[2].textColor}
              slideAnchor={slides[2].anchor}
              prevSlide={slides[1]}>
-        <div className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[2].titleColor}>{slides[2].title}</div>
-        {slides[2].autores.map((author) => (
-          <Bio author={author} key={author.id}/>
-        ))}
-
+        <TeamGrid titleColor={slides[2].titleColor} title={slides[2].title} team={slides[2].autores}/>
 
       </Slide>
 
