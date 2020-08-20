@@ -1,12 +1,42 @@
 - id: raul
   email: rsperoni@magnesium.coop
-  name: raul
+  name: Raúl Speroni
   twitter: raulsperoni
+  gitlab: raulsperoni
   bio: I am Author 1
   profilepicture: ../assets/raul.jpg
-- id: author2
-  email: nada
-  name: pedro
+- id: gonza
+  email: gjaviel@magnesium.coop
+  name: Gonzalo Javiel
+  gitlab: raulsperoni
+  twitter: nada
+  bio: I am Author 2
+  profilepicture: ../assets/profile-pic.jpg
+- id: tincho
+  email: msteglich@magnesium.coop
+  name: Martín Steglich
+  gitlab: raulsperoni
+  twitter: nada
+  bio: I am Author 2
+  profilepicture: ../assets/profile-pic.jpg
+- id: martin
+  email: mberguer@magnesium.coop
+  name: Martín Berguer
+  gitlab: raulsperoni
+  twitter: nada
+  bio: I am Author 2
+  profilepicture: ../assets/profile-pic.jpg
+- id: cristian
+  email: cbauza@magnesium.coop
+  name: Cristian Bauza
+  gitlab: raulsperoni
+  twitter: nada
+  bio: I am Author 2
+  profilepicture: ../assets/profile-pic.jpg
+- id: pablo
+  email: polivera@magnesium.coop
+  name: Pablo Olivera
+  gitlab: raulsperoni
   twitter: nada
   bio: I am Author 2
   profilepicture: ../assets/profile-pic.jpg

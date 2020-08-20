@@ -213,7 +213,7 @@ const BlogIndex = ({ data }) => {
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
         menu='#menu-principal'
-        animateAnchor={false}
+        animateAnchor={true}
         loopHorizontal={false}
         scrollOverflow={true}
         scrollOverflowReset={true}
@@ -223,8 +223,7 @@ const BlogIndex = ({ data }) => {
         slidesNavigation={false}
         onLeave={onLeavePage.bind(this)}
         onSlideLeave={onLeaveSlide.bind(this)}
-
-        verticalCentered={false}
+        verticalCentered={true}
         //normalScrollElements={".scrollable-content"}
         afterLoad={onAfterLoad.bind(this)}
         afterSlideLoad={onAfterSlideLoad.bind(this)}
@@ -240,8 +239,6 @@ const BlogIndex = ({ data }) => {
         }}
       />
       <SecondMenu currentPage={currentPage} currentSlide={currentSlide} colors={floatingComponentsColors}/>
-
-      {/*<Footer/>*/}
     </div>
 
   )
@@ -271,6 +268,8 @@ export const pageQuery = graphql`
     nodes {
       bio
       name
+      email
+      gitlab
       id
       twitter
       profilepicture {
@@ -309,6 +308,7 @@ export const pageQuery = graphql`
               author {
               id
               bio
+              email
               name
               twitter
               profilepicture {

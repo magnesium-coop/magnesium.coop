@@ -100,6 +100,7 @@ ul, ol {
     @apply h-full;
 }
 
+/*
 .iScrollVerticalScrollbar {
     right: 2% !important;
 }
@@ -109,6 +110,7 @@ ul, ol {
     width: 60% !important;
     @apply bg-naranja !important;
 }
+*/
 
 
 #menu-principal li.active a:after {
@@ -214,3 +216,12 @@ Indicadores abajo
     text-align: center;
 }
 
+.teamImage {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.teamImage:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
