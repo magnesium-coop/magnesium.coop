@@ -8,7 +8,7 @@
 import React, { useState } from "react"
 import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({ pages, backgroundColor, textColor }) => {
+const Header = ({ pages, backgroundColor, textColor, fromColor, colors }) => {
 
   const [isExpanded, toggleExpansion] = useState(false)
 
@@ -32,7 +32,8 @@ const Header = ({ pages, backgroundColor, textColor }) => {
   }
 
   return (
-    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l "} id="header-principal">
+    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l ease-in "+colors.headerBackground}
+            id="header-principal">
       <nav
         className={"w-auto flex justify-between px-5 py-4 lg:flex-col lg:px-10 lg:pt-10"}>
         <div className="flex items-center lg:pl-3">

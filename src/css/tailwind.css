@@ -100,17 +100,46 @@ ul, ol {
     @apply h-full;
 }
 
-/*
+.blanco-transparent {
+    background-image: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%)
+}
+
+.negro-transparent {
+    background-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(255,255,255,0) 100%)
+}
+
+.naranja-transparent {
+    background-image: linear-gradient(180deg, rgb(242, 92, 74) 0%, rgb(242, 92, 74) 90%, rgba(255,255,255,0) 100%)
+}
+
+.transparent-transparent {
+    background-image: linear-gradient(transparent,transparent);
+}
+
+.transparent-blanco {
+    background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%)
+}
+
+.transparent-negro {
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(255,255,255,0) 100%)
+}
+
+.transparent-naranja {
+    background-image: linear-gradient(0deg, rgb(242, 92, 74) 0%, rgb(242, 92, 74) 90%, rgba(255,255,255,0) 100%)
+}
+
 .iScrollVerticalScrollbar {
     right: 2% !important;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
 }
 
 .iScrollIndicator {
     border: 0!important;
-    width: 60% !important;
+    width: 50% !important;
     @apply bg-naranja !important;
 }
-*/
+
 
 
 #menu-principal li.active a:after {

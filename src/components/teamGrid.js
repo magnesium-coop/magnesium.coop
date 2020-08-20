@@ -31,7 +31,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
         </div>
         <div className="w-full lg:w-3/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-20">
           {team.map((author) => (
-            <div>
+            <div key={author.id}>
               <Image
                 fluid={author.profilepicture.childImageSharp.fluid}
                 alt={author.name}

@@ -55,25 +55,18 @@ const BlogPage = (props) => {
                 slideAnchor={removeSlash(slide.slug)}
                 seoTitle={slide.title}
                 seoDescription={slide.description}>
-                <div className="h-full pt-10 lg:pt-48 lg:pb-48 flex items-center justify-around">
+                <div className="h-full lg:pb-48 flex items-center justify-around">
                   <div className="h-full lg:w-1/2 lg:px-10">
-                    <header>
-                      <h1 className={"font-mgblack " + slide.titleColor}>
-                        {slide.title}
-                      </h1>
-                      <p
-                        style={{
-                          display: `block`
-                        }}
-                      >
-                        {slide.date}
-                      </p>
-                    </header>
-                    <section className="text-justify" dangerouslySetInnerHTML={{ __html: slide.html }}/>
+                    <div
+                      className={"text-justify font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slide.titleColor}>{slide.title}</div>
 
-                    <footer className="mb-64">
+
+                    <div className="mt-5 lg:mt-10 text-justify lg:text-base"
+                         dangerouslySetInnerHTML={{ __html: slide.html }}/>
+
+                    <div className="mb-64">
                       <Bio author={author}/>
-                    </footer>
+                    </div>
                   </div>
                 </div>
               </Slide>
