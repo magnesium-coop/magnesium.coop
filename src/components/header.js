@@ -5,12 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from "react"
+import React from "react"
 import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({ pages, backgroundColor, textColor, fromColor, colors }) => {
+const Header = ({ pages, backgroundColor, textColor, fromColor, colors, currentSlide, currentPage }) => {
 
-  const [isExpanded, toggleExpansion] = useState(false)
 
   function getImg(classname) {
     if (backgroundColor === "bg-negro" || backgroundColor === "bg-naranja") {
@@ -23,18 +22,24 @@ const Header = ({ pages, backgroundColor, textColor, fromColor, colors }) => {
   }
 
   function getMenuItem(anchor, title) {
+    const classActive = anchor === currentPage.anchor ? "active" : ""
     return (
-      <li key={"menu-" + anchor} className="nav-item flex justify-end lg:justify-start" data-menuanchor={anchor}>
-          <a className={"self-end pb-1 lg:px-3 lg:pb-3 no-underline leading-snug  hover:opacity-75 " + textColor}
+      <li key={"menu-" + anchor} className={"nav-item flex justify-end lg:justify-start " + classActive}
+          data-menuanchor={anchor}>
+        <div className="flex pb-1 lg:pb-2">
+          <div
+            className={"order-2 md:order-1 ml-2 mr-0 md:ml-0 md:mr-2 indicator invisible border-solid border-l-2 my-auto h-full " + classActive + " " + currentSlide.borderColor}/>
+          <a className={"order-1 md:order-2 self-end  no-underline leading-snug  hover:opacity-75 " + textColor}
              href={"#" + anchor}>
             {title}
           </a>
+        </div>
       </li>
     )
   }
 
   return (
-    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l "+colors.headerBackground}
+    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l " + colors.headerBackground}
             id="header-principal">
       <nav
         className={"w-auto flex justify-between px-5 py-4 lg:flex-col lg:px-10 lg:pt-10"}>

@@ -233,8 +233,8 @@ const BlogIndex = ({ data }) => {
 
   return (
     <div>
-      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors}
-              textColor={currentSlide.textColor} fromColor={currentSlide.headerBackground}/>
+      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors} currentSlide={currentSlide}
+              textColor={currentSlide.textColor} fromColor={currentSlide.headerBackground} currentPage={currentPage}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}

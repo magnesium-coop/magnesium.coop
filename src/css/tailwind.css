@@ -94,11 +94,7 @@ ul, ol {
 
 }
 
-.scrollable-content{
-    @apply overflow-y-auto;
-    @apply w-auto;
-    @apply h-full;
-}
+
 
 .blanco-transparent {
     background-image: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%)
@@ -173,54 +169,21 @@ ul, ol {
 
 
 
-#menu-principal li.active a:after {
-    @apply border-naranja;
-    color: transparent;
-    position: absolute;
-    content: "|";
-    border-left-style: solid;
-    border-left-width: medium;
-    @apply ml-1;
-}
+
 
 #menu-secundario li.active .indicator {
     visibility: visible;
 }
 
-#menu-principal li.active a:before {
-    content: "";
+#menu-principal li.active .indicator {
+    visibility: visible;
 }
 
-@screen lg {
-    #menu-principal li.active a:after {
-        content: "";
-    }
-    #menu-principal li.active a:before {
-        @apply border-naranja;
-        color: transparent;
-        position: absolute;
-        content: "|";
-        border-left-style: solid;
-        border-left-width: medium;
-        @apply -ml-3;
-    }
-}
 
-/*@screen lg {
-    #menu-principal li.active a:after {
-        content: "";
 
-    }
-    #menu-principal li.active a:before {
-        @apply border-naranja;
-        color: transparent;
-        position: absolute;
-        content: "|";
-        border-left-style: solid;
-        border-left-width: medium;
-        @apply -ml-3;
-    }
-}*/
+
+
+
 
 .customArrow {
     @apply absolute;
