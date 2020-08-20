@@ -194,7 +194,7 @@ const BlogIndex = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
-  function onAfterLoad (origin, destination, direction){
+  function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors({
       backgroundColor: currentSlide.backgroundColor,
       textColor: currentSlide.textColor,
@@ -206,30 +206,29 @@ const BlogIndex = ({ data }) => {
   }
 
   function onLeavePage(origin, destination, direction) {
+    setFloatingComponentsColors(transparentColors)
     setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     setCurrentPage(fullpages[destination.index])
-    setFloatingComponentsColors(transparentColors)
   }
 
-  function onAfterSlideLoad (section, origin, destination, direction) {
-    if (fullpages[section.index].slides[destination.index].backgroundColor !== currentSlide.backgroundColor) {
-      setFloatingComponentsColors({
-        backgroundColor: currentSlide.backgroundColor,
-        textColor: currentSlide.textColor,
-        titleColor: currentSlide.titleColor,
-        borderColor: currentSlide.borderColor,
-        headerBackground: currentSlide.headerBackground,
-        secondMenuBackground: currentSlide.secondMenuBackground
-      })
-    }
+  function onAfterSlideLoad(section, origin, destination, direction) {
+    setFloatingComponentsColors({
+      backgroundColor: currentSlide.backgroundColor,
+      textColor: currentSlide.textColor,
+      titleColor: currentSlide.titleColor,
+      borderColor: currentSlide.borderColor,
+      headerBackground: currentSlide.headerBackground,
+      secondMenuBackground: currentSlide.secondMenuBackground
+    })
+
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
+    setFloatingComponentsColors(transparentColors)
     setCurrentSlide(fullpages[section.index].slides[destination.index])
     setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
-    setFloatingComponentsColors(transparentColors)
   }
 
   return (
@@ -243,7 +242,7 @@ const BlogIndex = ({ data }) => {
         animateAnchor={true}
         loopHorizontal={false}
         scrollOverflow={true}
-       // scrollOverflowOptions={{}}
+        // scrollOverflowOptions={{}}
         scrollOverflowReset={true}
         recordHistory={true}
         navigation={false}
@@ -261,7 +260,8 @@ const BlogIndex = ({ data }) => {
           return (
             <ReactFullpage.Wrapper>
               <IntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
-              <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1" fullPageApi={fullpageApi}/>
+              <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
+                         fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )

@@ -128,6 +128,37 @@ ul, ol {
     background-image: linear-gradient(0deg, rgb(242, 92, 74) 0%, rgb(242, 92, 74) 90%, rgba(255,255,255,0) 100%)
 }
 
+@screen lg {
+
+    .blanco-transparent {
+        background-image: linear-gradient(transparent,transparent)
+    }
+
+    .negro-transparent {
+        background-image: linear-gradient(transparent,transparent)
+    }
+
+    .naranja-transparent {
+        background-image: linear-gradient(transparent,transparent)
+    }
+
+    .transparent-transparent {
+        background-image: linear-gradient(transparent,transparent);
+    }
+
+    .transparent-blanco {
+        background-image: linear-gradient(transparent,transparent)
+    }
+
+    .transparent-negro {
+        background-image: linear-gradient(transparent,transparent)
+    }
+
+    .transparent-naranja {
+        background-image: linear-gradient(transparent,transparent)
+    }
+}
+
 .iScrollVerticalScrollbar {
     right: 2% !important;
     margin-top: 10rem;

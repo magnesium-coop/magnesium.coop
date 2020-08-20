@@ -17,7 +17,7 @@ const BlogPage = (props) => {
       <Slide
         backgroundColor={slides[0].backgroundColor}
         textColor={slides[0].textColor}>
-        <div className="h-full flex items-center justify-around">
+        <div className="h-full flex items-center justify-around lg:pb-48">
           <h1 className={slides[0].titleColor}>{slides[0].title}</h1>
           {slides.map((slide, index) => {
             if (index !== 0) {
@@ -55,7 +55,7 @@ const BlogPage = (props) => {
                 slideAnchor={removeSlash(slide.slug)}
                 seoTitle={slide.title}
                 seoDescription={slide.description}>
-                <div className="h-full lg:pb-48 flex items-center justify-around">
+                <div className="h-full lg:pt-48 lg:pb-48 flex items-center justify-around">
                   <div className="h-full lg:w-1/2 lg:px-10">
                     <div
                       className={"text-justify font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slide.titleColor}>{slide.title}</div>

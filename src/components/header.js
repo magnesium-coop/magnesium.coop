@@ -13,10 +13,12 @@ const Header = ({ pages, backgroundColor, textColor, fromColor, colors }) => {
   const [isExpanded, toggleExpansion] = useState(false)
 
   function getImg(classname) {
-    if (backgroundColor !== "bg-negro") {
-      return (<img className={classname} style={{ filter: "invert(100%)" }} src={logomg01} alt="Magnesium.coop logo"/>)
-    } else {
+    if (backgroundColor === "bg-negro" || backgroundColor === "bg-naranja") {
       return (<img className={classname} src={logomg01} alt="Magnesium.coop logo"/>)
+
+    } else {
+      return (<img className={classname} style={{ filter: "invert(100%)" }} src={logomg01} alt="Magnesium.coop logo"/>)
+
     }
   }
 
@@ -32,7 +34,7 @@ const Header = ({ pages, backgroundColor, textColor, fromColor, colors }) => {
   }
 
   return (
-    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l ease-in "+colors.headerBackground}
+    <header className={"fixed top-0 z-40 w-screen font-mgbook text-l "+colors.headerBackground}
             id="header-principal">
       <nav
         className={"w-auto flex justify-between px-5 py-4 lg:flex-col lg:px-10 lg:pt-10"}>
