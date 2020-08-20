@@ -11,7 +11,7 @@ import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
 import Header from "../components/header"
 import SecondMenu from "../components/secondMenu"
-
+import SimpleIntroPage from "../components/simpleIntro"
 const BlogIndex = ({ data }) => {
 
   /**
@@ -203,6 +203,7 @@ const BlogIndex = ({ data }) => {
       headerBackground: currentSlide.headerBackground,
       secondMenuBackground: currentSlide.secondMenuBackground
     })
+
   }
 
   function onLeavePage(origin, destination, direction) {
@@ -231,6 +232,8 @@ const BlogIndex = ({ data }) => {
     setLastSlides(lastSlides)
   }
 
+
+
   return (
     <div>
       <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors} currentSlide={currentSlide}
@@ -254,12 +257,11 @@ const BlogIndex = ({ data }) => {
         //normalScrollElements={".scrollable-content"}
         afterLoad={onAfterLoad.bind(this)}
         afterSlideLoad={onAfterSlideLoad.bind(this)}
-
         //fixedElements={"#header-principal"}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <IntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <SimpleIntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>

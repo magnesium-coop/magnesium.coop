@@ -155,6 +155,7 @@ ul, ol {
     }
 }
 
+/*
 .iScrollVerticalScrollbar {
     right: 2% !important;
     margin-top: 10rem;
@@ -166,6 +167,7 @@ ul, ol {
     width: 50% !important;
     @apply bg-naranja !important;
 }
+*/
 
 
 
@@ -248,3 +250,7 @@ Indicadores abajo
     -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
 }
+
+
+
+
