@@ -53,7 +53,8 @@ const BlogPage = (props) => {
                 slideAnchor={removeSlash(slide.slug)}
                 seoTitle={slide.title}
                 seoDescription={slide.description}>
-                <article>
+                <div className="h-full pt-10 lg:pt-48 lg:pb-48 flex items-center justify-around">
+                  <div className="h-full lg:w-1/2 lg:px-10">
                   <header>
                     <h1 className={"font-mgblack " + slide.titleColor}>
                       {slide.title}
@@ -68,10 +69,11 @@ const BlogPage = (props) => {
                   </header>
                   <section dangerouslySetInnerHTML={{ __html: slide.html }}/>
 
-                  <footer>
+                  <footer className="mb-64">
                     <Bio author={author}/>
                   </footer>
-                </article>
+                  </div>
+                </div>
               </Slide>
             </div>
           )

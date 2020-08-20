@@ -1,18 +1,18 @@
-- id: raul
+- id: uno
   email: rsperoni@magnesium.coop
   name: Raúl Speroni
   twitter: raulsperoni
   gitlab: raulsperoni
   bio: I am Author 1
   profilepicture: ../assets/raul.jpg
-- id: gonza
+- id: otro
   email: gjaviel@magnesium.coop
   name: Gonzalo Javiel
   gitlab: raulsperoni
   twitter: nada
   bio: I am Author 2
   profilepicture: ../assets/profile-pic.jpg
-- id: tincho
+- id: otromas
   email: msteglich@magnesium.coop
   name: Martín Steglich
   gitlab: raulsperoni

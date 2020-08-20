@@ -10,33 +10,37 @@ import Image from "gatsby-image"
 
 
 const Bio = ({ author }) => {
-  return (
-    <div
-      style={{
-        display: `flex`
-      }}
-    >
-      <Image
-        fluid={author.profilepicture.childImageSharp.fluid}
-        alt={author.name}
+  if (author) {
+    return (
+      <div
         style={{
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`
+          display: `flex`
         }}
-        imgStyle={{
-          borderRadius: `50%`
-        }}
-      />
-      <p>
-        Escrito por <strong>{author.name}</strong> {author.bio}
-        {` `}
-        <a href={`https://twitter.com/${author.twitter}`}>
-          Twitter
-        </a>
-      </p>
-    </div>
-  )
+      >
+        <Image
+          fluid={author.profilepicture.childImageSharp.fluid}
+          alt={author.name}
+          style={{
+            marginBottom: 0,
+            minWidth: 50,
+            borderRadius: `100%`
+          }}
+          imgStyle={{
+            borderRadius: `50%`
+          }}
+        />
+        <p>
+          Escrito por <strong>{author.name}</strong> {author.bio}
+          {` `}
+          <a href={`https://twitter.com/${author.twitter}`}>
+            Twitter
+          </a>
+        </p>
+      </div>
+    )
+  } else {
+    return null
+  }
 }
 
 export default Bio
