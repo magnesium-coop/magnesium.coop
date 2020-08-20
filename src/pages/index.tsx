@@ -25,7 +25,8 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-naranja",
       borderColor: "border-naranja",
-      slides: []
+      slides: [],
+      secondMenu: false
     },
     {
       title: "Nosotros",
@@ -34,7 +35,8 @@ const BlogIndex = ({ data }) => {
       textColor: "text-negro",
       titleColor: "text-naranja",
       borderColor: "border-naranja",
-      slides: []
+      slides: [],
+      secondMenu: true
     },
     {
       title: "Blog",
@@ -43,7 +45,8 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-naranja",
       borderColor: "border-naranja",
-      slides: []
+      slides: [],
+      secondMenu: false
     },
     {
       title: "Proyectos",
@@ -52,7 +55,8 @@ const BlogIndex = ({ data }) => {
       textColor: "text-blanco",
       titleColor: "text-naranja",
       borderColor: "border-naranja",
-      slides: []
+      slides: [],
+      secondMenu: false
     }
   ]
   const initialLastSlides = initialFullPages.map((section) => {

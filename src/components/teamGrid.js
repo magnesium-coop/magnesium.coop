@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { FiTwitter } from "react-icons/fi"
 import {FaRegEnvelope} from "react-icons/fa"
 import {FiGitlab} from "react-icons/fi"
@@ -13,10 +13,19 @@ function shuffleArray(array) {
 }
 
 const TeamGrid = ({ team, title, titleColor }) => {
-  if (team !== undefined) {
-    shuffleArray(team)
+
+  const [teamList,setTeamList] = useState(null)
+
+  useEffect(() => {
+    if (team && (teamList===null)) {
+      shuffleArray(team)
+      setTeamList(team)
+    }
+  });
+
+  if (team) {
     return (
-      <div className="h-full pt-32 pb-10 lg:pb-0 lg:pt-0 flex items-center">
+      <div className="h-full flex items-center">
         <div
           className={"w-0 invisible lg:visible lg:w-1/5 font-mgblack text-2xl mg:text-3xl lg:text-4xl " + titleColor}>{title}.
         </div>

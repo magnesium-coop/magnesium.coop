@@ -16,7 +16,7 @@ const AboutPage = (props) => {
              textColor={slides[0].textColor}
              slideAnchor={slides[0].anchor}
              nextSlide={slides[1]}>
-        <div className="h-full pt-10 lg:pt-0 flex items-center justify-around">
+        <div className="h-full flex items-center justify-around">
           <div className="lg:w-1/2 lg:px-10">
             <div
               className={"text-justify font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[0].titleColor}>{slides[0].title}</div>

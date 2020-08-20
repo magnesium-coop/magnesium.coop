@@ -17,29 +17,31 @@ const BlogPage = (props) => {
       <Slide
         backgroundColor={slides[0].backgroundColor}
         textColor={slides[0].textColor}>
-        <h1 className={slides[0].titleColor}>{slides[0].title}</h1>
-        {slides.map((slide, index) => {
-          if (index !== 0) {
-            return (
-              <article key={"#" + anchor + slide.slug}>
-                <header>
-                  <h3>
-                    <a href={"#" + anchor + slide.slug} className={slides[0].textColor}
-                       onClick={() => props.fullPageApi.moveTo(anchor, removeSlash(slide.slug))}>{slide.title}</a>
-                  </h3>
-                  <small>{slide.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: slide.description || slide.excerpt
-                    }}
-                  />
-                </section>
-              </article>
-            )
-          }
-        })}
+        <div className="h-full flex items-center justify-around">
+          <h1 className={slides[0].titleColor}>{slides[0].title}</h1>
+          {slides.map((slide, index) => {
+            if (index !== 0) {
+              return (
+                <article key={"#" + anchor + slide.slug}>
+                  <header>
+                    <h3>
+                      <a href={"#" + anchor + slide.slug} className={slides[0].textColor}
+                         onClick={() => props.fullPageApi.moveTo(anchor, removeSlash(slide.slug))}>{slide.title}</a>
+                    </h3>
+                    <small>{slide.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: slide.description || slide.excerpt
+                      }}
+                    />
+                  </section>
+                </article>
+              )
+            }
+          })}
+        </div>
       </Slide>
       {slides.map((slide, index) => {
         const author = slide.author
@@ -55,23 +57,23 @@ const BlogPage = (props) => {
                 seoDescription={slide.description}>
                 <div className="h-full pt-10 lg:pt-48 lg:pb-48 flex items-center justify-around">
                   <div className="h-full lg:w-1/2 lg:px-10">
-                  <header>
-                    <h1 className={"font-mgblack " + slide.titleColor}>
-                      {slide.title}
-                    </h1>
-                    <p
-                      style={{
-                        display: `block`
-                      }}
-                    >
-                      {slide.date}
-                    </p>
-                  </header>
-                  <section dangerouslySetInnerHTML={{ __html: slide.html }}/>
+                    <header>
+                      <h1 className={"font-mgblack " + slide.titleColor}>
+                        {slide.title}
+                      </h1>
+                      <p
+                        style={{
+                          display: `block`
+                        }}
+                      >
+                        {slide.date}
+                      </p>
+                    </header>
+                    <section className="text-justify" dangerouslySetInnerHTML={{ __html: slide.html }}/>
 
-                  <footer className="mb-64">
-                    <Bio author={author}/>
-                  </footer>
+                    <footer className="mb-64">
+                      <Bio author={author}/>
+                    </footer>
                   </div>
                 </div>
               </Slide>
