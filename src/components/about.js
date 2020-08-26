@@ -19,12 +19,12 @@ const AboutPage = (props) => {
         <div className="h-full flex flex-wrap justify-around">
           <div className="w-full h-16 lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
             <div
-              className={" font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[0].titleColor}>{slides[0].title}.
+              className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[0].titleColor}>{slides[0].title}.
             </div>
           </div>
 
             <div
-              className="mt-0 mb-auto lg:w-1/2 lg:px-10 text-justify lg:text-base"
+              className="mt-0 mb-auto lg:w-1/2 lg:px-10 lg:text-base"
               dangerouslySetInnerHTML={{ __html: slides[0].html }}
             />
           </div>

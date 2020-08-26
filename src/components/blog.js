@@ -58,10 +58,10 @@ const BlogPage = (props) => {
                 <div className="h-full lg:pt-48 lg:pb-48 flex items-center justify-around">
                   <div className="h-full lg:w-1/2 lg:px-10">
                     <div
-                      className={"text-justify font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slide.titleColor}>{slide.title}</div>
+                      className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slide.titleColor}>{slide.title}</div>
 
 
-                    <div className="mt-5 lg:mt-10 text-justify lg:text-base"
+                    <div className="mt-5 lg:mt-10 lg:text-base"
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
 
                     <div className="mb-64">
