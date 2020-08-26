@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  gatsby_other:
+    environment:
+      - URL_LIST=${URL_LIST}
+      - DOCKER_IMAGE=${DOCKER_IMAGE}
+      - DOCKER_TAG=${DOCKER_TAG}
+      - DOCKER_STACK=${DOCKER_STACK}
+      - DEPLOY_ENV=${DEPLOY_ENV}
+    image: $DOCKER_IMAGE:$DOCKER_TAG
+    working_dir: /app
+    command: ./run-prod.sh
+    deploy:
+      labels:
+        - "traefik.port=9000"
+        - "traefik.backend=gatsby"
+        - "traefik.frontend.rule=Host:$URL_LIST"
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_proxy"
+        - "traefik.backend.loadbalancer.sticky=true"
+        - "traefik.frontend.passHostHeader=true"
+      restart_policy:
+        condition: on-failure
+    networks:
+      - traefik_proxy
+
+
+networks:
+  traefik_proxy:
+    external: true
