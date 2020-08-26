@@ -24,13 +24,13 @@ const TeamGrid = ({ team, title, titleColor }) => {
 
   if (team) {
     return (
-      <div className="h-full flex flex-wrap items-center justify-around">
-        <div className="w-full lg:w-1/5 h-16 mb-10 flex items-center justify-around">
+      <div className="h-full flex flex-wrap items-center justify-center">
+        <div className="w-full md:1/6 lg:w-1/5 h-16 mb-10 lg:h-auto lg:my-auto flex items-center justify-around">
           <div
-            className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl " + titleColor}>{title}.
+            className={"font-mgblack text-2xl md:text-2xl lg:text-3xl " + titleColor}>{title}.
           </div>
         </div>
-        <div className="h-full md:h-auto w-11/12 md:w-4/5 lg:w-3/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-20">
+        <div className="md:h-auto w-11/12 md:w-3/6 lg:w-2/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {team.map((author) => (
             <div key={author.id}>
               <Image
@@ -68,6 +68,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
             </div>
           ))}
         </div>
+        <div className="invisible lg:visible lg:w-1/5"></div>
       </div>
     )
   } else {
