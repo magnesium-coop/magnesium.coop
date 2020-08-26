@@ -16,15 +16,15 @@ const AboutPage = (props) => {
              textColor={slides[0].textColor}
              slideAnchor={slides[0].anchor}
              nextSlide={slides[1]}>
-        <div className="h-full flex flex-wrap items-center justify-around">
-          <div className="w-full h-16 mb-10 mt-auto flex items-center justify-around ">
+        <div className="h-full flex flex-wrap justify-around">
+          <div className="w-full h-16 lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
             <div
               className={" font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[0].titleColor}>{slides[0].title}.
             </div>
           </div>
 
             <div
-              className="mb-auto lg:w-1/2 lg:px-10 text-justify lg:text-base"
+              className="mt-0 mb-auto lg:w-1/2 lg:px-10 text-justify lg:text-base"
               dangerouslySetInnerHTML={{ __html: slides[0].html }}
             />
           </div>
