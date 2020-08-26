@@ -7,11 +7,10 @@ import ReactFullpage from "@fullpage/react-fullpage"
 
 
 import AboutPage from "../components/about"
-import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
 import Header from "../components/header"
-import SecondMenu from "../components/secondMenu"
 import SimpleIntroPage from "../components/simpleIntro"
+
 const BlogIndex = ({ data }) => {
 
   /**
@@ -194,6 +193,10 @@ const BlogIndex = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
+  function resetScroll(destination) {
+    //TODO: fuck
+  }
+
   function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors({
       backgroundColor: currentSlide.backgroundColor,
@@ -203,6 +206,8 @@ const BlogIndex = ({ data }) => {
       headerBackground: currentSlide.headerBackground,
       secondMenuBackground: currentSlide.secondMenuBackground
     })
+    resetScroll(destination)
+    resetScroll(origin)
 
   }
 
@@ -233,10 +238,10 @@ const BlogIndex = ({ data }) => {
   }
 
 
-
   return (
     <div>
-      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors} currentSlide={currentSlide}
+      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors}
+              currentSlide={currentSlide}
               textColor={currentSlide.textColor} fromColor={currentSlide.headerBackground} currentPage={currentPage}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
@@ -269,7 +274,7 @@ const BlogIndex = ({ data }) => {
           )
         }}
       />
-{/*
+      {/*
       <SecondMenu currentPage={currentPage} currentSlide={currentSlide} colors={floatingComponentsColors}/>
 */}
     </div>

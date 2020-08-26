@@ -155,19 +155,14 @@ ul, ol {
     }
 }
 
-/*
 .iScrollVerticalScrollbar {
-    right: 2% !important;
-    margin-top: 10rem;
-    margin-bottom: 5rem;
+
 }
 
 .iScrollIndicator {
-    border: 0!important;
-    width: 50% !important;
-    @apply bg-naranja !important;
+    @apply bg-transparent !important;
 }
-*/
+
 
 
 

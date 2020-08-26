@@ -19,6 +19,7 @@ build_image:
     - docker push $IMAGE_TAG
   only:
     - fullpagejs
+    - ideaNavegacionSecundaria
 
 
 deploy_testing:
@@ -43,6 +44,30 @@ deploy_testing:
     - URL_LIST=$URLS DOCKER_IMAGE=$CI_REGISTRY_IMAGE DOCKER_TAG=$CI_COMMIT_SHORT_SHA DOCKER_STACK=$CI_PROJECT_TITLE DEPLOY_ENV=$CI_ENVIRONMENT_SLUG docker stack deploy --with-registry-auth -c docker-compose.$CI_ENVIRONMENT_SLUG.yml magnesium_web
   only:
     - fullpagejs
+
+
+deploy_other_testing:
+  stage: deploy
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    DOCKER_HOST: ssh://ubuntu@$TESTING_HOST
+    URLS: other.$CI_PROJECT_TITLE.$CI_ENVIRONMENT_SLUG.magnesium.coop
+  environment:
+    name: test
+    url: https://$CI_PROJECT_TITLE.$TESTING_HOST
+  before_script:
+    - apk update
+    - apk add openssh
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_TESTING_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - URL_LIST=$URLS DOCKER_IMAGE=$CI_REGISTRY_IMAGE DOCKER_TAG=$CI_COMMIT_SHORT_SHA DOCKER_STACK=$CI_PROJECT_TITLE DEPLOY_ENV=$CI_ENVIRONMENT_SLUG docker stack deploy --with-registry-auth -c docker-compose.$CI_ENVIRONMENT_SLUG.yml magnesium_web_other
+  only:
+    - ideaNavegacionSecundaria
 
 deploy_prod:
   stage: deploy
