@@ -269,7 +269,9 @@ const BlogIndex = ({ data }) => {
           )
         }}
       />
+{/*
       <SecondMenu currentPage={currentPage} currentSlide={currentSlide} colors={floatingComponentsColors}/>
+*/}
     </div>
 
   )

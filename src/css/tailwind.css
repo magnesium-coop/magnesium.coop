@@ -189,8 +189,6 @@ ul, ol {
 
 .customArrow {
     @apply absolute;
-    @apply mb-auto;
-    @apply mt-auto;
     top: 0;
     bottom: 0;
     z-index: 3;
