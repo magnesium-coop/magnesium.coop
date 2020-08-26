@@ -279,7 +279,9 @@ const BlogIndex = ({ data }) => {
         animateAnchor={true}
         loopHorizontal={false}
         scrollOverflow={true}
-        // scrollOverflowOptions={{}}
+        scrollOverflowOptions={{
+          scrollbars: 'custom'
+        }}
         scrollOverflowReset={true}
         recordHistory={true}
         navigation={false}
