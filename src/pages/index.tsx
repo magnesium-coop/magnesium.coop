@@ -11,6 +11,12 @@ import BlogPage from "../components/blog"
 import Header from "../components/header"
 import SimpleIntroPage from "../components/simpleIntro"
 
+function removeSlash(text) {
+  if (text !== undefined) {
+    return text.replace(/\//g, "")
+  } else return ""
+}
+
 const BlogIndex = ({ data }) => {
 
   /**
@@ -150,10 +156,12 @@ const BlogIndex = ({ data }) => {
       titleColor: "text-naranja",
       borderColor: "border-naranja",
       headerBackground: "negro-transparent",
-      title: "Blog"
+      title: "Blog",
+      prev: null,
+      next: null
     })
     //Rest
-    data.blogPosts.edges.map(({ node }) => {
+    data.blogPosts.edges.map(({ node }, index) => {
       initialFullPages[2]["slides"].push({
         slug: node.fields.slug,
         description: node.frontmatter.description,
@@ -167,9 +175,30 @@ const BlogIndex = ({ data }) => {
         headerBackground: "blanco-transparent",
         title: node.frontmatter.title,
         author: node.frontmatter.author,
-        anchor: "blog" + node.fields.slug
+        anchor: "blog",
+        prev: {
+          anchor: index === 0 ? "": removeSlash(initialFullPages[2]["slides"][index-1].slug),
+          backgroundColor: index == 0 ? "bg-negro" : "bg-naranja",
+          textColor: "text-blanco",
+          titleColor: "text-blanco",
+          title: "Anterior"
+        },
+        next: null
       })
     })
+
+
+    for (let index = 0; index < initialFullPages[2].slides.length-1; index++) {
+      initialFullPages[2].slides[index].next = {
+        anchor: removeSlash(initialFullPages[2]["slides"][index+1].slug),
+        backgroundColor: "bg-naranja",
+        textColor: "text-blanco",
+        titleColor: "text-blanco",
+        title: "Siguiente"
+      }
+      console.log(initialFullPages[2].slides[index].prev)
+      console.log(initialFullPages[2].slides[index].next)
+    }
 
   }
 
@@ -269,7 +298,7 @@ const BlogIndex = ({ data }) => {
               <SimpleIntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
-              <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
+              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}
