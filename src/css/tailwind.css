@@ -189,8 +189,8 @@ ul, ol {
 }
 
 .customArrowNext {
-    @apply rounded-tl-full;
-    @apply rounded-bl-full;
+    @apply rounded-tl-lg;
+    @apply rounded-bl-lg;
     right: 0;
 }
 
@@ -214,8 +214,8 @@ ul, ol {
 }
 
 .customArrowPrev {
-    @apply rounded-tr-full;
-    @apply rounded-br-full;
+    @apply rounded-tr-lg;
+    @apply rounded-br-lg;
 }
 
 

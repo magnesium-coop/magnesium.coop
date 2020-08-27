@@ -109,7 +109,7 @@ const BlogIndex = ({ data }) => {
       borderColor: initialFullPages[1].borderColor,
       headerBackground: initialFullPages[1].headerBackground,
       secondMenuBackground: initialFullPages[1].secondMenuBackground,
-      title: quienesSomos.frontmatter.title,
+      title: "Nosotros",
       next: null
     })
     //Second
