@@ -9,6 +9,7 @@ import ReactFullpage from "@fullpage/react-fullpage"
 import AboutPage from "../components/about"
 import IntroPage from "../components/intro"
 import BlogPage from "../components/blog"
+import ProjectsPage from "../components/projects"
 import Header from "../components/header"
 import SecondMenu from "../components/secondMenu"
 import SimpleIntroPage from "../components/simpleIntro"
@@ -54,9 +55,9 @@ const BlogIndex = ({ data }) => {
     },
     {
       title: "Proyectos",
-      anchor: "proyectos",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
+      anchor: "projects",
+      backgroundColor: "bg-blanco",
+      textColor: "text-negro",
       titleColor: "text-naranja",
       borderColor: "border-naranja",
       headerBackground: "negro-transparent",
@@ -174,10 +175,51 @@ const BlogIndex = ({ data }) => {
 
   }
 
+  function getProjects() {
+    initialFullPages[3]["slides"] = []
+    //First
+    initialFullPages[3]["slides"].push({
+      anchor: "projects",
+      backgroundColor: "bg-negro",
+      textColor: "text-blanco",
+      titleColor: "text-naranja",
+      title: "Proyectos"
+    })
+    //Rest
+    data.projects.edges.map(({ node }) => {
+      initialFullPages[3]["slides"].push({
+        excerpt: node.excerpt,
+        html: node.html,
+        id: node.id,
+        slug: node.fields.slug,
+        title: node.frontmatter.title,
+        author: node.frontmatter.author,
+        elementname: node.frontmatter.elementname,
+        name: node.frontmatter.name,
+        description: node.frontmatter.description,
+        startdate: node.frontmatter.startdate,
+        duration: node.frontmatter.duration,
+        totalbudget: node.frontmatter.totalbudget,
+        client: node.frontmatter.client,
+        satisfactionletter: node.frontmatter.satisfactionletter,
+        technologies: node.frontmatter.technologies || [],
+        image: node.frontmatter.image,
+        link: node.frontmatter.link,
+        managers: node.frontmatter.managers || [],
+        backgroundColor: "bg-blanco",
+        textColor: "text-negro",
+        titleColor: "text-naranja"
+      })
+    })
+
+  }
+
+
 
   getQueHacemosSlides()
   getNosotrosSlides()
   getBlogPosts()
+  getProjects()
 
   const transparentColors = {
     textColor: "text-transparent",
@@ -265,6 +307,7 @@ const BlogIndex = ({ data }) => {
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
+              <ProjectsPage pages={fullpages} currentPage={currentPage} pagePos="3" fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}
@@ -367,6 +410,66 @@ export const pageQuery = graphql`
                 }
               }
              }
+          }
+        }
+      }
+    }
+  
+  projects:allMarkdownRemark(
+    sort: {fields: [frontmatter___date], order: DESC}
+    filter: {fileAbsolutePath: {regex: "/(projects)/.*\\\\.md$/"}}
+    limit: 1000
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          id
+          fields {
+            slug
+          }
+          frontmatter {          
+            title
+            author {
+              id
+              bio
+              name
+              twitter
+              profilepicture {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            elementname
+            name          
+            description
+            startdate
+            duration
+            totalbudget
+            client
+            satisfactionletter
+            technologies{
+              technology {
+                id
+                name
+                version
+                description
+                url
+              }
+            }
+            image
+            link          
+            managers {
+              manager{
+                id
+                email
+                name
+                twitter
+              }
+            }
           }
         }
       }
