@@ -1,0 +1,49 @@
+backend:
+  name: gitlab
+  branch: fullpagejs
+  repo: magnesiumcoop/magnesium.coop # Path to your GitLab repository
+  auth_type: implicit # Required for implicit grant
+  app_id: 520d5837a9edf88f329edde57d63b0b9cf0c645ec3551382844a4210e45a3f96 # Application ID from your GitLab settings
+
+media_folder: static/img
+public_folder: /img
+locale: 'es'
+
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Descripción', name: 'description', widget: 'string' }
+      - { label: 'Fecha', name: 'date', widget: 'datetime' }
+      - label: "Autor"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: [ "id", "name"]
+        valueField: "id"
+        displayFields: [ "name" ]
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'authors'
+    label: 'Autores'
+    files:
+      - label: "Authors"
+        name: "authors"
+        file: "content/data/author.yaml"
+        fields:
+          - { label: 'Id', name: 'id', widget: 'string' }
+          - { label: 'Email', name: 'email', widget: 'string' }
+          - { label: 'Nombre', name: 'name', widget: 'string' }
+          - { label: 'Bio', name: 'bio', widget: 'string' }
+          - { label: 'Twitter', name: 'twitter', widget: 'string' }
+          - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+          - { label: 'Foto', name: 'profilepicture', widget: image }
