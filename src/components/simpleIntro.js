@@ -5,6 +5,9 @@ import Slide from "./slide"
 import tablaPeriodica from "../../content/assets/tabla-periodica-01.svg"
 import { IoIosArrowForward } from "react-icons/io"
 import IllustrationOne from "./IllustrationOne"
+import MagnesiumTipografico from "./magnesiumTipografico"
+import TablaPeriodica from "./tablaPeriodica"
+
 const SimpleIntroPage = (props) => {
 
   const illustrations = [
@@ -19,8 +22,11 @@ const SimpleIntroPage = (props) => {
 
   const firstSlide = props.pages[props.pagePos].slides[0]
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.colors.backgroundColor}>
+    <Layout anchor={props.pages[props.pagePos].anchor}>
+
       <Slide currentSlide={firstSlide}>
+        <TablaPeriodica size={props.size}/>
+
         <div className="h-full flex flex-wrap items-center justify-between">
           <div className={"w-full lg:w-6/12"}>
             <div className={"text-3xl md:text-4xl lg:text-5xl " + firstSlide.colors.textColor}
@@ -38,7 +44,8 @@ const SimpleIntroPage = (props) => {
             </a>
           </div>
           <div className="justify-end w-full lg:w-1/3">
-            <img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>
+
+            {/*<img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>*/}
           </div>
         </div>
       </Slide>

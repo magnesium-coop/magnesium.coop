@@ -193,6 +193,7 @@ const BlogIndex = ({ data }) => {
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
+  const [size, setSize] = useState([500,500])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
 
@@ -229,6 +230,10 @@ const BlogIndex = ({ data }) => {
     resetScroll(origin)
   }
 
+  function onResize(width, height){
+    setSize([width,height])
+  }
+
 
   return (
     <div>
@@ -257,11 +262,12 @@ const BlogIndex = ({ data }) => {
         //normalScrollElements={".scrollable-content"}
         afterLoad={onAfterLoad.bind(this)}
         afterSlideLoad={onAfterSlideLoad.bind(this)}
+        afterResize={onResize.bind(this)}
         //fixedElements={"#header-principal"}
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <SimpleIntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <SimpleIntroPage size={size} pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
