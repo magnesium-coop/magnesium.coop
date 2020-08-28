@@ -5,7 +5,7 @@ const ArrowPrev = ({ arrow, anchor, fullPageApi }) => {
   if (arrow !== undefined && arrow !== null) {
     return (
       <div
-        className={"flex items-center customArrow customArrowPrev my-auto w-8 h-32 md:w-10 md:h-20 lg:w-24 lg:h-48 bg-transparent md:bg-"+arrow.colors.backgroundColor}>
+        className={"flex items-center customArrow customArrowPrev my-auto w-8 h-32 md:w-10 md:h-20 lg:w-24 lg:h-48  md:bg-"+arrow.colors.backgroundColor}>
         <a href={"#" + anchor + "/" + arrow.anchor}
            className={"h-full w-full no-underline text-2xl md:text-4xl lg:text-5xl text-"+arrow.colors.backgroundColor+" md:text-"+arrow.colors.textColor}
           >
