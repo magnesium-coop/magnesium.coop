@@ -194,6 +194,14 @@ ul, ol {
     right: 0;
 }
 
+@screen md {
+    .customArrowNext {
+        @apply rounded-tl-full;
+        @apply rounded-bl-full;
+        right: 0;
+    }
+}
+
 .arrowText {
     position: absolute;
     top: 50%;

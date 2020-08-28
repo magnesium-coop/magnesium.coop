@@ -25,7 +25,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
   if (team) {
     return (
       <div className="h-full flex flex-wrap justify-center lg:items-center">
-        <div className="w-full md:1/6 lg:w-1/5 h-16 md:mb-10 mt-0 lg:h-auto lg:my-auto flex items-center justify-around">
+        <div className="w-full md:1/6 lg:w-1/5 mb-5 md:mb-10 mt-0 lg:h-auto lg:my-auto flex items-center justify-around">
           <div
             className={"font-mgblack text-2xl md:text-2xl lg:text-3xl " + titleColor}>{title}.
           </div>
