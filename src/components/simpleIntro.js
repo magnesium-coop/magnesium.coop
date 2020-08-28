@@ -19,13 +19,11 @@ const SimpleIntroPage = (props) => {
 
   const firstSlide = props.pages[props.pagePos].slides[0]
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.backgroundColor}>
-      <Slide backgroundColor={firstSlide.backgroundColor}
-             textColor={firstSlide.textColor}
-             slideAnchor={firstSlide.anchor}>
+    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentPage.colors.backgroundColor}>
+      <Slide currentSlide={firstSlide}>
         <div className="h-full flex flex-wrap items-center justify-between">
           <div className={"w-full lg:w-6/12"}>
-            <div className={"text-3xl md:text-4xl lg:text-5xl " + firstSlide.textColor}
+            <div className={"text-3xl md:text-4xl lg:text-5xl " + firstSlide.colors.textColor}
                  dangerouslySetInnerHTML={{
                    __html: firstSlide.html
                  }}
@@ -49,9 +47,7 @@ const SimpleIntroPage = (props) => {
           return null
         } else {
           return (
-            <Slide backgroundColor={slide.backgroundColor}
-                   textColor={slide.textColor}
-                   slideAnchor={slide.anchor}>
+            <Slide currentSlide={slide}>
               <div className="h-full flex flex-wrap items-center justify-around">
                 <div className={"w-full lg:w-6/12"}>
                   <div className={"text-3xl md:text-4xl lg:text-5xl " + slide.textColor}

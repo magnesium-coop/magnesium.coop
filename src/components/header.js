@@ -8,8 +8,11 @@
 import React from "react"
 import logomg01 from "../../content/assets/logo-mg-01.svg"
 
-const Header = ({ pages, backgroundColor, textColor, fromColor, colors, currentSlide, currentPage }) => {
+const Header = ({ pages, colors, currentSlide, currentPage }) => {
 
+  const backgroundColor = "bg-"+currentSlide.colors.backgroundColor
+  const borderColor = "border-"+currentSlide.colors.borderColor
+  const textColor = "text-"+currentSlide.colors.textColor
 
   function getImg(classname) {
     if (backgroundColor === "bg-negro" || backgroundColor === "bg-naranja") {
@@ -28,7 +31,7 @@ const Header = ({ pages, backgroundColor, textColor, fromColor, colors, currentS
           data-menuanchor={anchor}>
         <div className="flex pb-1 lg:pb-2">
           <div
-            className={"order-2 md:order-1 ml-2 mr-0 md:ml-0 md:mr-2 indicator invisible border-solid border-l-2 my-auto h-full " + classActive + " " + currentSlide.borderColor}/>
+            className={"order-2 md:order-1 ml-2 mr-0 md:ml-0 md:mr-2 indicator invisible border-solid border-l-2 my-auto h-full " + classActive + " " + borderColor}/>
           <a className={"order-1 md:order-2 self-end  no-underline leading-snug  hover:opacity-75 " + textColor}
              href={"#" + anchor}>
             {title}

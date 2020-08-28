@@ -11,15 +11,12 @@ const AboutPage = (props) => {
 
   const slides = props.pages[props.pagePos].slides
   return (
-    <Layout anchor={props.pages[props.pagePos].anchor} backgroundColor={props.currentSlide.backgroundColor}>
-      <Slide backgroundColor={slides[0].backgroundColor}
-             textColor={slides[0].textColor}
-             slideAnchor={slides[0].anchor}
-             nextSlide={slides[1]}>
+    <Layout anchor={props.pages[props.pagePos].anchor}>
+      <Slide currentSlide={slides[0]}>
         <div className="h-full flex flex-wrap justify-around">
           <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
             <div
-              className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl " + slides[0].titleColor}>{slides[0].title}.
+              className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
           </div>
 
@@ -29,20 +26,12 @@ const AboutPage = (props) => {
             />
           </div>
       </Slide>
-      <Slide backgroundColor={slides[1].backgroundColor}
-             textColor={slides[1].textColor}
-             slideAnchor={slides[1].anchor}
-             prevSlide={slides[0]}
-             nextSlide={slides[2]}>
-        <TeamGrid titleColor={slides[1].titleColor} title={slides[1].title} team={slides[1].autores}/>
+      <Slide currentSlide={slides[1]}>
+        <TeamGrid titleColor={"text-"+slides[1].colors.titleColor} title={slides[1].title} team={slides[1].autores}/>
       </Slide>
 
-      <Slide backgroundColor={slides[2].backgroundColor}
-             textColor={slides[2].textColor}
-             slideAnchor={slides[2].anchor}
-             prevSlide={slides[1]}>
-        <TeamGrid titleColor={slides[2].titleColor} title={slides[2].title} team={slides[2].autores}/>
-
+      <Slide currentSlide={slides[2]}>
+        <TeamGrid titleColor={"text-"+slides[2].colors.titleColor} title={slides[2].title} team={slides[2].autores}/>
       </Slide>
 
       <ArrowNext arrow={props.currentSlide.next} fullPageApi={props.fullPageApi}

@@ -22,49 +22,64 @@ const BlogIndex = ({ data }) => {
   /**
    * La estrategia es recorres todas las queries necesarias y armar todo aca el arbol. Luego tenerlo como referencia.
    */
+  const colorsBlack = {
+    backgroundColor: "negro",
+    textColor: "blanco",
+    titleColor: "naranja",
+    borderColor: "naranja",
+    headerBackground: "negro-transparent",
+    secondMenuBackground: "transparent-blanco"
+  }
+  const colorsWhite = {
+    backgroundColor: "blanco",
+    textColor: "negro",
+    titleColor: "naranja",
+    borderColor: "naranja",
+    headerBackground: "blanco-transparent",
+    secondMenuBackground: "transparent-blanco"
+  }
+  const colorsNaranja = {
+    backgroundColor: "naranja",
+    textColor: "blanco",
+    titleColor: "negro",
+    borderColor: "negro",
+    headerBackground: "naranja-transparent",
+    secondMenuBackground: "transparent-naranja"
+  }
+  const transparentColors = {
+    textColor: "transparent",
+    titleColor: "transparent",
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    headerBackground: "transparent-transparent",
+    secondMenuBackground: "transparent-transparent"
+  }
   const initialFullPages = [
     {
       title: "Qué Hacemos",
       anchor: "intro",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "negro-transparent",
+      colors: colorsBlack,
       slides: [],
       secondMenu: false
     },
     {
       title: "Nosotros",
       anchor: "nosotros",
-      backgroundColor: "bg-blanco",
-      textColor: "text-negro",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "blanco-transparent",
-      secondMenuBackground: "transparent-blanco",
+      colors: colorsWhite,
       slides: [],
       secondMenu: true
     },
     {
       title: "Blog",
       anchor: "blog",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "negro-transparent",
+      colors: colorsBlack,
       slides: [],
       secondMenu: false
     },
     {
       title: "Proyectos",
       anchor: "proyectos",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "negro-transparent",
+      colors: colorsBlack,
       slides: [],
       secondMenu: false
     }
@@ -82,11 +97,7 @@ const BlogIndex = ({ data }) => {
         anchor: node.frontmatter.anchor,
         html: node.html,
         annotation: node.frontmatter.annotation,
-        backgroundColor: initialFullPages[0].backgroundColor,
-        textColor: initialFullPages[0].textColor,
-        titleColor: initialFullPages[0].titleColor,
-        borderColor: initialFullPages[0].borderColor,
-        headerBackground: initialFullPages[0].headerBackground,
+        colors: initialFullPages[0].colors,
         title: node.frontmatter.title
       })
     })
@@ -103,24 +114,14 @@ const BlogIndex = ({ data }) => {
     initialFullPages[1]["slides"].push({
       anchor: "nosotros",
       html: quienesSomos.html,
-      backgroundColor: initialFullPages[1].backgroundColor,
-      textColor: initialFullPages[1].textColor,
-      titleColor: initialFullPages[1].titleColor,
-      borderColor: initialFullPages[1].borderColor,
-      headerBackground: initialFullPages[1].headerBackground,
-      secondMenuBackground: initialFullPages[1].secondMenuBackground,
+      colors: initialFullPages[1].colors,
       title: "Nosotros",
       next: null
     })
     //Second
     initialFullPages[1]["slides"].push({
       anchor: "equipo",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "negro-transparent",
-      secondMenuBackground: "transparent-negro",
+      colors: colorsBlack,
       title: "Equipo",
       autores: authors,
       prev: initialFullPages[1]["slides"][0],
@@ -129,12 +130,7 @@ const BlogIndex = ({ data }) => {
     //Third
     initialFullPages[1]["slides"].push({
       anchor: "colaboradores",
-      backgroundColor: "bg-naranja",
-      textColor: "text-blanco",
-      titleColor: "text-negro",
-      borderColor: "border-negro",
-      headerBackground: "naranja-transparent",
-      secondMenuBackground: "transparent-naranja",
+      colors: colorsNaranja,
       title: "Colaboran",
       autores: colaboradoresAll,
       prev: initialFullPages[1]["slides"][1]
@@ -151,11 +147,7 @@ const BlogIndex = ({ data }) => {
     //First
     initialFullPages[2]["slides"].push({
       anchor: "blog",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
-      borderColor: "border-naranja",
-      headerBackground: "negro-transparent",
+      colors: colorsBlack,
       title: "Blog",
       prev: null,
       next: null
@@ -168,19 +160,13 @@ const BlogIndex = ({ data }) => {
         excerpt: node.excerpt,
         date: node.frontmatter.date,
         html: node.html,
-        backgroundColor: "bg-blanco",
-        textColor: "text-negro",
-        titleColor: "text-naranja",
-        borderColor: "border-naranja",
-        headerBackground: "blanco-transparent",
+        colors: colorsWhite,
         title: node.frontmatter.title,
         author: node.frontmatter.author,
         anchor: "blog",
         prev: {
-          anchor: index === 0 ? "": removeSlash(initialFullPages[2]["slides"][index-1].slug),
-          backgroundColor: index == 0 ? "bg-negro" : "bg-naranja",
-          textColor: "text-blanco",
-          titleColor: "text-blanco",
+          anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index - 1].slug),
+          colors: index == 0 ? colorsBlack : colorsNaranja,
           title: "Anterior"
         },
         next: null
@@ -188,12 +174,10 @@ const BlogIndex = ({ data }) => {
     })
 
 
-    for (let index = 0; index < initialFullPages[2].slides.length-1; index++) {
+    for (let index = 0; index < initialFullPages[2].slides.length - 1; index++) {
       initialFullPages[2].slides[index].next = {
-        anchor: removeSlash(initialFullPages[2]["slides"][index+1].slug),
-        backgroundColor: "bg-naranja",
-        textColor: "text-blanco",
-        titleColor: "text-blanco",
+        anchor: removeSlash(initialFullPages[2]["slides"][index + 1].slug),
+        colors: colorsWhite,
         title: "Siguiente"
       }
       console.log(initialFullPages[2].slides[index].prev)
@@ -207,14 +191,6 @@ const BlogIndex = ({ data }) => {
   getNosotrosSlides()
   getBlogPosts()
 
-  const transparentColors = {
-    textColor: "text-transparent",
-    titleColor: "text-transparent",
-    backgroundColor: "bg-transparent",
-    borderColor: "border-transparent",
-    headerBackground: "transparent-transparent",
-    secondMenuBackground: "transparent-transparent"
-  }
 
   const [fullpages] = useState(initialFullPages)
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
@@ -227,14 +203,7 @@ const BlogIndex = ({ data }) => {
   }
 
   function onAfterLoad(origin, destination, direction) {
-    setFloatingComponentsColors({
-      backgroundColor: currentSlide.backgroundColor,
-      textColor: currentSlide.textColor,
-      titleColor: currentSlide.titleColor,
-      borderColor: currentSlide.borderColor,
-      headerBackground: currentSlide.headerBackground,
-      secondMenuBackground: currentSlide.secondMenuBackground
-    })
+    setFloatingComponentsColors(currentSlide.colors)
     resetScroll(destination)
     resetScroll(origin)
 
@@ -247,14 +216,7 @@ const BlogIndex = ({ data }) => {
   }
 
   function onAfterSlideLoad(section, origin, destination, direction) {
-    setFloatingComponentsColors({
-      backgroundColor: currentSlide.backgroundColor,
-      textColor: currentSlide.textColor,
-      titleColor: currentSlide.titleColor,
-      borderColor: currentSlide.borderColor,
-      headerBackground: currentSlide.headerBackground,
-      secondMenuBackground: currentSlide.secondMenuBackground
-    })
+    setFloatingComponentsColors(currentSlide.colors)
 
   }
 
@@ -269,9 +231,10 @@ const BlogIndex = ({ data }) => {
 
   return (
     <div>
-      <Header pages={fullpages} backgroundColor={currentSlide.backgroundColor} colors={floatingComponentsColors}
+      <Header pages={fullpages}
+              colors={floatingComponentsColors}
               currentSlide={currentSlide}
-              textColor={currentSlide.textColor} fromColor={currentSlide.headerBackground} currentPage={currentPage}/>
+              currentPage={currentPage}/>
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         scrollingSpeed={700}
@@ -280,7 +243,7 @@ const BlogIndex = ({ data }) => {
         loopHorizontal={false}
         scrollOverflow={true}
         scrollOverflowOptions={{
-          scrollbars: 'custom'
+          scrollbars: "custom"
         }}
         scrollOverflowReset={true}
         recordHistory={true}
@@ -300,7 +263,8 @@ const BlogIndex = ({ data }) => {
               <SimpleIntroPage pages={fullpages} currentPage={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
-              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
+              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
+                        fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}

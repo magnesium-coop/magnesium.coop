@@ -194,11 +194,22 @@ ul, ol {
     right: 0;
 }
 
+.customArrowPrev {
+    @apply rounded-tr-lg;
+    @apply rounded-br-lg;
+}
+
+
 @screen md {
     .customArrowNext {
         @apply rounded-tl-full;
         @apply rounded-bl-full;
         right: 0;
+    }
+
+    .customArrowPrev {
+        @apply rounded-tr-full;
+        @apply rounded-br-full;
     }
 }
 
@@ -221,10 +232,6 @@ ul, ol {
     transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
 }
 
-.customArrowPrev {
-    @apply rounded-tr-lg;
-    @apply rounded-br-lg;
-}
 
 
 
