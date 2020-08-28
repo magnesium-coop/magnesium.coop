@@ -3,7 +3,7 @@ import React from "react"
 const Slide = (props) => {
 
   const backgroundColor = "bg-"+props.currentSlide.colors.backgroundColor
-  const textColor = "border-"+props.currentSlide.colors.textColor
+  const textColor = "text-"+props.currentSlide.colors.textColor
 
   return (
     <div className={"slide " + backgroundColor + " " + textColor} data-anchor={props.currentSlide.anchor}>

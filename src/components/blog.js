@@ -18,7 +18,7 @@ const BlogPage = (props) => {
     <Layout anchor={anchor}>
       <Slide currentSlide={slides[0]}>
         <div className="h-full flex flex-wrap justify-around">
-          <div className="w-full h-16 lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
+          <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
             <div
               className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
@@ -29,8 +29,7 @@ const BlogPage = (props) => {
                 <article key={"#" + anchor + slide.slug}>
                   <header>
                     <h3>
-                      <a href={"#" + anchor + slide.slug} className={"text-" + slides[0].colors.textColor}
-                         onClick={() => props.fullPageApi.moveTo(anchor, removeSlash(slide.slug))}>{slide.title}</a>
+                      <a href={"#" + anchor + "/" + removeSlash(slide.slug)} className={"text-" + slides[0].colors.textColor}>{slide.title}</a>
                     </h3>
                     <small>{slide.date}</small>
                   </header>
@@ -54,7 +53,7 @@ const BlogPage = (props) => {
             <div key={removeSlash(slide.slug)}>
               <Slide currentSlide={slide}>
                 <div className="h-full flex flex-wrap justify-around lg:pt-32">
-                  <div className="w-full h-16 lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
+                  <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">
                     <div
                       className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slide.colors.titleColor}>{slide.title}
                     </div>

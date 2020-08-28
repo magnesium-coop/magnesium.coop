@@ -163,10 +163,10 @@ const BlogIndex = ({ data }) => {
         colors: colorsWhite,
         title: node.frontmatter.title,
         author: node.frontmatter.author,
-        anchor: "blog",
+        anchor: removeSlash(node.fields.slug),
         prev: {
-          anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index - 1].slug),
-          colors: index == 0 ? colorsBlack : colorsNaranja,
+          anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index].slug),
+          colors: index === 0 ? colorsBlack : colorsNaranja,
           title: "Anterior"
         },
         next: null
@@ -177,11 +177,9 @@ const BlogIndex = ({ data }) => {
     for (let index = 0; index < initialFullPages[2].slides.length - 1; index++) {
       initialFullPages[2].slides[index].next = {
         anchor: removeSlash(initialFullPages[2]["slides"][index + 1].slug),
-        colors: colorsWhite,
+        colors: colorsNaranja,
         title: "Siguiente"
       }
-      console.log(initialFullPages[2].slides[index].prev)
-      console.log(initialFullPages[2].slides[index].next)
     }
 
   }
