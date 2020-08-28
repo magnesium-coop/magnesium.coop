@@ -2,7 +2,6 @@
 // @ts-ignore
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-
 import ReactFullpage from "@fullpage/react-fullpage"
 
 
@@ -196,21 +195,24 @@ const BlogIndex = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
+
   function resetScroll(destination) {
-    //TODO: fuck
+    const fpSc = destination.item.getElementsByClassName("fp-scrollable")
+    if (fpSc.length > 0) {
+      var IScroll = fpSc[0].fp_iscrollInstance
+      IScroll.scrollTo(0, 0, 0)
+    }
   }
 
   function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    resetScroll(destination)
-    resetScroll(origin)
-
   }
 
   function onLeavePage(origin, destination, direction) {
     setFloatingComponentsColors(transparentColors)
     setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     setCurrentPage(fullpages[destination.index])
+    resetScroll(origin)
   }
 
   function onAfterSlideLoad(section, origin, destination, direction) {
@@ -224,6 +226,7 @@ const BlogIndex = ({ data }) => {
     setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
+    resetScroll(origin)
   }
 
 
