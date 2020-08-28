@@ -13,7 +13,7 @@ const ArrowPrev = ({ arrow, anchor, fullPageApi }) => {
              fullPageApi.moveTo(anchor, arrow.anchor)
            }}>
           <div className="h-full w-full flex flex-wrap lg:flex-no-wrap justify-around align-center content-center">
-            <span style={{writingMode: "vertical-rl", transform: "rotate(180deg)"}}
+            <span style={{writingMode: "vertical-rl"}}
                   className={"mx-auto mb-1 md:my-auto text-xs lg:text-sm whitespace-no-wrap uppercase text-negro"}>{arrow.title}
             </span>
             <span className="mx-auto mt-1 md:my-auto"><IoIosArrowBack/></span>
