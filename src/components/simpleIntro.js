@@ -19,11 +19,7 @@ const SimpleIntroPage = (props) => {
     from: { transform: "scale(0.9)" }
   })
 
-  const [firstType, setFirstType] = useState(null)
-  const [secondType, setSecondType] = useState(null)
-  const [thirdType, setThirdType] = useState(null)
-  const [fourthtType, setFourthType] = useState(null)
-  const [fifthType, setFifthType] = useState(null)
+
 
 
   const firstSlide = props.pages[props.pagePos].slides[0]
@@ -45,12 +41,11 @@ const SimpleIntroPage = (props) => {
               ]}
               typeSpeed={40}
               typedRef={(typed) => {
-                setFirstType(typed)
+                props.saveTypingTexts(firstSlide.anchor,typed)
               }}
               stopped={false}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, secondSlide.anchor)
-                secondType.start()
               }}
             >
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + firstSlide.colors.textColor}></span>
@@ -71,11 +66,10 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                setSecondType(typed)
+                props.saveTypingTexts(secondSlide.anchor,typed)
               }}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, thirdSlide.anchor)
-                thirdType.start()
               }
               }
             >
@@ -97,11 +91,10 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                setThirdType(typed)
+                props.saveTypingTexts(thirdSlide.anchor,typed)
               }}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, fouthSlide.anchor)
-                fourthtType.start()
               }}
             >
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + thirdSlide.colors.textColor}></span>
@@ -122,12 +115,11 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                setFourthType(typed)
+                props.saveTypingTexts(fouthSlide.anchor,typed)
               }}
 
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, firstSlide.anchor);
-                fifthType.start()
               }}
             >
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + fouthSlide.colors.textColor}></span>
@@ -148,11 +140,10 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                setFifthType(typed)
+                props.saveTypingTexts(fifithSlide.anchor,typed)
               }}
 
               onComplete={(self) => {
-                setFifthType(true)
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, firstSlide.anchor)
               }}
             >

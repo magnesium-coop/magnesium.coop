@@ -18,6 +18,7 @@ function removeSlash(text) {
 
 const BlogIndex = ({ data }) => {
 
+
   /**
    * La estrategia es recorres todas las queries necesarias y armar todo aca el arbol. Luego tenerlo como referencia.
    */
@@ -196,6 +197,12 @@ const BlogIndex = ({ data }) => {
   const [size, setSize] = useState([500,500])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
+  const [typingTexts, setTypingTexts] = useState({})
+
+  function saveTypingTexts(pos,component) {
+    typingTexts[pos] = component
+    setTypingTexts(typingTexts)
+  }
 
   function resetScroll(destination) {
     const fpSc = destination.item.getElementsByClassName("fp-scrollable")
@@ -218,7 +225,7 @@ const BlogIndex = ({ data }) => {
 
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-
+    typingTexts[currentSlide.anchor].start()
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
@@ -267,7 +274,7 @@ const BlogIndex = ({ data }) => {
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <SimpleIntroPage size={size} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <SimpleIntroPage saveTypingTexts={saveTypingTexts.bind(this)} size={size} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
               <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
