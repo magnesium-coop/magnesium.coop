@@ -8,7 +8,7 @@ const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
     transform: hover ? "translate3d(0px,0,0) scale(1) rotateX(0deg)" : "translate3d(0px,0,0) scale(0) rotateX(0deg)"
   })
   return (
-    <div className="mb-0">
+    <div className="-ml-10 mb-0">
       <animated.svg x="0px" y="0px" style={animatedvisible}
            viewBox={"0 0 559 816"} className="w-full">
 

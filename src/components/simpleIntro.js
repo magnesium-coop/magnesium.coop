@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import Layout from "./layout"
 import Slide from "./slide"
@@ -20,8 +20,6 @@ const SimpleIntroPage = (props) => {
   })
 
 
-
-
   const firstSlide = props.pages[props.pagePos].slides[0]
   const secondSlide = props.pages[props.pagePos].slides[1]
   const thirdSlide = props.pages[props.pagePos].slides[2]
@@ -33,31 +31,36 @@ const SimpleIntroPage = (props) => {
     <Layout anchor={props.pages[props.pagePos].anchor}>
 
       <Slide currentSlide={firstSlide}>
-        <div className="h-screen flex flex-wrap items-center justify-between">
-          <div className={"w-full lg:w-6/12"}>
+        <div className="absolute">
+          <TablaPeriodica animatedgradient={gradientProps} animatedvisible={visibleProps}/>
+        </div>
+        <div className="h-screen flex flex-wrap z-40 lg:items-center">
+          <div className={"w-full lg:w-6/12"} style={{ zIndex: "inherit" }}>
             <Typed
               strings={[
                 "Desarrollamos y diseñamos software, aplicaciones y páginas web para solucionar problemas y mejorar procesos."
               ]}
               typeSpeed={40}
               typedRef={(typed) => {
-                props.saveTypingTexts(firstSlide.anchor,typed)
+                props.saveTypingTexts(firstSlide.anchor, typed)
               }}
-              stopped={false}
+              stopped={true}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, secondSlide.anchor)
               }}
             >
-              <span className={"text-lg md:text-4xl lg:text-5xl text-" + firstSlide.colors.textColor}></span>
+              <span className={"z-40 text-lg md:text-4xl lg:text-5xl text-" + firstSlide.colors.textColor}></span>
             </Typed>
           </div>
           <div className="w-full lg:w-1/3">
-            <TablaPeriodica animatedgradient={gradientProps} animatedvisible={visibleProps}/>
           </div>
         </div>
       </Slide>
       <Slide currentSlide={secondSlide}>
-        <div className="h-full flex flex-wrap items-center justify-around">
+        <div className="absolute">
+          <MagnesiumTipografico animatedprops={letrasProps}/>
+        </div>
+        <div className="h-full flex flex-wrap lg:items-center">
           <div className={"w-full lg:w-6/12"}>
             <Typed
               strings={[
@@ -66,7 +69,7 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                props.saveTypingTexts(secondSlide.anchor,typed)
+                props.saveTypingTexts(secondSlide.anchor, typed)
               }}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, thirdSlide.anchor)
@@ -76,13 +79,14 @@ const SimpleIntroPage = (props) => {
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + secondSlide.colors.textColor}></span>
             </Typed>
           </div>
-          <div className="w-full lg:w-4/12">
-            <MagnesiumTipografico animatedprops={letrasProps}/>
-          </div>
+
         </div>
       </Slide>
       <Slide currentSlide={thirdSlide}>
-        <div className="h-full flex flex-wrap items-center justify-around">
+        <div className="absolute">
+          <MagnesiumTipografico animatedprops={letrasProps}/>
+        </div>
+        <div className="h-full flex flex-wrap lg:items-center">
           <div className={"w-full lg:w-6/12"}>
             <Typed
               strings={[
@@ -91,7 +95,7 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                props.saveTypingTexts(thirdSlide.anchor,typed)
+                props.saveTypingTexts(thirdSlide.anchor, typed)
               }}
               onComplete={(self) => {
                 props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, fouthSlide.anchor)
@@ -100,13 +104,14 @@ const SimpleIntroPage = (props) => {
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + thirdSlide.colors.textColor}></span>
             </Typed>
           </div>
-          <div className="w-full lg:w-4/12">
-            <MagnesiumTipografico animatedprops={letrasProps}/>
-          </div>
+
         </div>
       </Slide>
       <Slide currentSlide={fouthSlide}>
-        <div className="h-full flex flex-wrap items-center justify-around">
+        <div className="absolute">
+          <MagnesiumTipografico animatedprops={letrasProps}/>
+        </div>
+        <div className="h-full flex flex-wrap lg:items-center">
           <div className={"w-full lg:w-6/12"}>
             <Typed
               strings={[
@@ -115,23 +120,24 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                props.saveTypingTexts(fouthSlide.anchor,typed)
+                props.saveTypingTexts(fouthSlide.anchor, typed)
               }}
 
               onComplete={(self) => {
-                props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, firstSlide.anchor);
+                props.fullPageApi.moveTo(props.pages[props.pagePos].anchor, firstSlide.anchor)
               }}
             >
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + fouthSlide.colors.textColor}></span>
             </Typed>
           </div>
-          <div className="w-full lg:w-4/12">
-            <MagnesiumTipografico animatedprops={letrasProps}/>
-          </div>
+
         </div>
       </Slide>
       <Slide currentSlide={fifithSlide}>
-        <div className="h-full flex flex-wrap items-center justify-around">
+        <div className="absolute">
+          <MagnesiumTipografico animatedprops={letrasProps}/>
+        </div>
+        <div className="h-full flex flex-wrap lg:items-center">
           <div className={"w-full lg:w-6/12"}>
             <Typed
               strings={[
@@ -140,7 +146,7 @@ const SimpleIntroPage = (props) => {
               typeSpeed={40}
               stopped={true}
               typedRef={(typed) => {
-                props.saveTypingTexts(fifithSlide.anchor,typed)
+                props.saveTypingTexts(fifithSlide.anchor, typed)
               }}
 
               onComplete={(self) => {
@@ -150,9 +156,7 @@ const SimpleIntroPage = (props) => {
               <span className={"text-lg md:text-4xl lg:text-5xl text-" + fifithSlide.colors.textColor}></span>
             </Typed>
           </div>
-          <div className="w-full lg:w-4/12">
-            <MagnesiumTipografico animatedprops={letrasProps}/>
-          </div>
+
         </div>
       </Slide>
     </Layout>

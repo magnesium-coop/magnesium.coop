@@ -225,7 +225,7 @@ const BlogIndex = ({ data }) => {
 
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    typingTexts[currentSlide.anchor].start()
+    typingTexts[destination.anchor].start()
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
