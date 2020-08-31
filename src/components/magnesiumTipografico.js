@@ -1,17 +1,16 @@
 import React, { useState } from "react"
-import { useSpring } from "react-spring"
+import { useSpring, animated } from "react-spring"
 
 
-const MagnesiumTipografico = ({ size }) => {
-  const props = useSpring({ x: 100, from: { x: 0 } })
+const MagnesiumTipografico = ({ animatedprops }) => {
   const [hover, setHover] = useState(false)
   const hoverAnimation = useSpring({
     transform: hover ? "translate3d(0px,0,0) scale(1) rotateX(0deg)" : "translate3d(0px,0,0) scale(0) rotateX(0deg)"
   })
   return (
-    <div className="absolute  h-screen w-screen -mx-12 md:-mx-20 lg:-mx-42   bg-transparent" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <svg x="0px" y="0px" className="t-0 l-0 h-screen w-screen"
-           viewBox={"0 0 "+size[0]+" "+size[1]} width={size[0]} height={size[1]}>
+    <animated.div style={animatedprops} className="bg-transparent" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <svg x="0px" y="0px"
+           viewBox={"0 0 505.8 545.8"}>
 
         <g id="M">
 	<g>
@@ -165,7 +164,7 @@ const MagnesiumTipografico = ({ size }) => {
 </svg>
 
 
-    </div>
+    </animated.div>
 
   )
 

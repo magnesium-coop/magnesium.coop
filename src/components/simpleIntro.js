@@ -2,11 +2,8 @@ import React, { useState } from "react"
 
 import Layout from "./layout"
 import Slide from "./slide"
-import tablaPeriodica from "../../content/assets/tabla-periodica-01.svg"
-import { IoIosArrowForward } from "react-icons/io"
 import IllustrationOne from "./IllustrationOne"
-import MagnesiumTipografico from "./magnesiumTipografico"
-import TablaPeriodica from "./tablaPeriodica"
+import AnimatedIntro from "./animatedIntro"
 
 const SimpleIntroPage = (props) => {
 
@@ -25,9 +22,9 @@ const SimpleIntroPage = (props) => {
     <Layout anchor={props.pages[props.pagePos].anchor}>
 
       <Slide currentSlide={firstSlide}>
-        <TablaPeriodica size={props.size}/>
+       {/**/}
 
-        <div className="h-full flex flex-wrap items-center justify-between">
+        {/*<div className="h-full flex flex-wrap items-center justify-between">
           <div className={"w-full lg:w-6/12"}>
             <div className={"text-3xl md:text-4xl lg:text-5xl " + firstSlide.colors.textColor}
                  dangerouslySetInnerHTML={{
@@ -43,13 +40,15 @@ const SimpleIntroPage = (props) => {
               <span className="pulsing"><IoIosArrowForward/></span>
             </a>
           </div>
-          <div className="justify-end w-full lg:w-1/3">
-
-            {/*<img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>*/}
+          <div className="w-full lg:w-1/3">
+            <MagnesiumTipografico size={props.size}/>
+            <TablaPeriodica size={props.size}/>
+            <img className="self-center w-full" src={tablaPeriodica} alt="Magnesium.coop logo"/>
           </div>
-        </div>
+        </div>*/}
+        <AnimatedIntro slides={props.pages[props.pagePos].slides}/>
       </Slide>
-      {props.pages[props.pagePos].slides.map((slide) => {
+     {/* {props.pages[props.pagePos].slides.map((slide) => {
         if (slide.order === 0) {
           return null
         } else {
@@ -63,9 +62,9 @@ const SimpleIntroPage = (props) => {
                        }}
                   />
                 </div>
-                {/*<div
+                <div
                   className={"w-full lg:w-3/12 font-mgannotated text-naranja leading-tight text-center text-2xl md:text-3xl lg:text-4xl"}
-                  dangerouslySetInnerHTML={{ __html: slide.annotation }}/>*/}
+                  dangerouslySetInnerHTML={{ __html: slide.annotation }}/>
                 <div className="w-full lg:w-4/12">
                   {illustrations[slide.order]}
                 </div>
@@ -73,7 +72,7 @@ const SimpleIntroPage = (props) => {
             </Slide>
           )
         }
-      })}
+      })}*/}
     </Layout>
   )
 }

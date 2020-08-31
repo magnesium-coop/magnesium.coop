@@ -2,20 +2,17 @@ import React, { useState } from "react"
 import { useSpring, animated } from "react-spring"
 
 
-const TablaPeriodica = ({ size }) => {
-  const props = useSpring({ x: 100, from: { x: 500 } })
+const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
   const [hover, setHover] = useState(false)
   const hoverAnimation = useSpring({
     transform: hover ? "translate3d(0px,0,0) scale(1) rotateX(0deg)" : "translate3d(0px,0,0) scale(0) rotateX(0deg)"
   })
   return (
-    <div className="absolute  h-screen w-screen -mx-12 md:-mx-20 lg:-mx-42   bg-transparent"
-         onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <svg x="0px" y="0px" className="t-0 l-0 h-screen w-screen"
-           viewBox={"0 0 " + size[0] + " " + size[1]} width={size[0]} height={size[1]}>
+      <animated.svg x="0px" y="0px" style={animatedvisible}
+           viewBox={"0 0 559 816"}>
 
         <g>
-          <animated.radialGradient id="SVGID_1_"  cx="227.1665" cy="372.9024" r={props.x} gradientUnits="userSpaceOnUse">
+          <animated.radialGradient id="SVGID_1_"  cx="227.1665" cy="372.9024" r={animatedgradient.x} gradientUnits="userSpaceOnUse">
             <stop offset="0" style={{stopColor:"#FFFFFF"}}/>
             <stop offset="1" style={{stopColor:"#000000"}}/>
           </animated.radialGradient>
@@ -1455,10 +1452,7 @@ const TablaPeriodica = ({ size }) => {
 		v1.5c-2.4,2.9-2.7,4.8-2.9,8.8h-2.4C1019.3,868.4,1019.9,866.3,1021.9,863.6z M1027.6,867.4c0-2.3-0.5-4.7-1.7-6.8l1.5-0.6
 		c1.4,2.2,2.1,4.6,2.1,7.4c0,2.9-0.8,5.2-2.1,7.4l-1.5-0.6C1027.1,872,1027.6,869.7,1027.6,867.4z"/>
         </g>
-      </svg>
-
-    </div>
-
+      </animated.svg>
   )
 
 }
