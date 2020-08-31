@@ -19,6 +19,8 @@ function removeSlash(text) {
 const BlogIndex = ({ data }) => {
 
 
+
+
   /**
    * La estrategia es recorres todas las queries necesarias y armar todo aca el arbol. Luego tenerlo como referencia.
    */
@@ -225,7 +227,7 @@ const BlogIndex = ({ data }) => {
 
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    typingTexts[destination.anchor].start()
+    //typingTexts[destination.anchor].start()
   }
 
   function onLeaveSlide(section, origin, destination, direction) {

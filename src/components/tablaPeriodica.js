@@ -1,16 +1,17 @@
 import React, { useState } from "react"
 import { useSpring, animated } from "react-spring"
+import useWindowDimensions from "./useWindowDimentions"
+import { IoIosArrowDown } from "react-icons/io"
 
 
 const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
-  const [hover, setHover] = useState(false)
-  const hoverAnimation = useSpring({
-    transform: hover ? "translate3d(0px,0,0) scale(1) rotateX(0deg)" : "translate3d(0px,0,0) scale(0) rotateX(0deg)"
-  })
+
+  const { height, width } = useWindowDimensions();
+
   return (
-    <div className="-ml-10 mb-0">
-      <animated.svg x="0px" y="0px" style={animatedvisible}
-           viewBox={"0 0 559 816"} className="w-full">
+    <div className="fixed top-0 left-0">
+      <animated.svg x="0px" y="0px" style={animatedvisible} width={width} height={height}
+           viewBox={-width/5+" "+-height/4+" "+width+" "+height}>
 
         <g>
           <animated.radialGradient id="SVGID_1_"  cx="227.1665" cy="372.9024" r={animatedgradient.x} gradientUnits="userSpaceOnUse">
