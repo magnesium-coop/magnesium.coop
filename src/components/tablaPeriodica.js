@@ -8,12 +8,13 @@ const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
     transform: hover ? "translate3d(0px,0,0) scale(1) rotateX(0deg)" : "translate3d(0px,0,0) scale(0) rotateX(0deg)"
   })
   return (
+    <div className="mb-0">
       <animated.svg x="0px" y="0px" style={animatedvisible}
-           viewBox={"0 0 559 816"}>
+           viewBox={"0 0 559 816"} className="w-full">
 
         <g>
           <animated.radialGradient id="SVGID_1_"  cx="227.1665" cy="372.9024" r={animatedgradient.x} gradientUnits="userSpaceOnUse">
-            <stop offset="0" style={{stopColor:"#FFFFFF"}}/>
+            <stop offset="0" style={{stopColor:"#ffffff"}}/>
             <stop offset="1" style={{stopColor:"#000000"}}/>
           </animated.radialGradient>
           <path style={{fill:"url(#SVGID_1_)"}} d="M154.8,296h-140v-140h140V296z M16.3,294.5h137v-137h-137V294.5z M154.8,157.5h-140v-140h140V157.5z
@@ -1453,6 +1454,7 @@ const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
 		c1.4,2.2,2.1,4.6,2.1,7.4c0,2.9-0.8,5.2-2.1,7.4l-1.5-0.6C1027.1,872,1027.6,869.7,1027.6,867.4z"/>
         </g>
       </animated.svg>
+    </div>
   )
 
 }
