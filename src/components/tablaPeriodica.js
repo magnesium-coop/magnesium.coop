@@ -3,29 +3,18 @@ import { animated, useSpring } from "react-spring"
 import useWindowDimensions from "./useWindowDimentions"
 
 
-const TablaPeriodica = () => {
+const TablaPeriodica = ({mouseCoords, reference}) => {
 
   const gradientProps = useSpring({ config: { duration: 3000 }, x: 150, from: { x: 800 } })
-
-
   const { height, width } = useWindowDimensions()
-  const mgCoords = { x: 227.1665, y: 372.9024 }
-  const [coords, setCoords] = useState(mgCoords)
 
   return (
     <div className="mt-28 md:mt-48 lg:mt-56 -ml-20 absolute">
       <animated.svg x="0px" y="0px" width={width} height={height}
-                    onMouseMove={event => {
-                      const rect = event.target.getBoundingClientRect()
-                      setCoords({ x: event.clientX - rect.left, y: event.clientY - rect.top })
-                    }}
-                    onMouseLeave={event => {
-                      setCoords(mgCoords)
-                    }}
-                    viewBox={"0 0 " + width + " " + height}>
+                    viewBox={"0 0 " + width + " " + height} ref={reference}>
 
         <g>
-          <animated.radialGradient id="SVGID_1_" cx={coords.x} cy={coords.y} r={gradientProps.x}
+          <animated.radialGradient id="SVGID_1_" cx={mouseCoords.x} cy={mouseCoords.y} r={gradientProps.x}
                                    gradientUnits="userSpaceOnUse">
             <stop offset="0" style={{ stopColor: "#ffffff" }}/>
             <stop offset="1" style={{ stopColor: "#000000" }}/>
