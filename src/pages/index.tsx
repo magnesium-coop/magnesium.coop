@@ -73,19 +73,20 @@ const BlogIndex = ({ data }) => {
       secondMenu: true
     },
     {
-      title: "Blog",
-      anchor: "blog",
-      colors: colorsBlack,
-      slides: [],
-      secondMenu: false
-    },
-    {
       title: "Proyectos",
       anchor: "proyectos",
       colors: colorsBlack,
       slides: [],
       secondMenu: false
+    },
+    {
+      title: "Blog",
+      anchor: "blog",
+      colors: colorsBlack,
+      slides: [],
+      secondMenu: false
     }
+
   ]
   const initialLastSlides = initialFullPages.map((section) => {
     return { section: section.anchor, lastSlide: 0 }
@@ -146,9 +147,9 @@ const BlogIndex = ({ data }) => {
   }
 
   function getBlogPosts() {
-    initialFullPages[2]["slides"] = []
+    initialFullPages[3]["slides"] = []
     //First
-    initialFullPages[2]["slides"].push({
+    initialFullPages[3]["slides"].push({
       anchor: "blog",
       colors: colorsBlack,
       title: "Blog",
@@ -157,7 +158,7 @@ const BlogIndex = ({ data }) => {
     })
     //Rest
     data.blogPosts.edges.map(({ node }, index) => {
-      initialFullPages[2]["slides"].push({
+      initialFullPages[3]["slides"].push({
         slug: node.fields.slug,
         description: node.frontmatter.description,
         excerpt: node.excerpt,
@@ -168,7 +169,7 @@ const BlogIndex = ({ data }) => {
         author: node.frontmatter.author,
         anchor: removeSlash(node.fields.slug),
         prev: {
-          anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index].slug),
+          anchor: index === 0 ? "" : removeSlash(initialFullPages[3]["slides"][index].slug),
           colors: index === 0 ? colorsBlack : colorsNaranja,
           title: "Anterior"
         },
@@ -177,9 +178,9 @@ const BlogIndex = ({ data }) => {
     })
 
 
-    for (let index = 0; index < initialFullPages[2].slides.length - 1; index++) {
-      initialFullPages[2].slides[index].next = {
-        anchor: removeSlash(initialFullPages[2]["slides"][index + 1].slug),
+    for (let index = 0; index < initialFullPages[3].slides.length - 1; index++) {
+      initialFullPages[3].slides[index].next = {
+        anchor: removeSlash(initialFullPages[3]["slides"][index + 1].slug),
         colors: colorsNaranja,
         title: "Siguiente"
       }
@@ -188,18 +189,16 @@ const BlogIndex = ({ data }) => {
   }
 
   function getProjects() {
-    initialFullPages[3]["slides"] = []
+    initialFullPages[2]["slides"] = []
     //First
-    initialFullPages[3]["slides"].push({
+    initialFullPages[2]["slides"].push({
       anchor: "projects",
-      backgroundColor: "bg-negro",
-      textColor: "text-blanco",
-      titleColor: "text-naranja",
+      colors: colorsNaranja,
       title: "Proyectos"
     })
     //Rest
-    data.projects.edges.map(({ node }) => {
-      initialFullPages[3]["slides"].push({
+    data.projects.edges.map(({ node }, index) => {
+      initialFullPages[2]["slides"].push({
         excerpt: node.excerpt,
         html: node.html,
         id: node.id,
@@ -218,11 +217,24 @@ const BlogIndex = ({ data }) => {
         image: node.frontmatter.image,
         link: node.frontmatter.link,
         managers: node.frontmatter.managers || [],
-        backgroundColor: "bg-blanco",
-        textColor: "text-negro",
-        titleColor: "text-naranja"
+        colors: colorsBlack,
+        anchor: removeSlash(node.fields.slug),
+        prev: {
+          anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index].slug),
+          colors: index === 0 ? colorsNaranja : colorsBlack,
+          title: "Anterior"
+        },
+        next: null
       })
     })
+
+    for (let index = 0; index < initialFullPages[2].slides.length - 1; index++) {
+      initialFullPages[2].slides[index].next = {
+        anchor: removeSlash(initialFullPages[2]["slides"][index + 1].slug),
+        colors: colorsBlack,
+        title: "Siguiente"
+      }
+    }
 
   }
 
@@ -241,12 +253,7 @@ const BlogIndex = ({ data }) => {
   const [size, setSize] = useState([500,500])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
 
-  const [typingTexts, setTypingTexts] = useState({})
 
-  function saveTypingTexts(pos,component) {
-    typingTexts[pos] = component
-    setTypingTexts(typingTexts)
-  }
 
   function resetScroll(destination) {
     const fpSc = destination.item.getElementsByClassName("fp-scrollable")
@@ -318,20 +325,17 @@ const BlogIndex = ({ data }) => {
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <SimpleIntroPage saveTypingTexts={saveTypingTexts.bind(this)} size={size} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <SimpleIntroPage size={size} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
-              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
-                        fullPageApi={fullpageApi}/>
-              <ProjectsPage pages={fullpages} currentPage={currentPage} pagePos="3" fullPageApi={fullpageApi}/>
+              <ProjectsPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
 
+              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="3"
+                        fullPageApi={fullpageApi}/>
             </ReactFullpage.Wrapper>
           )
         }}
       />
-      {/*
-      <SecondMenu currentPage={currentPage} currentSlide={currentSlide} colors={floatingComponentsColors}/>
-*/}
     </div>
 
   )

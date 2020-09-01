@@ -2,6 +2,8 @@ import React from "react"
 import Layout from "./layout"
 import Slide from "./slide"
 import Bio from "./bio"
+import ArrowNext from "./arrowNext"
+import ArrowPrev from "./arrowPrev"
 
 function removeSlash(text) {
   return text.replace(/\//g, "")
@@ -11,104 +13,94 @@ const ProjectsPage = (props) => {
   const slides = props.pages[props.pagePos].slides
   const anchor = props.pages[props.pagePos].anchor
 
-  // console.log("slides", slides )
-
   return (
     <Layout anchor={anchor} backgroundColor={props.currentPage.backgroundColor}>
       <Slide
-        backgroundColor={slides[0].backgroundColor}
-        textColor={slides[0].textColor}>
-        <h1 className={slides[0].titleColor}>
-          {slides[0].title}
-        </h1>
-        {slides.map((slide, index) => {
-          if (index !== 0) {
-            return (
-              <article key={"#" + anchor + slide.slug}>
-                <header>
-                  <h3>
-                    <a href={"#" + anchor + slide.slug} className={slides[0].textColor}
-                       onClick={() => props.fullPageApi.moveTo(anchor, removeSlash(slide.slug))}>{slide.title}</a>
-                  </h3>
-                  <small>{slide.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: slide.description || slide.excerpt
-                    }}
-                  />
-                </section>
-              </article>
-            )
-          }
-        })}
+        currentSlide={slides[0]}>
+        <div className="h-full flex flex-wrap justify-around">
+          <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
+            <div
+              className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
+            </div>
+          </div>
+          {slides.map((slide, index) => {
+            if (index !== 0) {
+              return (
+                <article key={"#" + anchor + slide.slug}>
+                  <header>
+                    <h3>
+                      <a href={"#" + anchor + "/" + removeSlash(slide.slug)}
+                         className={"text-" + slides[0].colors.textColor}>{slide.title}</a>
+                    </h3>
+                    <small>{slide.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: slide.description || slide.excerpt
+                      }}
+                    />
+                  </section>
+                </article>
+              )
+            }
+          })}
+        </div>
       </Slide>
       {slides.map((slide, index) => {
         const author = slide.author
         if (index !== 0) {
           return (
             <div key={removeSlash(slide.slug)}>
-              <Slide
-                backgroundColor={slide.backgroundColor}
-                textColor={slide.textColor}
-                titleColor={slide.titleColor}
-                slideAnchor={removeSlash(slide.slug)}
-                seoTitle={slide.title}
-                seoDescription={slide.description}>
-                <article>
-                  <header>
-                    <h1 className={"font-mgblack " + slide.titleColor}>
-                      [{slide.title}] - {slide.name}
-                    </h1>
-                    <p
-                      style={{
-                        display: `block`
-                      }}
-                    >
-                      {slide.date}
-                    </p>
-                  </header>
-
-                  <span className={"font-mgblack " + slide.titleColor}>
-                    Description
-                  </span>
-                  <section dangerouslySetInnerHTML={{ __html: slide.html }}/>
-
-                  <span className={"font-mgblack " + slide.titleColor}>
+              <Slide currentSlide={slide}>
+                <div className="h-full flex flex-wrap justify-around lg:pt-32">
+                  <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">
+                    <div
+                      className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slide.colors.titleColor}>[{slide.title}]
+                      - {slide.name}
+                    </div>
+                  </div>
+                  <div className="md:w-1/2">
+                    <div className="mt-5 lg:mt-10 lg:text-base"
+                         dangerouslySetInnerHTML={{ __html: slide.html }}/>
+                    <span className={"font-mgblack " + slide.titleColor}>
                     Data
                   </span>
-                  <section>
-                    <ul>
-
-                    <li> startdate: { slide.startdate }</li>
-                    <li> duration: { slide.duration }</li>
-                    <li> totalbudget: { slide.totalbudget }</li>
-                    <li> client: { slide.client }</li>
-                    <li> satisfactionletter: { slide.satisfactionletter }</li>
-                    <li> technologies: { slide.technologies.map((tecno, index) => {
-                      let tec = tecno.technology;
-                      return tec.name + " (" + tec.version + ")"
-                    }).join(", ") }</li>
-                    {/*<li> image: { slide.image }</li>*/}
-                    <li> link: { slide.link }</li>
-                    <li> managers: { slide.managers .map((mana, index) => {
-                      let man = mana.manager;
-                      return man.name + " (" + man.email + ")"
-                    }).join(", ") }</li>
-                    </ul>
-                  </section>
-                  <footer>
-                    <Bio author={author}/>
-                  </footer>
-                </article>
+                    <div>
+                      <ul>
+                        <li> startdate: {slide.startdate}</li>
+                        <li> duration: {slide.duration}</li>
+                        <li> totalbudget: {slide.totalbudget}</li>
+                        <li> client: {slide.client}</li>
+                        <li> satisfactionletter: {slide.satisfactionletter}</li>
+                        <li> technologies: {slide.technologies.map((tecno, index) => {
+                          let tec = tecno.technology
+                          return tec.name + " (" + tec.version + ")"
+                        }).join(", ")}</li>
+                        {/*<li> image: { slide.image }</li>*/}
+                        <li> link: {slide.link}</li>
+                        <li> managers: {slide.managers.map((mana, index) => {
+                          let man = mana.manager
+                          return man.name + " (" + man.email + ")"
+                        }).join(", ")}</li>
+                      </ul>
+                    </div>
+                    <div className="mb-64">
+                      <Bio author={author}/>
+                    </div>
+                  </div>
+                </div>
               </Slide>
             </div>
           )
         }
       })}
+      <ArrowNext arrow={props.currentSlide.next} fullPageApi={props.fullPageApi}
+                 anchor={props.pages[props.pagePos].anchor}/>
+      <ArrowPrev arrow={props.currentSlide.prev} fullPageApi={props.fullPageApi}
+                 anchor={props.pages[props.pagePos].anchor}/>
     </Layout>
   )
 }
 
-export default ProjectsPage;
+export default ProjectsPage

@@ -50,9 +50,6 @@ const SimpleIntroPage = (props) => {
                 //backDelay={700}
                 fadeOut={true}
                 fadeOutDelay={500}
-                typedRef={(typed) => {
-                  props.saveTypingTexts(firstSlide.anchor, typed)
-                }}
                 stopped={false}
               >
                 <span></span>
