@@ -1,6 +1,6 @@
 // Gatsby supports TypeScript natively!
 // @ts-ignore
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import ReactFullpage from "@fullpage/react-fullpage"
 
@@ -18,8 +18,6 @@ function removeSlash(text) {
 }
 
 const BlogIndex = ({ data }) => {
-
-
 
 
   /**
@@ -238,22 +236,19 @@ const BlogIndex = ({ data }) => {
 
   }
 
-
-
   getQueHacemosSlides()
   getNosotrosSlides()
   getBlogPosts()
   getProjects()
 
-
+  const [isLoaded, setIsLoaded] = useState(false)
   const [fullpages] = useState(initialFullPages)
   const [lastSlides, setLastSlides] = useState(initialLastSlides)
   const [currentPage, setCurrentPage] = useState(fullpages[0])
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
-  const [size, setSize] = useState([500,500])
+  const [size, setSize] = useState([500, 500])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
   const [typingText, setTypingText] = useState(null)
-
 
   function resetScroll(destination) {
     const fpSc = destination.item.getElementsByClassName("fp-scrollable")
@@ -265,7 +260,7 @@ const BlogIndex = ({ data }) => {
 
   function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    if (typingText && destination.anchor === 'software') {
+    if (typingText && destination.anchor === "software") {
       typingText.toggle()
     }
   }
@@ -274,7 +269,7 @@ const BlogIndex = ({ data }) => {
     setFloatingComponentsColors(transparentColors)
     setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     setCurrentPage(fullpages[destination.index])
-    if (typingText && origin.anchor === 'intro') {
+    if (typingText && origin.anchor === "intro") {
       typingText.toggle()
     }
     resetScroll(origin)
@@ -282,7 +277,7 @@ const BlogIndex = ({ data }) => {
 
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    if (typingText && destination.anchor === 'software') {
+    if (typingText && destination.anchor === "software") {
       typingText.toggle()
     }
   }
@@ -293,63 +288,89 @@ const BlogIndex = ({ data }) => {
     setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
-    if (typingText && origin.anchor === 'software') {
+    if (typingText && origin.anchor === "software") {
       typingText.toggle()
     }
     resetScroll(origin)
   }
 
-  function onResize(width, height){
-    setSize([width,height])
+  function onResize(width, height) {
+    setSize([width, height])
   }
 
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
 
-  return (
-    <div>
-      <Header pages={fullpages}
-              colors={floatingComponentsColors}
-              currentSlide={currentSlide}
-              currentPage={currentPage}/>
-      <ReactFullpage
-        licenseKey={"YOUR_KEY_HERE"}
-        scrollingSpeed={700}
-        menu='#menu-principal'
-        animateAnchor={true}
-        loopHorizontal={false}
-        scrollOverflow={true}
-        scrollOverflowOptions={{
-          scrollbars: "custom"
-        }}
-        scrollOverflowReset={true}
-        recordHistory={true}
-        navigation={false}
-        controlArrows={false}
-        slidesNavigation={false}
-        onLeave={onLeavePage.bind(this)}
-        onSlideLeave={onLeaveSlide.bind(this)}
-        verticalCentered={true}
-        //normalScrollElements={".scrollable-content"}
-        afterLoad={onAfterLoad.bind(this)}
-        afterSlideLoad={onAfterSlideLoad.bind(this)}
-        afterResize={onResize.bind(this)}
-        //fixedElements={"#header-principal"}
-        render={({ fullpageApi }) => {
-          return (
-            <ReactFullpage.Wrapper>
-              <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
-              <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
-                         fullPageApi={fullpageApi}/>
-              <ProjectsPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
+  if (!isLoaded)
+    return (<div
+      key={`loader`}
+      id="___loader"
+      className="typed-cursor"
+      style={{
+        alignItems: "center",
+        fontSize: "large",
+        backgroundColor: "#000000",
+        display: "flex",
+        justifyContent: "center",
+        position: "absolute",
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 100
+      }}
+    >
+      <span>|</span>
+    </div>)
+  else
+    return (
+      <div style={{backgroundColor:"black"}}>
+        <Header pages={fullpages}
+                colors={floatingComponentsColors}
+                currentSlide={currentSlide}
+                currentPage={currentPage}/>
+        <ReactFullpage
+          licenseKey={"YOUR_KEY_HERE"}
+          scrollingSpeed={700}
+          menu='#menu-principal'
+          animateAnchor={true}
+          loopHorizontal={false}
+          scrollOverflow={true}
+          scrollOverflowOptions={{
+            scrollbars: "custom"
+          }}
+          scrollOverflowReset={true}
+          recordHistory={true}
+          navigation={false}
+          controlArrows={false}
+          slidesNavigation={false}
+          onLeave={onLeavePage.bind(this)}
+          onSlideLeave={onLeaveSlide.bind(this)}
+          verticalCentered={true}
+          //normalScrollElements={".scrollable-content"}
+          afterLoad={onAfterLoad.bind(this)}
+          afterSlideLoad={onAfterSlideLoad.bind(this)}
+          afterResize={onResize.bind(this)}
+          //fixedElements={"#header-principal"}
+          render={({ fullpageApi }) => {
+            return (
+              <ReactFullpage.Wrapper>
+                <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages}
+                                 currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+                <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
+                           fullPageApi={fullpageApi}/>
+                <ProjectsPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
+                              fullPageApi={fullpageApi}/>
 
-              <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="3"
-                        fullPageApi={fullpageApi}/>
-            </ReactFullpage.Wrapper>
-          )
-        }}
-      />
-    </div>
-
-  )
+                <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="3"
+                          fullPageApi={fullpageApi}/>
+              </ReactFullpage.Wrapper>
+            )
+          }}
+        />
+      </div>
+    )
 }
 
 export default BlogIndex

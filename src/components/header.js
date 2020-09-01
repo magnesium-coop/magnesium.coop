@@ -50,7 +50,7 @@ const Header = ({ pages, colors, currentSlide, currentPage }) => {
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-40")}</a>
         </div>
         <div className="flex-grow"></div>
-        <div className="-mr-1 md:mr-0 lg:flex lg:mt-5 text-xs lg:text-sm">
+        <div className="-mr-1 md:mr- lg:flex lg:mt-5 text-xs lg:text-sm">
           <ul id="menu-principal" className="flex flex-col list-none pl-0">
             {
               pages.map(({ anchor, title }) => (

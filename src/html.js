@@ -15,28 +15,8 @@ export default function HTML(props) {
         />
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes}>
+      <body {...props.bodyAttributes} style={{backgroundColor:"black"}}>
         {props.preBodyComponents}
-        <div
-          key={`loader`}
-          id="___loader"
-          className="typed-cursor"
-          style={{
-            alignItems: "center",
-            fontSize: "large",
-            backgroundColor: "#000000",
-            display: "flex",
-            justifyContent: "center",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 100,
-          }}
-        >
-          <span>|</span>
-        </div>
         <div
           key={`body`}
           id="___gatsby"
