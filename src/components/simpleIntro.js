@@ -48,9 +48,10 @@ const SimpleIntroPage = (props) => {
                 typeSpeed={50}
                 //backSpeed={5}
                 //backDelay={700}
+                typedRef={typed => {props.setTypingText(typed)}}
                 fadeOut={true}
                 fadeOutDelay={500}
-                stopped={false}
+                stopped={true}
               >
                 <span></span>
               </Typed>

@@ -252,7 +252,7 @@ const BlogIndex = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(fullpages[0])
   const [size, setSize] = useState([500,500])
   const [floatingComponentsColors, setFloatingComponentsColors] = useState(transparentColors)
-
+  const [typingText, setTypingText] = useState(null)
 
 
   function resetScroll(destination) {
@@ -265,18 +265,26 @@ const BlogIndex = ({ data }) => {
 
   function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
+    if (typingText && destination.anchor === 'software') {
+      typingText.toggle()
+    }
   }
 
   function onLeavePage(origin, destination, direction) {
     setFloatingComponentsColors(transparentColors)
     setCurrentSlide(fullpages[destination.index].slides[lastSlides[destination.index].lastSlide])
     setCurrentPage(fullpages[destination.index])
+    if (typingText && origin.anchor === 'intro') {
+      typingText.toggle()
+    }
     resetScroll(origin)
   }
 
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
-    //typingTexts[destination.anchor].start()
+    if (typingText && destination.anchor === 'software') {
+      typingText.toggle()
+    }
   }
 
   function onLeaveSlide(section, origin, destination, direction) {
@@ -285,6 +293,9 @@ const BlogIndex = ({ data }) => {
     setCurrentPage(fullpages[section.index])
     lastSlides[section.index].lastSlide = destination.index
     setLastSlides(lastSlides)
+    if (typingText && origin.anchor === 'software') {
+      typingText.toggle()
+    }
     resetScroll(origin)
   }
 
@@ -325,7 +336,7 @@ const BlogIndex = ({ data }) => {
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <SimpleIntroPage size={size} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
+              <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages} currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
               <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
                          fullPageApi={fullpageApi}/>
               <ProjectsPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2" fullPageApi={fullpageApi}/>
