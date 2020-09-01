@@ -45,12 +45,12 @@ const Header = ({ pages, colors, currentSlide, currentPage }) => {
     <header className={"fixed top-0 z-40 w-screen font-mgbook text-l " + colors.headerBackground}
             id="header-principal">
       <nav
-        className={"w-auto flex justify-between px-5 py-4 lg:flex-col lg:px-10 lg:pt-10"}>
+        className={"w-auto flex justify-between px-4 py-4 lg:flex-col lg:px-10 lg:pt-10"}>
         <div className="flex items-center lg:pl-3">
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-40")}</a>
         </div>
         <div className="flex-grow"></div>
-        <div className="lg:flex lg:mt-5 text-xs lg:text-sm">
+        <div className="-mr-1 md:mr-0 lg:flex lg:mt-5 text-xs lg:text-sm">
           <ul id="menu-principal" className="flex flex-col list-none pl-0">
             {
               pages.map(({ anchor, title }) => (
