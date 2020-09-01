@@ -169,10 +169,12 @@ ul, ol {
 
 #menu-secundario li.active .indicator {
     visibility: visible;
+    @apply border-naranja;
 }
 
 #menu-principal li.active .indicator {
     visibility: visible;
+    @apply border-naranja;
 }
 
 
