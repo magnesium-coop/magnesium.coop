@@ -169,12 +169,10 @@ ul, ol {
 
 #menu-secundario li.active .indicator {
     visibility: visible;
-    @apply border-naranja;
 }
 
 #menu-principal li.active .indicator {
     visibility: visible;
-    @apply border-naranja;
 }
 
 
@@ -272,4 +270,35 @@ Indicadores abajo
     @apply text-naranja;
 }
 
+/** Lo de abajo es porque tailwind no anda bien en prod **/
+
+.bg-blanco {
+    background-color: #ffffff;
+}
+
+.border-negro {
+    border-color: #000000;
+}
+
+.border-naranja{
+    border-color: #f25c4a;
+}
+
+
+
+.md\:bg-blanco {
+    background-color: #ffffff;
+}
+
+.md\:text-blanco {
+    color: #ffffff;
+}
+
+.md\:bg-negro {
+    background-color: #000000;
+}
+
+.md\:text-negro {
+    color: #000000;
+}
 
