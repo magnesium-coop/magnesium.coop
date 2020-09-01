@@ -1,24 +1,36 @@
 import React, { useState } from "react"
-import { useSpring, animated } from "react-spring"
+import { animated, useSpring } from "react-spring"
 import useWindowDimensions from "./useWindowDimentions"
-import { IoIosArrowDown } from "react-icons/io"
 
 
-const TablaPeriodica = ( { animatedgradient, animatedvisible} ) => {
+const TablaPeriodica = () => {
 
-  const { height, width } = useWindowDimensions();
+  const gradientProps = useSpring({ config: { duration: 3000 }, x: 150, from: { x: 800 } })
+
+
+  const { height, width } = useWindowDimensions()
+  const mgCoords = { x: 227.1665, y: 372.9024 }
+  const [coords, setCoords] = useState(mgCoords)
 
   return (
-    <div className="fixed top-0 left-0">
-      <animated.svg x="0px" y="0px" style={animatedvisible} width={width} height={height}
-           viewBox={-width/5+" "+-height/4+" "+width+" "+height}>
+    <div className="mt-28 md:mt-48 lg:mt-56 -ml-20 absolute">
+      <animated.svg x="0px" y="0px" width={width} height={height}
+                    onMouseMove={event => {
+                      const rect = event.target.getBoundingClientRect()
+                      setCoords({ x: event.clientX - rect.left, y: event.clientY - rect.top })
+                    }}
+                    onMouseLeave={event => {
+                      setCoords(mgCoords)
+                    }}
+                    viewBox={"0 0 " + width + " " + height}>
 
         <g>
-          <animated.radialGradient id="SVGID_1_"  cx="227.1665" cy="372.9024" r={animatedgradient.x} gradientUnits="userSpaceOnUse">
-            <stop offset="0" style={{stopColor:"#ffffff"}}/>
-            <stop offset="1" style={{stopColor:"#000000"}}/>
+          <animated.radialGradient id="SVGID_1_" cx={coords.x} cy={coords.y} r={gradientProps.x}
+                                   gradientUnits="userSpaceOnUse">
+            <stop offset="0" style={{ stopColor: "#ffffff" }}/>
+            <stop offset="1" style={{ stopColor: "#000000" }}/>
           </animated.radialGradient>
-          <path style={{fill:"url(#SVGID_1_)"}} d="M154.8,296h-140v-140h140V296z M16.3,294.5h137v-137h-137V294.5z M154.8,157.5h-140v-140h140V157.5z
+          <path style={{ fill: "url(#SVGID_1_)" }} d="M154.8,296h-140v-140h140V296z M16.3,294.5h137v-137h-137V294.5z M154.8,157.5h-140v-140h140V157.5z
 		 M16.3,155.9h137V19h-137V155.9z M293.3,296h-140v-140h140V296z M154.8,294.5h137v-137h-137V294.5z M154.8,434.5h-140v-140h140
 		V434.5z M16.3,433h137V296h-137V433z M293.3,434.5h-140v-140h140V434.5z M154.8,433h137V296h-137V433z M154.8,573h-140V433h140V573
 		z M16.3,571.5h137v-137h-137V571.5z M293.3,573h-140V433h140V573z M154.8,571.5h137v-137h-137V571.5z M431.8,573h-140V433h140V573z
