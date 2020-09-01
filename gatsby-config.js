@@ -98,6 +98,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
     `gatsby-theme-tailwindcss`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -110,5 +111,7 @@ module.exports = {
   mapping: {
     // 3. map author to author.yaml
     "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+    "MarkdownRemark.frontmatter.managers.manager": `ManagerYaml`,
+    "MarkdownRemark.frontmatter.technologies.technology": `TechnologyYaml`,
   },
 }
