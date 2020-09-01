@@ -261,7 +261,7 @@ const BlogIndex = ({ data }) => {
   function onAfterLoad(origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
     if (typingText && destination.anchor === "software") {
-      typingText.toggle()
+      typingText.start()
     }
   }
 
@@ -278,7 +278,7 @@ const BlogIndex = ({ data }) => {
   function onAfterSlideLoad(section, origin, destination, direction) {
     setFloatingComponentsColors(currentSlide.colors)
     if (typingText && destination.anchor === "software") {
-      typingText.toggle()
+      typingText.start()
     }
   }
 

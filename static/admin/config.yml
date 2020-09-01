@@ -13,6 +13,8 @@ locale: 'es'
 collections:
   - name: 'blog'
     label: 'Blog'
+    label_singular: 'Post'
+    description: 'Posts del Blog'
     folder: 'content/blog'
     create: true
     slug: 'index'
@@ -25,6 +27,33 @@ collections:
       - { label: 'Título', name: 'title', widget: 'string' }
       - { label: 'Descripción', name: 'description', widget: 'string' }
       - { label: 'Fecha', name: 'date', widget: 'datetime' }
+      - label: "Autor"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: [ "id", "name"]
+        valueField: "id"
+        displayFields: [ "name" ]
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'projects'
+    label: 'Proyectos'
+    label_singular: 'Proyecto'
+    description: 'Proyectos del Portfolio'
+    folder: 'content/projects'
+    create: true
+    slug: 'summary'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/summary'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Element name', name: 'elementname', widget: 'string' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Short description', name: 'shortdescription', widget: 'string' }
+      - { label: 'Start date', name: 'startdate', widget: 'datetime' }
+      - { label: 'Duration', name: 'duration', widget: 'string' }
+      - { label: 'Total budget', name: 'totalbudget', widget: 'string' }
       - label: "Autor"
         name: "author"
         widget: "relation"
