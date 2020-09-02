@@ -1,15 +1,19 @@
 module.exports = {
   siteMetadata: {
     title: `Magnesium.coop`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Desarrollamos y diseñamos software, aplicaciones y páginas web para solucionar problemas y mejorar procesos.`,
     siteUrl: `https://magnesium.coop`,
     social: {
-      twitter: `magnesiumcoop`
+      twitter: 'https://twitter.com/magnesiumcoop',
+      linkedin: 'https://www.linkedin.com/company/magnesiumcoop',
+      instagram: 'https://www.instagram.com/magnesiumcoop/',
+      gitlab: 'https://gitlab.com/magnesiumcoop'
     },
     contacto: {
       telefono: ``,
       direccion: ``,
-      email: `info@magnesium.coop`
+      email: `info@magnesium.coop`,
+      support: 'soporte@magnesium.coop'
     }
   },
   plugins: [

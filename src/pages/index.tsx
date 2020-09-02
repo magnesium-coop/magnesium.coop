@@ -10,6 +10,7 @@ import BlogPage from "../components/blog"
 import ProjectsPage from "../components/projects"
 import Header from "../components/header"
 import SimpleIntroPage from "../components/simpleIntro"
+import Footer from "../components/footer"
 
 function removeSlash(text) {
   if (text !== undefined) {
@@ -369,6 +370,7 @@ const BlogIndex = ({ data }) => {
             )
           }}
         />
+        <Footer currentSlide={currentSlide} siteMetadata={data.site.siteMetadata}/>
       </div>
     )
 }
@@ -469,7 +471,25 @@ export const pageQuery = graphql`
         }
       }
     }
-  
+  site {
+    siteMetadata {
+      title
+      contacto {
+        telefono
+        direccion
+        email
+        support
+      }
+      description
+      siteUrl
+      social {
+        twitter
+        linkedin
+        instagram
+        gitlab
+      }
+    }
+  }
   projects:allMarkdownRemark(
     sort: {fields: [frontmatter___date], order: DESC}
     filter: {fileAbsolutePath: {regex: "/(projects)/.*\\\\.md$/"}}
