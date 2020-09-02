@@ -29,9 +29,6 @@ const SimpleIntroPage = (props) => {
              onMouseMove={event => {
                const rect = svgRef.current.getBoundingClientRect()
                setCoords({ x: event.clientX - rect.left, y: event.clientY - rect.top })
-             }}
-             onMouseLeave={event => {
-               setCoords(mgCoords)
              }}>
           <TablaPeriodica mouseCoords={coords} reference={svgRef}/>
           <div className="h-full flex flex-col z-40 items-center justify-around">
