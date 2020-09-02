@@ -284,21 +284,22 @@ Indicadores abajo
     border-color: #f25c4a;
 }
 
+@screen md {
 
+    .md\:bg-blanco {
+        background-color: #ffffff;
+    }
 
-.md\:bg-blanco {
-    background-color: #ffffff;
+    .md\:text-blanco {
+        color: #ffffff;
+    }
+
+    .md\:bg-negro {
+        background-color: #000000;
+    }
+
+    .md\:text-negro {
+        color: #000000;
+    }
+
 }
-
-.md\:text-blanco {
-    color: #ffffff;
-}
-
-.md\:bg-negro {
-    background-color: #000000;
-}
-
-.md\:text-negro {
-    color: #000000;
-}
-
