@@ -113,9 +113,8 @@ module.exports = {
     },
   ],
   mapping: {
-    // 3. map author to author.yaml
-    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-    "MarkdownRemark.frontmatter.managers.manager": `ManagerYaml`,
+    "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.id`,
+    "MarkdownRemark.frontmatter.managers.manager": `MarkdownRemark.frontmatter.id`,
     "MarkdownRemark.frontmatter.technologies.technology": `TechnologyYaml`,
   },
 }

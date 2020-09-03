@@ -9,7 +9,8 @@ import React from "react"
 import Image from "gatsby-image"
 
 
-const Bio = ({ author }) => {
+const Bio = (data) => {
+  let author = data.author.frontmatter
   if (author) {
     return (
       <div

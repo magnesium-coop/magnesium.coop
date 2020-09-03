@@ -7,10 +7,10 @@ description: Aplicación para la contratación a demanda de servicios de cuidado
 startdate: Diciembre 2018
 duration: 6 meses
 totalbudget: USD 9000
-manager: cbauza
+manager: cristian
 managers:
-    - manager: cbauza
-    - manager: rsperoni
+    - manager: cristian
+    - manager: raul
 client: Giroplus S.A.
 clientcontact:
     - contact1:

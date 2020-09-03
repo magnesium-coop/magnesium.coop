@@ -109,8 +109,8 @@ const BlogIndex = ({ data }) => {
 
   function getNosotrosSlides() {
     const { autores, colaboradores, quienesSomos } = data
-    const authors = autores.nodes
-    const colaboradoresAll = colaboradores.nodes
+    const authors = autores.edges
+    const colaboradoresAll = colaboradores.edges
 
     initialFullPages[1]["slides"] = []
     //First
@@ -395,40 +395,58 @@ export const pageQuery = graphql`
         }
       }
     }
-    autores: allAuthorYaml {
-    nodes {
-      bio
-      name
-      email
-      gitlab
-      id
-      twitter
-      profilepicture {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+    autores: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(authors)/.*\\\\.md$/"}}) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            id
+            bio
+            name
+            email
+            gitlab
+            twitter
+            profilepicture {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
-    }
-    colaboradores: allColaboradoresYaml {
-    nodes {
-      bio
-      name
-      email
-      gitlab
-      id
-      twitter
-      profilepicture {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+   
+    colaboradores: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(colaborators)/.*\\\\.md$/"}}) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            id
+            bio
+            name
+            email
+            gitlab
+            twitter
+            profilepicture {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
-    }
+    
   quienesSomos: markdownRemark(frontmatter: {id: {eq: "quienes-somos"}}) {
     html
     frontmatter {
@@ -454,18 +472,21 @@ export const pageQuery = graphql`
             title
             description
               author {
-              id
-              bio
-              email
-              name
-              twitter
-              profilepicture {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+                frontmatter {
+                  id
+                  bio
+                  name
+                  email
+                  gitlab
+                  twitter
+                  profilepicture {
+                    childImageSharp {
+                      fluid {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
                   }
                 }
-              }
              }
           }
         }
@@ -506,18 +527,22 @@ export const pageQuery = graphql`
           frontmatter {          
             title
             author {
-              id
-              bio
-              name
-              twitter
-              profilepicture {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+              frontmatter {
+                id
+                bio
+                name
+                email
+                gitlab
+                twitter
+                profilepicture {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
-            }
+           }
             elementname
             name          
             description
@@ -538,11 +563,13 @@ export const pageQuery = graphql`
             image
             link          
             managers {
-              manager{
-                id
-                email
-                name
-                twitter
+              manager {
+                frontmatter {
+                  id
+                  email
+                  name
+                  twitter
+                 }
               }
             }
           }

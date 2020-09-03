@@ -7,10 +7,10 @@ description: Sistema de gestión de horas de funcionarios mediante el registro d
 startdate: Octubre 2017
 duration: 7 meses
 totalbudget: USD 1500
-manager: cbauza
+manager: cristian
 managers:
-    - manager: cbauza
-    - manager: rsperoni
+    - manager: cristian
+    - manager: raul
 client: MarQ
 clientcontact:
     - contact1:

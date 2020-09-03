@@ -9,6 +9,7 @@ media_folder: static/img
 public_folder: /img
 locale: 'es'
 
+publish_mode: editorial_workflow
 
 collections:
   - name: 'blog'
@@ -60,13 +61,17 @@ collections:
         name: "authors"
         file: "content/data/author.yaml"
         fields:
-          - { label: 'Id', name: 'id', widget: 'string' }
-          - { label: 'Email', name: 'email', widget: 'string' }
-          - { label: 'Nombre', name: 'name', widget: 'string' }
-          - { label: 'Bio', name: 'bio', widget: 'string' }
-          - { label: 'Twitter', name: 'twitter', widget: 'string' }
-          - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
-          - { label: 'Foto', name: 'profilepicture', widget: image }
+          - label: 'List'
+          - name: 'author_list'
+          - widget: 'list'
+          - fields:
+            - { label: 'Id', name: 'id', widget: 'string' }
+            - { label: 'Email', name: 'email', widget: 'string' }
+            - { label: 'Nombre', name: 'name', widget: 'string' }
+            - { label: 'Bio', name: 'bio', widget: 'string' }
+            - { label: 'Twitter', name: 'twitter', widget: 'string' }
+            - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+            - { label: 'Foto', name: 'profilepicture', widget: image }
       - label: "Colaborators"
         name: "colaborators"
         label_singular: 'Colaborator'

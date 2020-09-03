@@ -79,8 +79,8 @@ const ProjectsPage = (props) => {
                         }).join(", ")}</li>
                         {/*<li> image: { slide.image }</li>*/}
                         <li> link: {slide.link}</li>
-                        <li> managers: {slide.managers.map((mana, index) => {
-                          let man = mana.manager
+                        <li> managers: {slide.managers.map((data, index) => {
+                          let man = data.manager.frontmatter
                           return man.name + " (" + man.email + ")"
                         }).join(", ")}</li>
                       </ul>

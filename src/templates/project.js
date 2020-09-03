@@ -75,7 +75,7 @@ const ProjectTemplate = ({ data, pageContext, location }) => {
 
 export default ProjectTemplate
 
-export const pageQuery = graphql`
+/*export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -106,4 +106,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`*/
