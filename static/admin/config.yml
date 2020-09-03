@@ -28,7 +28,13 @@ collections:
       - { label: 'Título', name: 'title', widget: 'string' }
       - { label: 'Descripción', name: 'description', widget: 'string' }
       - { label: 'Fecha', name: 'date', widget: 'datetime' }
-      - { label: 'Autor Id', name: 'author', widget: 'string' }
+      - label: "Autor"
+          name: "author"
+          widget: "relation"
+          collection: "authors"
+          searchFields: [ "name" ]
+          valueField: "id"
+          displayFields: [ "name" ]
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'projects'
     label: 'Proyectos'
@@ -49,48 +55,58 @@ collections:
       - { label: 'Start date', name: 'startdate', widget: 'datetime' }
       - { label: 'Duration', name: 'duration', widget: 'string' }
       - { label: 'Total budget', name: 'totalbudget', widget: 'string' }
-      - { label: 'Autor Id', name: 'author', widget: 'string' }
+      - label: "Autor"
+          name: "author"
+          widget: "relation"
+          collection: "authors"
+          searchFields: [ "name" ]
+          valueField: "id"
+          displayFields: [ "name" ]
+      - label: "Manager"
+          name: "manager"
+          widget: "relation"
+          collection: "authors"
+          searchFields: [ "name" ]
+          valueField: "id"
+          displayFields: [ "name" ]
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'settings'
-    label: 'Settings'
+  - name: 'authors'
+    label: 'Equipo'
+    label_singular: 'Socio'
+    description: 'Socios de Magnesium'
+    folder: 'content/data/authors'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{id}}/index'
     editor:
       preview: false
-    files:
-      - label: "Authors"
-        label_singular: 'Author'
-        name: "authors"
-        file: "content/data/author.yaml"
-        fields:
-          - label: 'List'
-          - name: 'author_list'
-          - widget: 'list'
-          - fields:
-            - { label: 'Id', name: 'id', widget: 'string' }
-            - { label: 'Email', name: 'email', widget: 'string' }
-            - { label: 'Nombre', name: 'name', widget: 'string' }
-            - { label: 'Bio', name: 'bio', widget: 'string' }
-            - { label: 'Twitter', name: 'twitter', widget: 'string' }
-            - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
-            - { label: 'Foto', name: 'profilepicture', widget: image }
-      - label: "Colaborators"
-        name: "colaborators"
-        label_singular: 'Colaborator'
-        file: "content/data/colaboradores.yaml"
-        fields:
-          - { label: 'Id', name: 'id', widget: 'string' }
-          - { label: 'Email', name: 'email', widget: 'string' }
-          - { label: 'Nombre', name: 'name', widget: 'string' }
-          - { label: 'Bio', name: 'bio', widget: 'string' }
-          - { label: 'Twitter', name: 'twitter', widget: 'string' }
-          - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
-          - { label: 'Foto', name: 'profilepicture', widget: image }
-      - label: "Technologies"
-        name: "technologies"
-        label_singular: 'Technology'
-        file: "content/data/technology.yaml"
-        fields:
-          - { label: 'Id', name: 'id', widget: 'string' }
-          - { label: 'Nombre', name: 'name', widget: 'string' }
-          - { label: 'Version', name: 'version', widget: 'string' }
-          - { label: 'Description', name: 'description', widget: 'string' }
-          - { label: 'Url', name: 'url', widget: 'string' }
+    fields:
+      - { label: 'Id', name: 'id', widget: 'string' }
+      - { label: 'Email', name: 'email', widget: 'string' }
+      - { label: 'Nombre', name: 'name', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+      - { label: 'Foto', name: 'profilepicture', widget: image }
+  - name: 'colaborators'
+    label: 'Colaboradores'
+    label_singular: 'Colaborador'
+    description: 'Colaboradores de Magnesium'
+    folder: 'content/data/colaborators'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{id}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Id', name: 'id', widget: 'string' }
+      - { label: 'Email', name: 'email', widget: 'string' }
+      - { label: 'Nombre', name: 'name', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+      - { label: 'Foto', name: 'profilepicture', widget: image }
