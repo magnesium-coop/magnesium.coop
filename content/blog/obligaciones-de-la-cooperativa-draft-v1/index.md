@@ -30,7 +30,7 @@ Declaración de Impuesto al Patrimonio, aunque las Cooperativas de Trabajo está
 
 Cuando el tipo de IVA que se tributa es servicios personales, se debe hacer la declaración jurada de IVA anual, utilizando el formulario 1302.
 
-Luego de tener el balance ya se cuenta con todos los datos para poder completar ambos formularios y el plazo de presentación está en el [calendario de pagos de DGI[(https://www.dgi.gub.uy/wdgi/page?2,principal,dgi--herramientas--informacion-de-uso-frecuente--vencimientos--2020,O,es,0,), en general es en el mes de abril para el 2148 y entre junio y agosto el 1302 (el periodo exacto se determina con el último dígito del RUT).
+Luego de tener el balance ya se cuenta con todos los datos para poder completar ambos formularios y el plazo de presentación está en el [calendario de pagos de DGI](https://www.dgi.gub.uy/wdgi/page?2,principal,dgi--herramientas--informacion-de-uso-frecuente--vencimientos--2020,O,es,0,), en general es en el mes de abril para el 2148 y entre junio y agosto el 1302 (el periodo exacto se determina con el último dígito del RUT).
 
 **¿Qué informamos a la INACOOP?**
 
