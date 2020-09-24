@@ -1,5 +1,5 @@
 ---
-title: Obligaciones de la Cooperativa (draft v1)
+title: Obligaciones de la Cooperativa
 description: Obligaciones formales que debemos cumplir como Cooperativa de Trabajo
 date: 2020-09-24T00:17:18.858Z
 author: pablo
