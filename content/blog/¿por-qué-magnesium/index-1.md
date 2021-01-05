@@ -4,9 +4,9 @@ description: ¿Por qué Magnesium? ¿De dónde salio el nombre?
 date: 2021-01-05T23:29:55.247Z
 author: gonza
 ---
-Una pregunta bastaste recurrente que nos hacen, en general cuando termina la primer reunión es ¿y por qué Magnesium? ¿de dónde salió?
+Una pregunta bastaste recurrente que nos hacen, en general cuando termina la primer reunión es: ¿y por qué Magnesium? ¿de dónde salió?
 
-Respuesta rapida es un elemento de la tabla periodica, especificamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerds. 
+Respuesta rápida, es un elemento de la tabla periodica, especificamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerds. 
 
 Eso abre la siguiente pregunta, pero ... ¿son 12? 
 
@@ -45,10 +45,6 @@ Recuerda, cuanto más rápido mayor puntaje!
 - - -
 
 FOTOS DE LA APLICAICON Y VIDEOS
-
-```
-
-```
 
 Al final tuvimos una defensa nosotros 12, el cliente (quien nos dio la idea y era nuestra contraparte), nuestro tutor, y 3 docentes más. Salvamos con 11, no con 12, en otra historia podemos conversar el motivo, es algo ya superado, o no...
 
