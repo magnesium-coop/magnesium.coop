@@ -4,31 +4,21 @@ description: ¿Por qué Magnesium? ¿De dónde salio el nombre?
 date: 2021-01-05T23:29:55.247Z
 author: gonza
 ---
-Una pregunta bastaste recurrente que nos hacen, en general cuando termina la primer reunión es: ¿y por qué Magnesium? ¿de dónde salió?
+Una pregunta bastaste recurrente que nos hacen, en general cuando termina la primer reunión es: ¿y por qué Magnesium? ¿de dónde salió? Respuesta rápida, es un elemento de la tabla periódica, específicamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerd.
 
-Respuesta rápida, es un elemento de la tabla periodica, especificamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerds. 
+Eso abre la siguiente pregunta al dialogo, pero ... ¿son 12? ¿qué pasó? Bueno no, en realidad cuando elegimos el nombre fuimos 12, terminamos siendo 6 l[os que nos subimos a este barco ]([magnesium.coop/#nosotros](magnesium.coop/#nosotros).)[](magnesium.coop/#nosotros).
 
-Eso abre la siguiente pregunta, pero ... ¿son 12? 
+Dependiendo de los tiempos nuestros y los de los clientes y las ganas, este dialogo continua con más detalles pero en general hasta ahí llegamos. 
 
-Bueno no, en realidad cuando elegimos el nombre fuimos 12,  terminamos siendo 6 los que nos subimos a este barco (link a quienes somos)
+Los que sigue son los detalles finos, si no te interesa este es el momento perfecto para terminar de leer, lo anterior es más que suficiente. 
 
-Dependiendo nuestros tiempos, los del cliente y las ganas, este dialogo continua con más detalles pero en general hasta ahi llegamos.
+Historia larga
 
-Los que sigue son los detalles finos, si no te interesa este es el momento perfecto para terminar de leer, lo anterior es más que suficiente.
+Erase una vez un grupo de estudiantes en un lugar muy particular: la Facultad de Ingeniería de la Udelar. 
 
-Historia larga: erase una vez un grupo de estudiantes en un lugar muy particular: la Facultad de Ingenieria de la Udelar. 
-En este recinto existe una materia bastante llamativa, de tercer o cuarto año\*\* de la carrera que se conoce vulgarmente como el PIS (Proyecto de Ingenieria de Software). 
-Les dejo el objetivo de esta materia redactada por el propio instituto que la dicta 
-	"Afirmar y profundizar los conocimientos de Ingeniería de Software, contrastarlos con su aplicación práctica e integrarlos con conocimientos de otras materias entre las que se destacan, sin ser exhaustivo:
- 	- Programación
- 	- Arquitectura, Sistemas Operativos y Redes de Computadores
-	- Bases de Datos y Sistemas de Información" https://eva.fing.edu.uy/enrol/index.php?id=573
+En este recinto existe una materia bastante llamativa, de tercer o cuarto año\*\* que se conoce vulgarmente como el PIS (Proyecto de Ingeniería de Software). Les dejo el objetivo de esta materia redactada por el propio instituto que la dicta "Afirmar y profundizar los conocimientos de Ingeniería de Software, contrastarlos con su aplicación práctica e integrarlos con conocimientos de otras materias entre las que se destacan, sin ser exhaustivo: - Programación - Arquitectura, Sistemas Operativos y Redes de Computadores - Bases de Datos y Sistemas de Información" https://eva.fing.edu.uy/enrol/index.php?id=573 Aparte del objetivo del cursoes importante comprender el factor tamaño del grupo a conformar para cursarla: entre 12 y 15 mortales, acá empieza aparecer el numero mágico. En el PIS se plantea una serie de proyectos en distintas tecnologías y se asigna a cada uno de estos grupos supernumerarios uno de ellos. Lo divertido acá es la organización necesaria para llevar a cabo dicha tarea. No son 12 "pica código" como puede ser el imaginario colectivo de lo estudiantes de ingeniería en computación, sino que se plantea una especie de juego de roles: ser una empresa. En esta "empresa" tenemos el arquitecto de software,el verificador de calidad, el coordinador de desarrollo
 
-Aparte del objetivo del curso  es importante comprender el factor tamaño del grupo a conformar para cursarla: entre 12 y 15 mortales, aca empieza aparecer el numero magico.
-
-En el PIS se plantea una serie de proyectos en distintas tecnologias y se asigna a cada uno de estos grupos supernumerario uno de ellos. Lo divertido aca es la organiazacion necesaria para llevar a cabo dicha tarea. No son 12 "pica codigo" como puede ser el imaginario colectivo de lo estudiantes de ingenieria en computación, sino que se plantea una especie de juego de roles: ser una empresa. En esta "empresa" tenemos el arquitecto de software,  el verificador de calidad, el coordinador de desarrollo , los pica codigos, y asi muchos más.
-
-En fin la gracia de esta materia es llevar a cabo un proyecto de punta a punta, donde el foco esta en la planificación, los planes de ejecución, (mucha mucha) documentación y obviamente algo de codigo.
+los pica códigos, y así muchos más. En fin la gracia de esta materia es llevar a cabo un proyecto de punta a punta, donde el foco está en la planificación, los planes de ejecución, (mucha mucha) documentación y obviamente algo de código.
 
 A nosotros no toco un proyecto donde debiamos desarrollar un juego para celular, pero que no implicara estar con la pantallita cual zombie, sino que fomentara la actividad fisica de los usuarios.
 
