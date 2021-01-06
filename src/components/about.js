@@ -2,7 +2,6 @@ import React from "react"
 
 import Layout from "./layout"
 import Slide from "./slide"
-import Bio from "./bio"
 import ArrowNext from "./arrowNext"
 import ArrowPrev from "./arrowPrev"
 import TeamGrid from "./teamGrid"

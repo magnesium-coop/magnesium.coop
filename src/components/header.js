@@ -10,9 +10,9 @@ import logomg01 from "../../content/assets/logo-mg-01.svg"
 
 const Header = ({ pages, colors, currentSlide, currentPage }) => {
 
-  const backgroundColor = "bg-"+currentSlide.colors.backgroundColor
-  const borderColor = "border-"+currentSlide.colors.borderColor
-  const textColor = "text-"+currentSlide.colors.textColor
+  const backgroundColor = "bg-" + currentSlide.colors.backgroundColor
+  const borderColor = "border-" + currentSlide.colors.borderColor
+  const textColor = "text-" + currentSlide.colors.textColor
 
   function getImg(classname) {
     if (backgroundColor === "bg-negro" || backgroundColor === "bg-naranja") {
@@ -46,7 +46,7 @@ const Header = ({ pages, colors, currentSlide, currentPage }) => {
             id="header-principal">
       <nav
         className={"w-auto flex justify-between px-4 py-4 lg:flex-col lg:px-10 lg:pt-10"}>
-        <div className="flex items-center lg:pl-3">
+        <div className="flex items-center lg:pl-3 ml-2 md:ml-0">
           <a href={"#" + pages[0].anchor}>{getImg("fill-current w-40")}</a>
         </div>
         <div className="flex-grow"></div>

@@ -197,7 +197,6 @@ const BlogIndex = ({ data }) => {
     })
     //Rest
     data.projects.edges.map(({ node }, index) => {
-      console.log(node.frontmatter.elementname)
       initialFullPages[2]["slides"].push({
         excerpt: node.excerpt,
         html: node.html,

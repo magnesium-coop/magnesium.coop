@@ -20,7 +20,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
       shuffleArray(team)
       setTeamList(team)
     }
-  })
+  }, [team, teamList])
 
   if (team) {
     return (
