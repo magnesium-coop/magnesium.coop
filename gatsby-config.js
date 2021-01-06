@@ -76,7 +76,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-transformer-yaml-full',
+    'gatsby-transformer-yaml',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
