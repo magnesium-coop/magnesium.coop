@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 140 140" style="enable-background:new 0 0 140 140;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{font-family:'GenerisSansW01-Regular';}
+	.st2{font-size:24px;}
+	.st3{letter-spacing:1;}
+	.st4{font-size:35px;}
+	.st5{font-size:16px;}
+	.st6{font-family:'GenerisSansW01-Bold';}
+	.st7{font-size:15px;}
+	.st8{font-size:59px;}
+	.st9{letter-spacing:2;}
+</style>
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="70" cy="-229.1765" r="70" gradientTransform="matrix(1 0 0 -1 0 -159.1765)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</radialGradient>
+	<path class="st0" d="M139,1v138H1V1H139 M140,0H0v140h140V0L140,0z"/>
+</g>
+<text transform="matrix(1 0 0 1 10.4826 103.8005)" class="st1 st2 st3">Tantalum</text>
+<text transform="matrix(1 0 0 1 96.2534 36.6001)" class="st1 st4 st3">73</text>
+<text transform="matrix(1 0 0 1 10.0769 126.8999)" class="st1 st5">761</text>
+<text transform="matrix(1 0 0 1 104.2527 126.8997)" class="st1 st5">1.50</text>
+<text transform="matrix(1 0 0 1 10.4824 23.3004)" class="st6 st7">180.9478</text>
+<text transform="matrix(1 0 0 1 8.365 77.8001)" class="st6 st8 st9">Ta</text>
+</svg>

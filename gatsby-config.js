@@ -116,5 +116,6 @@ module.exports = {
     "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.id`,
     "MarkdownRemark.frontmatter.managers.manager": `MarkdownRemark.frontmatter.id`,
     "MarkdownRemark.frontmatter.technologies.technology": `TechnologyYaml`,
+    "MarkdownRemark.frontmatter.elementname": `ElementYaml`,
   },
 }

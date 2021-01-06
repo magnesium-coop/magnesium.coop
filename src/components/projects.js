@@ -4,6 +4,7 @@ import Slide from "./slide"
 import Bio from "./bio"
 import ArrowNext from "./arrowNext"
 import ArrowPrev from "./arrowPrev"
+import Element from "./element"
 
 function removeSlash(text) {
   return text.replace(/\//g, "")
@@ -23,28 +24,9 @@ const ProjectsPage = (props) => {
               className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
           </div>
-          {slides.map((slide, index) => {
-            if (index !== 0) {
-              return (
-                <article key={"#" + anchor + slide.slug}>
-                  <header>
-                    <h3>
-                      <a href={"#" + anchor + "/" + removeSlash(slide.slug)}
-                         className={"text-" + slides[0].colors.textColor}>{slide.title}</a>
-                    </h3>
-                    <small>{slide.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: slide.description || slide.excerpt
-                      }}
-                    />
-                  </section>
-                </article>
-              )
-            }
-          })}
+          <div className="mt-0 mb-auto lg:w-1/2 grid lg:grid-cols-4 gap-8">
+          {slides.map((slide) => <Element element={slide.element}/>)}
+          </div>
         </div>
       </Slide>
       {slides.map((slide, index) => {

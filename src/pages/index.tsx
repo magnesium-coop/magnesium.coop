@@ -197,6 +197,7 @@ const BlogIndex = ({ data }) => {
     })
     //Rest
     data.projects.edges.map(({ node }, index) => {
+      console.log(node.frontmatter.elementname)
       initialFullPages[2]["slides"].push({
         excerpt: node.excerpt,
         html: node.html,
@@ -204,7 +205,7 @@ const BlogIndex = ({ data }) => {
         slug: node.fields.slug,
         title: node.frontmatter.title,
         author: node.frontmatter.author,
-        elementname: node.frontmatter.elementname,
+        element: node.frontmatter.elementname,
         name: node.frontmatter.name,
         description: node.frontmatter.description,
         startdate: node.frontmatter.startdate,
@@ -543,7 +544,14 @@ export const pageQuery = graphql`
                 }
               }
            }
-            elementname
+            elementname {
+              symbol
+              id
+              mass
+              number
+              electronNegativity
+              ionizationEnergy
+            }
             name          
             description
             startdate
