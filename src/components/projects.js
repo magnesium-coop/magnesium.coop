@@ -25,7 +25,7 @@ const ProjectsPage = (props) => {
             </div>
           </div>
           <div className="mt-0 mb-auto lg:w-1/2 grid lg:grid-cols-4 gap-8 flex">
-          {slides.map((slide) => <Element element={slide.element}/>)}
+          {slides.filter((value, index) => index > 0 && index < 7).map((slide) => <Element element={slide.element} title={slide.title} slug={"#" + anchor + "/" + removeSlash(slide.slug)}/>)}
           </div>
         </div>
       </Slide>
