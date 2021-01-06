@@ -14,7 +14,7 @@ const AboutPage = (props) => {
     <Layout anchor={props.pages[props.pagePos].anchor}>
       <Slide currentSlide={slides[0]}>
         <div className="h-full flex flex-wrap justify-around">
-          <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex  justify-around ">
+          <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">
             <div
               className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>

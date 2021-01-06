@@ -24,7 +24,7 @@ const ProjectsPage = (props) => {
               className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
           </div>
-          <div className="mt-0 mb-auto lg:w-1/2 grid lg:grid-cols-4 gap-8 flex">
+          <div className="mt-0 lg:mt-auto mb-auto w-11/12 md:w-3/6 lg:w-2/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {slides.filter((value, index) => index > 0 && index < 7).map((slide) => <Element element={slide.element} title={slide.title} slug={"#" + anchor + "/" + removeSlash(slide.slug)}/>)}
           </div>
         </div>
