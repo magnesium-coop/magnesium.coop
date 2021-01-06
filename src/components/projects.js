@@ -24,7 +24,7 @@ const ProjectsPage = (props) => {
               className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
           </div>
-          <div className="mt-0 mb-auto lg:w-1/2 grid lg:grid-cols-4 gap-8">
+          <div className="mt-0 mb-auto lg:w-1/2 grid lg:grid-cols-4 gap-8 flex">
           {slides.map((slide) => <Element element={slide.element}/>)}
           </div>
         </div>
