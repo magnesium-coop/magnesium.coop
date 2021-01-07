@@ -25,7 +25,7 @@ const ProjectsPage = (props) => {
             </div>
           </div>
           <div className="mt-0 lg:mt-auto mb-auto w-11/12 md:w-3/6 lg:w-2/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {slides.filter((value, index) => index > 0 && index < 7).map((slide) => <Element element={slide.element} title={slide.title} slug={"#" + anchor + "/" + removeSlash(slide.slug)}/>)}
+          {slides.filter((value, index) => index > 0 && index < 7).map((slide) => <Element key={"elm_"+removeSlash(slide.slug)} element={slide.element} title={slide.title} slug={"#" + anchor + "/" + removeSlash(slide.slug)}/>)}
           </div>
         </div>
       </Slide>
@@ -33,7 +33,7 @@ const ProjectsPage = (props) => {
         const author = slide.author
         if (index !== 0) {
           return (
-            <div key={removeSlash(slide.slug)}>
+            <div key={"proyectos_"+removeSlash(slide.slug)}>
               <Slide currentSlide={slide}>
                 <div className="h-full flex flex-wrap justify-around lg:pt-32">
                   <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">

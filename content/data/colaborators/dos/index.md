@@ -1,5 +1,5 @@
 ---
-id: tincho
+id: cdos
 email: msteglich@magnesium.coop
 name: Martín Steglich
 gitlab: raulsperoni

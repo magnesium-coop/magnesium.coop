@@ -8394,14 +8394,6 @@ gatsby-transformer-sharp@^2.5.2:
     semver "^7.3.4"
     sharp "^0.27.0"
 
-gatsby-transformer-yaml-full@^0.3.3:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml-full/-/gatsby-transformer-yaml-full-0.3.5.tgz#44cebb56903f51d383effd327d33292a3efc9b59"
-  integrity sha512-BcEuAe54pTqRKwDuxj16cckTuUkfe5pyiU52MsDYiWLMfCDdSY6x+ADfA6GR4ZGSF66TGXxNI8pYWhBxcbyzPQ==
-  dependencies:
-    is-plain-object "^5.0.0"
-    js-yaml "^3.14.1"
-
 gatsby-transformer-yaml@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-2.9.0.tgz#cb4da0a1d2c9ae2ffafb7ffe57b47d7506bcfc13"
@@ -10588,11 +10580,6 @@ is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   integrity sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
   dependencies:
     isobject "^3.0.1"
-
-is-plain-object@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
-  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
 
 is-png@^2.0.0:
   version "2.0.0"

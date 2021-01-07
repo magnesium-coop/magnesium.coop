@@ -34,7 +34,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
           {team.map(({node}) => {
             let author = node.frontmatter
             return (
-              <div key={author.id}>
+              <div key={"autor_"+author.id}>
                 <Image
                   fluid={author.profilepicture.childImageSharp.fluid}
                   alt={author.name}

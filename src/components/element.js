@@ -4,7 +4,7 @@ const Element = ({ element, title, slug }) => {
 
   if (element) {
     return (
-      <div className="flip-card font-mgbook absolute h-100">
+      <div key={"element_"+slug} className="flip-card font-mgbook absolute h-100">
         <div className="flip-card-inner h-16">
           <div className="flip-card-front">
             <div className="bg-white">

@@ -370,7 +370,7 @@ const BlogIndex = ({ data }) => {
             )
           }}
         />
-        <Footer currentSlide={currentSlide} siteMetadata={data.site.siteMetadata}/>
+        <Footer siteMetadata={data.site.siteMetadata}/>
       </div>
     )
 }

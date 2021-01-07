@@ -50,7 +50,7 @@ const BlogPage = (props) => {
         const author = slide.author
         if (index !== 0) {
           return (
-            <div key={removeSlash(slide.slug)}>
+            <div key={"blog_"+removeSlash(slide.slug)}>
               <Slide currentSlide={slide}>
                 <div className="h-full flex flex-wrap justify-around lg:pt-32">
                   <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">
