@@ -42,7 +42,7 @@ const BlogPage = (props) => {
                   </section>
                 </article>
               )
-            } else return null
+            } else return <div></div>
           })}
         </div>
       </Slide>

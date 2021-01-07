@@ -75,7 +75,7 @@ const ProjectsPage = (props) => {
               </Slide>
             </div>
           )
-        } else return null
+        } else return <div></div>
       })}
       <ArrowNext arrow={props.currentSlide.next} fullPageApi={props.fullPageApi}
                  anchor={props.pages[props.pagePos].anchor}/>
