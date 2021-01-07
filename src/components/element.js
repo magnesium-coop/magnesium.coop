@@ -12,13 +12,9 @@ const Element = ({ element, title, slug }) => {
         //ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
         // if you pass isFlipped prop component will be controlled component.
         // and other props, which will go to div
-        //style={{ width: '200px', height: '200px'}} /// these are optional style, it is not necessary
       >
         <FrontSide
-          style={{
-            backgroundColor: '#41669d',
-          }}
-        >
+          style={{ padding: 0 }}>
           <div className="bg-white">
             <svg version="1.1"
                  x="0px" y="0px"
@@ -41,26 +37,14 @@ const Element = ({ element, title, slug }) => {
           </div>
         </FrontSide>
         <BackSide
-          style={{ backgroundColor: '#175852'}}>
-          <div className="bg-negro">
-            <a href={slug}>
+          style={{ padding: 0 }}>
+          <a href={slug}>
+          <div className="bg-negro w-full h-full flex items-center">
 
-              <svg version="1.1"
-                   x="0px" y="0px"
-                   viewBox="0 0 140 140">
-                <g>
-                  <path d="M139,1v138H1V1H139 M140,0H0v140h140V0L140,0z" stroke="black"/>
-                </g>
+              <span className="text-blanco mx-auto">{title}</span>
 
-                <text
-                  className="element-name" fill="white"
-                  x="12.564453"
-                  y="78.947266">{title}
-                </text>
-
-              </svg>
-            </a>
           </div>
+          </a>
         </BackSide>
       </Flippy>
     )
