@@ -87,13 +87,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Magnesium.coop: Desarrollamos software aplicaciones y páginas web`,
+        short_name: `Magnesium.coop`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#f25c4a`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
+        icon: `content/assets/mg-negro.png`
       }
     },
     `gatsby-plugin-react-helmet`,
