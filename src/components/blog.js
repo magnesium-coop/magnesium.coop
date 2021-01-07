@@ -42,7 +42,7 @@ const BlogPage = (props) => {
                   </section>
                 </article>
               )
-            } else return <div></div>
+            } else return <div key={"blog__"+index}></div>
           })}
         </div>
       </Slide>
