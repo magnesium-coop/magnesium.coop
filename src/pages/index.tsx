@@ -299,12 +299,12 @@ const BlogIndex = ({ data }) => {
     setSize([width, height])
   }
 
-  function getAllDuplicateIds() {
+ /* function getAllDuplicateIds() {
     const elements = [...document.querySelectorAll('[id]')];
     const ids = elements.map(el => el.id);
     const dups = elements.filter(el => ids.filter(id => id === el.id).length > 1);
     return dups;
-  }
+  }*/
 
   useEffect(() => {
     setIsLoaded(true)
@@ -476,7 +476,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD/MM/YYYY")
             title
             description
               author {

@@ -16,13 +16,10 @@ const ProjectsPage = (props) => {
 
   return (
     <Layout anchor={anchor} backgroundColor={props.currentPage.backgroundColor}>
-      <Slide
-        currentSlide={slides[0]}>
+      <Slide currentSlide={slides[0]}>
         <div className="h-full flex flex-wrap justify-center lg:items-center">
-          <div
-            className="w-full md:1/6 lg:w-1/5 mb-5 md:mb-10 mt-0 lg:h-auto lg:my-auto flex items-center justify-around">
-            <div
-              className={"font-mgblack text-2xl md:text-2xl lg:text-3xl " + slides[0].colors.titleColor}>{slides[0].title}.
+          <div className="w-full md:1/6 lg:w-1/5 mb-5 md:mb-10 mt-0 lg:h-auto lg:my-auto flex items-center justify-around">
+            <div className={"font-mgblack text-2xl md:text-2xl lg:text-3xl text-" + slides[0].colors.titleColor}>{slides[0].title}.
             </div>
           </div>
           <div
@@ -31,6 +28,7 @@ const ProjectsPage = (props) => {
               <div key={"elm_" + anchor + "__" + removeSlash(slide.slug)}><Element element={slide.element} title={slide.name}
                             slug={"#" + anchor + "/" + removeSlash(slide.slug)}/></div>)}
           </div>
+          <div className="invisible lg:visible lg:w-1/5"></div>
         </div>
       </Slide>
       {slides.map((slide, index) => {
