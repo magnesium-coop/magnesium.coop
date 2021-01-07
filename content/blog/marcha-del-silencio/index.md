@@ -1,12 +1,10 @@
 ---
 title: Marcha del Silencio Virtual
-date: "2020-05-20T13:30:00.121Z"
 description: "Marcha del Silencio Virtual en Uruguay: Cooperación por la Memoria"
+date: 2020-05-20T13:30:00.121Z
 author: raul
 ---
-
-![Captura marchadelsilencio.uy][logo]
-
+![Captura del sitio marchadelsilencio.uy](marchadelsilencio.png "Captura del sitio")
 
 Hace unos meses un grupo de cooperativas argentinas encaraba junto a [Abuelas de Plaza de Mayo](https://www.abuelas.org.ar/) una marcha virtual de pañuelos blancos. 
 Según nos contaron desde [FACTTIC](https://facttic.org.ar) después de una hackaton entre las cooperativas idearon y desarrollaron una plataforma para “hacer marchar” todas aquellas imágenes que se publicaran en apoyo a Abuelas, antes y durante el 24 de Marzo, en twitter con el hashtag #PañuelosConMemoria. La llamaron Marcha Virtual.
@@ -25,5 +23,3 @@ Esta vez la cooperación fue internacional y, mediante una plataforma de softwar
 [Facttic Marcha Virtual 24M](https://facttic.org.ar/2020/03/22/el-24-de-marzo-hacemos-la-marcha-virtual/)
 
 [Facttic Intercooperación por la Memoria](https://facttic.org.ar/2020/05/20/intercoop-por-la-memoria/)
-
-[logo]: marchadelsilencio.png "Captura marchadelsilencio.uy"
