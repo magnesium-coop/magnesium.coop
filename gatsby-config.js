@@ -78,10 +78,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-transformer-yaml',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      }
+        trackingIds: [
+          "G-LL87NQRCD4", // Google Analytics / GA
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: true,
+
+        },
+      },
     },
     `gatsby-plugin-feed`,
     {
