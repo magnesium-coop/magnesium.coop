@@ -162,6 +162,7 @@ const BlogIndex = ({ data }) => {
         description: node.frontmatter.description,
         excerpt: node.excerpt,
         date: node.frontmatter.date,
+        image: node.frontmatter.featuredimage,
         html: node.html,
         colors: colorsWhite,
         title: node.frontmatter.title,
@@ -339,7 +340,7 @@ const BlogIndex = ({ data }) => {
                 currentSlide={currentSlide}
                 currentPage={currentPage}/>
         <ReactFullpage
-          licenseKey={"YOUR_KEY_HERE"}
+          licenseKey={"F3A5B1FB-1F8A4FDA-8BBBE1E1-C6654058"}
           scrollingSpeed={700}
           menu='#menu-principal'
           animateAnchor={true}
@@ -479,6 +480,13 @@ export const pageQuery = graphql`
             date(formatString: "DD/MM/YYYY")
             title
             description
+            featuredimage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+               }
+            }
               author {
                 frontmatter {
                   id

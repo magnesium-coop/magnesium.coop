@@ -3,12 +3,11 @@ title: ¿Por qué Magnesium?
 description: ¿Por qué Magnesium? ¿De dónde salio el nombre?
 date: 2021-01-05T23:29:55.247Z
 author: gonza
+featuredimage: desafios-v2-hd.png
 ---
 Una pregunta bastaste recurrente que nos hacen, en general cuando termina la primer reunión es: ¿y por qué Magnesium? ¿de dónde salió? Respuesta rápida, es un elemento de la tabla periódica, específicamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerd.
 
 Eso abre la sigui
-
-![BeatIt!](desafios-v2-hd.png)
 
 ente pregunta al dialogo, pero ... ¿son 12? ¿qué pasó? Bueno no, en realidad cuando elegimos el nombre fuimos 12, terminamos siendo 6 l[os que nos subimos a este barco ]([magnesium.coop/#nosotros](magnesium.coop/#nosotros).)[](magnesium.coop/#nosotros).
 

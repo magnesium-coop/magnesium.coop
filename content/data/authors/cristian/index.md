@@ -2,8 +2,8 @@
 id: cristian
 email: cbauza@magnesium.coop
 name: Cristian Bauza
-gitlab: raulsperoni
-twitter: nada
-bio: I am Author 2
+gitlab: cbauza
+twitter: cbauza88
+bio: Ingeniero. Actual Tesorero de la Cooperativa.
 profilepicture: profile-pic.jpg
 ---

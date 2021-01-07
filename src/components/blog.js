@@ -4,6 +4,8 @@ import Slide from "./slide"
 import Bio from "./bio"
 import ArrowNext from "./arrowNext"
 import ArrowPrev from "./arrowPrev"
+import Img from "gatsby-image"
+
 
 function removeSlash(text) {
   return text.replace(/\//g, "")
@@ -64,6 +66,7 @@ const BlogPage = (props) => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
+                    {slide.image ? <Img className="mb-10 mt-10" fluid={slide.image.childImageSharp.fluid}/> : null }
                     <div className="mt-5 lg:mt-10 lg:text-base"
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
                     <div className="mb-64">

@@ -28,6 +28,7 @@ collections:
       - { label: 'Título', name: 'title', widget: 'string' }
       - { label: 'Descripción', name: 'description', widget: 'string' }
       - { label: 'Fecha', name: 'date', widget: 'datetime' }
+      - { label: 'Foto', name: 'featuredimage', widget: image }
       - label: "Autor"
         name: "author"
         widget: "relation"

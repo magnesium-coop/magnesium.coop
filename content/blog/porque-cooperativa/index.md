@@ -3,6 +3,7 @@ title: ¿Por qué una cooperativa?
 date: "2020-06-08T22:10:37.284Z"
 description: "Intentamos responder a la pregunta recurrente: ¿Por qué armaron un cooperativa?"
 author: raul
+featuredimage:
 ---
 
 ¿Por qué armaron un cooperativa? Es una pregunta recurrente, no solo suena raro todo lo de “cooperativa de trabajo” sino que es aún más extraño para una empresa de tecnología. Habitualmente las empresas similares a nosotros, del estilo de “startups” son sociedades anónimas (SA) o sociedades de responsabilidad limitada (SRL). 
