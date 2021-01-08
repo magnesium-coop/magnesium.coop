@@ -16,19 +16,23 @@ const Bio = (data) => {
   let author = data.author.frontmatter
   if (author) {
     return (
-      <div className="flex align-middle content-center">
+      <div className="h-20 flex content-center">
         <Image
           fluid={author.profilepicture.childImageSharp.fluid}
           alt={author.name}
-          className="w-2/12 m-5"
+          className="w-20"
           imgStyle={{
             borderRadius: `50%`,
-            width: `100%`
+            width: `100%`,
+            height: `100%`
           }}
         />
-        <div className="my-auto">
+        <div className="my-auto w-8/12 ml-5">
           <p className="my-auto">
-            Escrito por <strong>{author.name}</strong> {author.bio}
+            Escrito por <strong>{author.name}</strong>
+          </p>
+          <p>
+            {author.bio}
           </p>
           <IconContext.Provider value={{ color: "#f25c4a", className: "mt-1 mx-1 text-xs lg:text-sm" }}>
             <div className="flex items-center">
