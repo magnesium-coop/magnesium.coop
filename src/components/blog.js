@@ -65,9 +65,10 @@ const BlogPage = (props) => {
                       className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slide.colors.titleColor}>{slide.title}
                     </div>
                   </div>
-                  <div className="md:w-1/2">
-                    {slide.image ? <Img className="mb-10 mt-10" fluid={slide.image.childImageSharp.fluid}/> : null }
-                    <div className="mt-5 lg:mt-10 lg:text-base"
+                  <div className="mt-0 mb-auto w-11/12 sm:w-7/12 md:w-8/12 lg:w-8/12 xl:w-6/12 lg:px-10 lg:text-base">
+                    {slide.image ? <Img className="mx-5 mb-10 mt-10 lg:w-8/12 xl:w-8/12 mx-auto" fluid={slide.image.childImageSharp.fluid}/> : null }
+
+                    <div className="xl:w-10/12 mx-auto xl:text-lg font-mgbook"
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
                     <div className="mb-64">
                       <Bio author={author}/>

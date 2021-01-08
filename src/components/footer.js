@@ -11,7 +11,7 @@ const Footer = ({ siteMetadata }) => {
   return (
     <div>
       <footer
-        className={"flex absolute bottom-0 right-0 mr-10 md:mr-32 w-12 md:w-56 z-40 text-l bg-naranja  rounded-tr-lg rounded-tl-lg border border-b-0 border-l-white border-t-white border-r-white"}
+        className={"flex absolute bottom-0 right-0 mr-12 md:mr-32 w-12 md:w-56 z-40 text-l bg-naranja  rounded-tr-lg rounded-tl-lg border border-b-0 border-l-white border-t-white border-r-white"}
         id="footer-principal-bottom">
         <div className="w-full flex flex-col">
           <div className={"w-full flex h-8 md:h-10"}>
