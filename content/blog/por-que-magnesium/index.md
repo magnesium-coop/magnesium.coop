@@ -7,7 +7,7 @@ author: gonza
 ---
 En general cuando termina una reunión la primer pregunta que nos hacen es: *¿y por qué Magnesium? ¿de dónde salió?* Respuesta rápida, es un elemento de la tabla periódica, específicamente el elemento número 12 que nos representa porque al principio eramos 12 y bueno ta, somos levemente nerd.
 
-Eso abre la siguiente pregunta al dialogo, pero ... *¿son 12? ¿qué pasó?* Bueno no, en realidad cuando elegimos el nombre fuimos 12, pero terminamos siendo 6 [los que nos subimos a este barco](/nosotros) [](magnesium.coop/#nosotros).
+Eso abre la siguiente pregunta al dialogo, pero ... *¿son 12? ¿qué pasó?* Bueno no, en realidad cuando elegimos el nombre fuimos 12, pero terminamos siendo 6 [los que nos subimos a este barco](/#nosotros).
 
 Dependiendo de los tiempos nuestros y los de los clientes y las ganas, este dialogo continua con más detalles pero en general hasta ahí llegamos. 
 
@@ -37,7 +37,7 @@ La dinámica del grupo llamó bastante la atención, no es para nada fácil trab
 
 Al ver ese panorama pensamos que esto no se puede perder, algunos eramos amigos, otros compañeros de alguna materia y otros nos conocimos ahí. Ahí surgió la idea loca "*...y si nos juntamos y armamos algo*". Al principio estábamos todos los 12, y con planillas y votación de por medio quedo **MgCoders**. Acto seguido se fue un compañero, básicamente por falta de tiempo. Días después salio un potencial proyecto, un desarrollo de un sistema de facturación para una Barraca. Ahí nos juntamos y nos planteamos si esto iba en serio *¿tomamos este proyecto o no?*.  Fue un si casi rotundo salvo un compañero que decidió no seguir.
 
-Durante el desarrollo del proyecto se bajaron algunos más y el grupo decanto en los 6 que [aparecemos](/nosotros).
+Durante el desarrollo del proyecto se bajaron algunos más y el grupo decanto en los 6 que [aparecemos](/#nosotros).
 
 El nombre MgCoders siempre nos gusto, pero a medida que comenzamos a madurar como empresa afloraron ciertas debilidades, 
 
