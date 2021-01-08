@@ -23,7 +23,7 @@ const ProjectsPage = (props) => {
             </div>
           </div>
           <div
-            className="mt-0 lg:mt-auto mb-auto w-11/12 md:w-3/6 lg:w-2/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            className="mt-0 lg:mt-auto mb-auto w-10/12 sm:w-7/12 md:w-6/12 lg:w-5/12 grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 xl:gap-10">
             {slides.filter((value, index) => index > 0 && index < 7).map((slide) =>
               <div key={"elm_" + anchor + "__" + removeSlash(slide.slug)}><Element element={slide.element} title={slide.name}
                             slug={"#" + anchor + "/" + removeSlash(slide.slug)}/></div>)}

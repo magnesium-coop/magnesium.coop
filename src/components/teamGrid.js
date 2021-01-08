@@ -30,7 +30,7 @@ const TeamGrid = ({ team, title, titleColor }) => {
             className={"font-mgblack text-2xl md:text-2xl lg:text-3xl " + titleColor}>{title}.
           </div>
         </div>
-        <div className="mt-0 lg:mt-auto mb-auto w-11/12 md:w-3/6 lg:w-2/5 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="mt-0 lg:mt-auto mb-auto w-10/12 sm:w-7/12 md:w-6/12 lg:w-5/12 grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 xl:gap-10">
           {team.map(({node}) => {
             let author = node.frontmatter
             return (
@@ -41,10 +41,10 @@ const TeamGrid = ({ team, title, titleColor }) => {
                   className="teamImage"
                 />
                 <div
-                  className={"pt-1 lg:pt-3 text-sm lg:text-lg text-right font-mgmedium " + titleColor}>{author.name}</div>
-                <div className="text-xs lg:text-sm text-right text-blanco">{author.bio}</div>
-                <IconContext.Provider value={{ color: "white", className: "mx-1 text-xs lg:text-sm" }}>
-                  <div className="flex items-center justify-end">
+                  className={"pt-1 lg:pt-3 text-xs xl:text-base text-center md:text-right font-mgmedium " + titleColor}>{author.name}</div>
+                <div className="hidden xl:block text-sm lg:text-sm text-right text-blanco">{author.bio}</div>
+                <IconContext.Provider value={{ color: "white", className: "mt-1 mx-1 text-xs lg:text-sm" }}>
+                  <div className="flex items-center justify-center md:justify-end">
                     <div>
                       <a href={"mailto:" + author.email} className={"no-underline text-white "}>
                         <FaRegEnvelope/>

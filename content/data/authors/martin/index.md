@@ -1,9 +1,9 @@
 ---
 id: martin
 email: mberguer@magnesium.coop
-name: Martín Berguer
+name: Ing. Martín Berguer
 gitlab: mberguer
 twitter: mberguer_
-bio: Ingeniero. Especialista en Frontend y Aplicaciones. Actual Secretario de la Cooperativa
+bio: Desarrollo Frontend y aplicaciones móviles. Actual Secretario
 profilepicture: profile-pic.jpg
 ---

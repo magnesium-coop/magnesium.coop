@@ -1,9 +1,9 @@
 ---
 id: gonza
 email: gjaviel@magnesium.coop
-name: Gonzalo Javiel
+name: Ing. Gonzalo Javiel
 gitlab: goja288
 twitter: goja288
-bio: Ingeniero. Desarrollador Fullstack. Project Manager. 
+bio: Desarrollo fullstack, análisis de datos, gestión y ventas.
 profilepicture: gonza.png
 ---

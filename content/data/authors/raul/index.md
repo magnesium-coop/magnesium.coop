@@ -1,9 +1,9 @@
 ---
 id: raul
 email: rsperoni@magnesium.coop
-name: Raúl Speroni
+name: Ing. Raúl Speroni
 twitter: raulsperoni
 gitlab: raulsperoni
-bio: I am Author 1
+bio: Desarrollo fullstack, investigación, aprendizaje automático y DevOps.
 profilepicture: raul.jpg
 ---

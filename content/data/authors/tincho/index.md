@@ -1,9 +1,9 @@
 ---
 id: tincho
 email: msteglich@magnesium.coop
-name: Martín Steglich
-gitlab: raulsperoni
-twitter: nada
-bio: I am Author 2
+name: Ing. Martín Steglich
+gitlab: martin-steglich
+twitter: tinchosteglich
+bio: Desarrollo fullstack y aplicaciones móviles. Actual Presidente.
 profilepicture: tincho.png
 ---
