@@ -1,32 +1,32 @@
 ---
-title: Sulfur
-author: raul
-elementname: Sulfur
-name: Gestión de Horas
-description: Sistema de gestión de horas de funcionarios mediante el registro de las horas trabajadas.
-startdate: Octubre 2017
-duration: 7 meses
-totalbudget: USD 1500
-manager: cristian
+shortdescription: Un sitio para realizar la Marcha del Silencio virtual en tiempos de pandemia.
 managers:
-    - manager: cristian
-    - manager: raul
-client: MarQ
-clientcontact:
-    - contact1:
-        name:
-        position:
-        phone:
-        email:
-satisfactionletter: NO
+  - manager: cristian
+  - manager: raul
+elementname: Arsenic
+totalbudget: USD 0
 technologies:
-    - technology: java
-    - technology: angular
-image: test.png
+  - technology: java
+  - technology: angular
+name: Marcha Virtual
+author: raul
+client: MarQ
+startdate: 2020-02-01T03:00:00.000Z
+manager: raul
+satisfactionletter: NO
+duration: 1 meses
+clientcontact:
+  - contact1:
+      ? name
+      ? position
+      ? phone
+      ? email
+title: Sulfur
 link: example.net
+image: test.png
+description: Sistema de gestión de horas de funcionarios mediante el registro de
+  las horas trabajadas.
 ---
-El proyecto consistió en desarrollar una aplicación con un alto grado de usabilidad sobre todo en las interfaces más 
-usadas (por ejemplo el registro de horas) para que los funcionarios del estudio de arquitectos MarQ registraran las 
-horas dedicadas identificado proyectos y tareas realizadas.
-Otra de las funcionalidades del sistema es el control de desviación de costos de RRHH en los proyectos. 
-Básicamente el sistema permite el registro de las estimaciones de los costos de RRHH en cierto proyecto para poder comparar con los costos reales.
+Adaptamos y mejoramos un proyecto de [FACTTIC](https://facttic.org.ar) para “hacer marchar” todas aquellas imágenes que se publicaran en redes sociales en apoyo a Abuelas de Plaza de Mayo.
+
+[Ver post del blog](/#blog/marcha-del-silencio)
