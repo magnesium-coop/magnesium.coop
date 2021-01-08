@@ -3,12 +3,12 @@ title: ¿Por qué una cooperativa?
 date: "2020-06-08T22:10:37.284Z"
 description: "Intentamos responder a la pregunta recurrente: ¿Por qué armaron un cooperativa?"
 author: raul
-featuredimage:
+featuredimage: magnesium-negro.png
 ---
 
-¿Por qué armaron un cooperativa? Es una pregunta recurrente, no solo suena raro todo lo de “cooperativa de trabajo” sino que es aún más extraño para una empresa de tecnología. Habitualmente las empresas similares a nosotros, del estilo de “startups” son sociedades anónimas (SA) o sociedades de responsabilidad limitada (SRL). 
+¿Por qué armaron una cooperativa? Es una pregunta recurrente, no solo suena raro todo lo de “cooperativa de trabajo” sino que es aún más extraño para una empresa de tecnología. Habitualmente las empresas similares a nosotros, del estilo de “startups” son sociedades anónimas (SA) o sociedades de responsabilidad limitada (SRL). 
 
-La respuesta tiene dos partes, primero aclarar qué es una cooperativa de trabajo, y en segundo lugar porque nosotros elegimos esa forma empresarial por sobre otras. Este ejercicio, el de ver que ventajas puede tener una cooperativa, y el de despejar algunos mitos que existen, fue el mismo que hicimos cuando decidimos formar una empresa. Eso es historia y la pueden leer en  [¿Por qué Magnesium?]() 
+La respuesta tiene dos partes, primero aclarar qué es una cooperativa de trabajo, y en segundo lugar porque nosotros elegimos esa forma empresarial por sobre otras. Este ejercicio, el de ver que ventajas puede tener una cooperativa, y el de despejar algunos mitos que existen, fue el mismo que hicimos cuando decidimos formar una empresa. Eso es historia y la pueden leer en  [¿Por qué Magnesium?](/#blog/por-que-magnesium) 
 
 ## ¿Qué es una Cooperativa?
 
