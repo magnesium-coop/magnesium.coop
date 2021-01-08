@@ -7,36 +7,53 @@
 
 import React from "react"
 import Image from "gatsby-image"
+import { FaRegEnvelope } from "react-icons/fa"
+import { FiGitlab, FiTwitter } from "react-icons/fi"
+import { IconContext } from "react-icons"
 
 
 const Bio = (data) => {
   let author = data.author.frontmatter
   if (author) {
     return (
-      <div
-        style={{
-          display: `flex`
-        }}
-      >
+      <div className="flex align-middle content-center">
         <Image
           fluid={author.profilepicture.childImageSharp.fluid}
           alt={author.name}
-          style={{
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`
-          }}
+          className="w-2/12 m-5"
           imgStyle={{
-            borderRadius: `50%`
+            borderRadius: `50%`,
+            width: `100%`
           }}
         />
-        <p>
-          Escrito por <strong>{author.name}</strong> {author.bio}
-          {` `}
-          <a href={`https://twitter.com/${author.twitter}`}>
-            Twitter
-          </a>
-        </p>
+        <div className="my-auto">
+          <p className="my-auto">
+            Escrito por <strong>{author.name}</strong> {author.bio}
+          </p>
+          <IconContext.Provider value={{ color: "#f25c4a", className: "mt-1 mx-1 text-xs lg:text-sm" }}>
+            <div className="flex items-center">
+              <div>
+                <a href={"mailto:" + author.email} className={"no-underline"}>
+                  <FaRegEnvelope/>
+                </a>
+              </div>
+              <div>
+                {author.twitter &&
+                <a href={author.twitter}>
+                  <FiTwitter/>
+                </a>
+                }
+              </div>
+              <div>
+                {author.gitlab &&
+                <a href={author.gitlab}>
+                  <FiGitlab/>
+                </a>
+                }
+              </div>
+            </div>
+          </IconContext.Provider>
+        </div>
       </div>
     )
   } else {

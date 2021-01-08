@@ -70,7 +70,7 @@ const BlogPage = (props) => {
 
                     <div className="xl:w-10/12 mx-auto xl:text-lg font-mgbook"
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
-                    <div className="mb-64">
+                    <div className="mb-32 mt-32">
                       <Bio author={author}/>
                     </div>
                   </div>
