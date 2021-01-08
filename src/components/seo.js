@@ -28,6 +28,8 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
     `
   )
 
+  console.log(image)
+
   const metaDescription = description || site.siteMetadata.description
   let defaultImage = site.siteMetadata.siteUrl + '/intro01.png'
   const defaultProyectosImage = site.siteMetadata.siteUrl + '/proyectos.png'
@@ -99,14 +101,16 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
 SEO.defaultProps = {
   lang: `es`,
   meta: [],
-  description: ``
+  description: ``,
+  image: ''
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string
 }
 
 export default SEO

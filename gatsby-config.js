@@ -109,7 +109,12 @@ module.exports = {
         background_color: `#000000`,
         theme_color: `#f25c4a`,
         display: `minimal-ui`,
-        icon: `content/assets/mg-negro.png`
+        icon: `content/assets/mg-negro.png`,
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `any maskable`,
+        },
       }
     },
     `gatsby-plugin-react-helmet`,

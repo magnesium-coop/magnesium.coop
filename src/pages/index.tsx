@@ -64,28 +64,32 @@ const BlogIndex = ({ data }) => {
       anchor: "intro",
       colors: colorsBlack,
       slides: [],
-      secondMenu: false
+      secondMenu: false,
+      image: 'intro01.png'
     },
     {
       title: "Nosotros",
       anchor: "nosotros",
       colors: colorsWhite,
       slides: [],
-      secondMenu: true
+      secondMenu: true,
+      image: 'nosotros.png'
     },
     {
       title: "Proyectos",
       anchor: "proyectos",
       colors: colorsBlack,
       slides: [],
-      secondMenu: false
+      secondMenu: false,
+      image: 'proyectos.png'
     },
     {
       title: "Blog",
       anchor: "blog",
       colors: colorsBlack,
       slides: [],
-      secondMenu: false
+      secondMenu: false,
+      image: 'intro01.png'
     }
 
   ]
@@ -103,7 +107,8 @@ const BlogIndex = ({ data }) => {
         html: node.html,
         annotation: node.frontmatter.annotation,
         colors: initialFullPages[0].colors,
-        title: node.frontmatter.title
+        title: node.frontmatter.title,
+        image: initialFullPages[0].image,
       })
     })
 
@@ -121,7 +126,8 @@ const BlogIndex = ({ data }) => {
       html: quienesSomos.html,
       colors: initialFullPages[1].colors,
       title: "Nosotros",
-      next: null
+      next: null,
+      image: initialFullPages[1].image,
     })
     //Second
     initialFullPages[1]["slides"].push({
@@ -130,7 +136,8 @@ const BlogIndex = ({ data }) => {
       title: "Equipo",
       autores: authors,
       prev: initialFullPages[1]["slides"][0],
-      next: null
+      next: null,
+      image: initialFullPages[1].image,
     })
     //Third
     initialFullPages[1]["slides"].push({
@@ -138,7 +145,8 @@ const BlogIndex = ({ data }) => {
       colors: colorsNaranja,
       title: "Colaboran",
       autores: colaboradoresAll,
-      prev: initialFullPages[1]["slides"][1]
+      prev: initialFullPages[1]["slides"][1],
+      image: initialFullPages[1].image,
     })
 
     //Arrows
@@ -155,7 +163,8 @@ const BlogIndex = ({ data }) => {
       colors: colorsBlack,
       title: "Blog",
       prev: null,
-      next: null
+      next: null,
+      image: initialFullPages[0].image,
     })
     //Rest
     data.blogPosts.edges.map(({ node }, index) => {
@@ -196,7 +205,8 @@ const BlogIndex = ({ data }) => {
     initialFullPages[2]["slides"].push({
       anchor: "projects",
       colors: colorsNaranja,
-      title: "Proyectos"
+      title: "Proyectos",
+      image: initialFullPages[2].image,
     })
     //Rest
     data.projects.edges.map(({ node }, index) => {
@@ -367,7 +377,8 @@ const BlogIndex = ({ data }) => {
           render={({ fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                <SEO title={currentSlide.title}/>
+                {console.log(currentSlide.anchor, currentSlide.title, currentSlide.image)}
+                <SEO title={currentSlide.title} image={currentSlide.image}/>
                 <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages}
                                  currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
                 <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"

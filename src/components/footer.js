@@ -15,19 +15,19 @@ const Footer = ({ siteMetadata }) => {
         id="footer-principal-bottom">
         <div className="w-full flex flex-col">
           <div className={"w-full flex h-8 md:h-10"}>
-            <a href="#"
+            <button
                className={"flex visible md:invisible w-full md:w-0 h-full items-center justify-center text-white font-mgbook no-underline"}
                onClick={() => toggleExpansion(!isExpanded)}>
               <span className={`${isExpanded ? `hidden` : `block`} text-lg`}><FaRegEnvelope/></span>
               <span className={`${isExpanded ? `block` : `hidden`} text-xl`}><IoIosArrowDown/></span>
-            </a>
-            <a href="#"
+            </button>
+            <button
                className={"flex invisible md:visible w-0 md:w-full h-full items-center justify-center text-white font-mgbook no-underline"}
                onClick={() => toggleExpansion(!isExpanded)}>
               <span>Contacto</span><span className={"w-3"}></span>
               <span className={`${isExpanded ? `block` : `hidden`} text-xl`}><IoIosArrowDown/></span>
               <span className={`${isExpanded ? `hidden` : `block`} text-xl`}><IoIosArrowUp/></span>
-            </a>
+            </button>
           </div>
           <div
             className={`${isExpanded ? `block` : `hidden`} flex content-center flex-col flex-grow h-32 md:h-48 md:mx-5 text-white font-mgbook no-underline`}>
