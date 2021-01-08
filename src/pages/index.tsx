@@ -11,6 +11,8 @@ import ProjectsPage from "../components/projects"
 import Header from "../components/header"
 import SimpleIntroPage from "../components/simpleIntro"
 import Footer from "../components/footer"
+import SEO from "../components/seo"
+
 
 function removeSlash(text) {
   if (text !== undefined) {
@@ -365,6 +367,7 @@ const BlogIndex = ({ data }) => {
           render={({ fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
+                <SEO title={currentSlide.title}/>
                 <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages}
                                  currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
                 <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"

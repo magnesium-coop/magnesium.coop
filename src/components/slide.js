@@ -1,5 +1,6 @@
 import React from "react"
 
+
 const Slide = (props) => {
 
   const backgroundColor = "bg-"+props.currentSlide.colors.backgroundColor

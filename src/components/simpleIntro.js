@@ -34,7 +34,7 @@ const SimpleIntroPage = (props) => {
           <div className="h-full flex flex-col z-40 items-center justify-around">
             <div className={"w-full h-full flex lg:w-6/12 mt-20 lg:mt-56"} style={{ zIndex: "inherit" }}>
               <Typed
-                className={"z-40 h-1/2 text-lg md:text-4xl lg:text-5xl text-" + firstSlide.colors.textColor}
+                className={"z-40 h-1/2 text-lg md:text-4xl lg:text-3xl xl:text-5xl text-" + firstSlide.colors.textColor}
                 strings={[
                   "Desarrollamos y diseñamos software, aplicaciones y páginas web para solucionar problemas y mejorar procesos.",
                   "Si no está claro cuál es el problema presentamos alternativas intentando evitar el retrabajo y sobrecostos.",

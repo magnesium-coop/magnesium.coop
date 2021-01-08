@@ -10,12 +10,13 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, image, anchor }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
+            siteUrl
             title
             description
             social {
@@ -28,6 +29,15 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  let defaultImage = site.siteMetadata.siteUrl + '/intro01.png'
+  const defaultProyectosImage = site.siteMetadata.siteUrl + '/proyectos.png'
+  const defaultNosotrosImage = site.siteMetadata.siteUrl + '/nosotros.png'
+
+  if (anchor === 'proyectos') {
+    defaultImage = defaultProyectosImage
+  } else if (anchor === 'nosotros') {
+    defaultImage = defaultNosotrosImage
+  }
 
   return (
     <Helmet
@@ -50,12 +60,24 @@ const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription
         },
         {
+          property: `og:image`,
+          content: image || defaultImage,
+        },
+        {
+          property: `og:image:secure_url`,
+          content: image || defaultImage,
+        },
+        {
           property: `og:type`,
           content: `website`
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary_large_image`
+        },
+        {
+          property: `twitter:image`,
+          content: image || defaultImage,
         },
         {
           name: `twitter:creator`,
@@ -75,7 +97,7 @@ const SEO = ({ description, lang, meta, title }) => {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
   description: ``
 }
