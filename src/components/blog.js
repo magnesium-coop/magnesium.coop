@@ -5,6 +5,7 @@ import Bio from "./bio"
 import ArrowNext from "./arrowNext"
 import ArrowPrev from "./arrowPrev"
 import Img from "gatsby-image"
+import SocialShare from "./socialshare"
 
 
 function removeSlash(text) {
@@ -62,10 +63,11 @@ const BlogPage = (props) => {
                 <div className="h-full flex flex-wrap justify-around lg:pt-32">
                   <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex justify-around ">
                     <div
-                      className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-" + slide.colors.titleColor}>{slide.title}
+                      className={"font-mgblack text-2xl mg:text-3xl lg:text-4xl text-center text-" + slide.colors.titleColor}>{slide.title}
                     </div>
                   </div>
                   <div className="mt-0 mb-auto w-11/12 sm:w-7/12 md:w-8/12 lg:w-8/12 xl:w-6/12 lg:px-10 lg:text-base">
+                    <SocialShare slug={"#" + anchor + "/" + removeSlash(slide.slug)} title={slide.title} color={slide.colors.textColor}/>
                     {slide.image ? <Img className="mx-5 mb-10 mt-10 lg:w-8/12 xl:w-8/12 mx-auto" fluid={slide.image.childImageSharp.fluid}/> : null }
 
                     <div className="xl:w-10/12 mx-auto xl:text-lg font-mgbook"

@@ -377,7 +377,6 @@ const BlogIndex = ({ data }) => {
           render={({ fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                {console.log(currentSlide.anchor, currentSlide.title, currentSlide.image)}
                 <SEO title={currentSlide.title} image={currentSlide.image}/>
                 <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages}
                                  currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
