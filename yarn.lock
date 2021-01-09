@@ -8159,7 +8159,7 @@ gatsby-plugin-postcss@^2.1.20, gatsby-plugin-postcss@^2.3.3:
     "@babel/runtime" "^7.11.2"
     postcss-loader "^3.0.0"
 
-gatsby-plugin-react-helmet@^3.3.1:
+gatsby-plugin-react-helmet@^3.4.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.8.0.tgz#f7bda9378e21795f39d55fbea83a0458e737ff62"
   integrity sha512-N3foQUlaA7S7hRHpUtM30eYfhaE/wfC5xJhZ2UJCeos/rRDA6RHEp4IGI+VIs6+4T4ClS9pM9jwg8TfcqNlAiQ==
@@ -8463,7 +8463,7 @@ gatsby-transformer-yaml@^2.9.0:
     lodash "^4.17.20"
     unist-util-select "^1.5.0"
 
-gatsby@^2.21.37:
+gatsby@^2.26.1:
   version "2.30.1"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.30.1.tgz#251c931caf8f928c6af69656d288d04950f0bb80"
   integrity sha512-elDugMhCsBHdo46WAiyoWs7AL3uQyO9R+rqf8J0mj3ToNzi4Fl+3cu2fs+EvAahpLJ5pQqRhXL/cPXtW4rNbug==
