@@ -1,8 +1,10 @@
 module.exports = {
-
+  future: {
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true
+  },
   purge: {
-    content: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx",'./src/**/*.html'],
-    preserveHtmlElements: true,
+    content: ['./src/**/*.{js,ts,jsx,tsx}'],
   } ,
   theme: {
     fontFamily: {

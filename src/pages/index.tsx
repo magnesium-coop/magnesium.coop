@@ -347,6 +347,7 @@ const BlogIndex = ({ data }) => {
   else
     return (
       <div style={{backgroundColor:"black"}}>
+        <SEO title={currentSlide.title} image={currentSlide.image && currentSlide.image.childImageSharp ? currentSlide.image.childImageSharp.fluid.src : currentSlide.image}/>
         <Header pages={fullpages}
                 colors={floatingComponentsColors}
                 currentSlide={currentSlide}
@@ -377,7 +378,6 @@ const BlogIndex = ({ data }) => {
           render={({ fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                <SEO title={currentSlide.title} image={currentSlide.image}/>
                 <SimpleIntroPage size={size} setTypingText={setTypingText.bind(this)} pages={fullpages}
                                  currentSlide={currentSlide} pagePos="0" fullPageApi={fullpageApi}/>
                 <AboutPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="1"
@@ -391,7 +391,7 @@ const BlogIndex = ({ data }) => {
             )
           }}
         />
-        <Footer currentSlide siteMetadata={data.site.siteMetadata}/>
+        <Footer siteMetadata={data.site.siteMetadata}/>
         {/*console.log(getAllDuplicateIds()*/}
       </div>
     )

@@ -13,7 +13,6 @@ import { FiLinkedin, FiTwitter, FiFacebook } from "react-icons/fi"
 const SocialShare = ({slug, color, title}) => {
 
   const url = 'https://magnesium.coop/'+ slug
-  console.log(url)
 
   return (
     <div className={"mt-5 flex justify-between w-1/2 md:w-1/3 xl:w-1/4 mx-auto text-"+color}>
