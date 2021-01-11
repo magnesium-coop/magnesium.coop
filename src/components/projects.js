@@ -103,8 +103,8 @@ const ProjectsPage = (props) => {
                         }).join(", ")}</td>
                       </tr>
                       <tr className="border">
-                        <td className="border py-1 md:py-2 px-3 md:px-3">Link</td>
-                        <td className="border py-1 md:py-2 px-3 md:px-3"><a className="no-underline text-blanco" href={slide.link} target={"_blank"}>{slide.link}</a></td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Link</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5"><a className="no-underline text-blanco" href={slide.link} target={"_blank"}>{slide.link}</a></td>
                       </tr>
                    {/*   {slide.managers.map((data, index) => {
                         let man = data.manager.frontmatter
