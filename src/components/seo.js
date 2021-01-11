@@ -53,10 +53,10 @@ const SEO = ({ description, lang, meta }) => {
 
   if (slug.includes('proyectos')) {
     defaultImage = defaultProyectosImage
-    metaTitle = 'Proyectos'
+    metaTitle = 'Proyectos | '+metaTitle
   } else if (slug.includes('nosotros')) {
     defaultImage = defaultNosotrosImage
-    metaTitle = 'Nosotros'
+    metaTitle = 'Nosotros | '+metaTitle
   }
 
   return (
@@ -65,7 +65,7 @@ const SEO = ({ description, lang, meta }) => {
         lang
       }}
       title={metaTitle}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      //titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
