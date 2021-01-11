@@ -67,7 +67,7 @@ const ProjectsPage = (props) => {
                     </div>
 
                     </div>
-                    <div className="proyecto-body xl:text-lg font-mgbook"
+                    <div className="mt-5 proyecto-body xl:text-lg font-mgbook"
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
                     <span className={"font-mgblack " + slide.titleColor}>
                   </span>

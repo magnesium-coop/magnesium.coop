@@ -40,7 +40,7 @@ const Footer = ({ siteMetadata }) => {
                 {siteMetadata.contacto.support}
               </a></p>
             </div>
-            <div className="mb-3 flex flex-col md:flex-row items-center justify-around h-full md:items-end">
+            <div className="mt-2 mb-2 flex flex-col md:flex-row items-center justify-around h-full md:items-end">
               <IconContext.Provider value={{ color: "white", className: "mx-1 text-md lg:text-sm" }}>
                 <div>
                   <a href={"mailto:" + siteMetadata.contacto.email} className={"no-underline text-white "}>
