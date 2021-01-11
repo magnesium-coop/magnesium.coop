@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Magnesium.coop`,
     description: `Desarrollamos y diseñamos software, aplicaciones y páginas web para solucionar problemas y mejorar procesos.`,
-   // siteUrl: `https://magnesium.coop`,
-    siteUrl: 'https://magnesium.coop.test.magnesium.coop/',
+    siteUrl: `https://magnesium.coop`,
+    //siteUrl: 'https://magnesium.coop.test.magnesium.coop/',
     social: {
       twitter: 'https://twitter.com/magnesiumcoop',
       linkedin: 'https://www.linkedin.com/company/magnesiumcoop',

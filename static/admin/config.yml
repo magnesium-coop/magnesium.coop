@@ -1,6 +1,6 @@
 backend:
   name: gitlab
-  branch: fullpagejs
+  branch: master
   repo: magnesiumcoop/magnesium.coop # Path to your GitLab repository
   auth_type: implicit # Required for implicit grant
   app_id: 520d5837a9edf88f329edde57d63b0b9cf0c645ec3551382844a4210e45a3f96 # Application ID from your GitLab settings
@@ -43,10 +43,10 @@ collections:
     description: 'Proyectos del Portfolio'
     folder: 'content/projects'
     create: true
-    slug: 'summary'
+    slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/summary'
+    path: '{{title}}/index'
     editor:
       preview: false
     fields:
@@ -56,13 +56,7 @@ collections:
       - { label: 'Start date', name: 'startdate', widget: 'datetime' }
       - { label: 'Duration', name: 'duration', widget: 'string' }
       - { label: 'Total budget', name: 'totalbudget', widget: 'string' }
-      - label: "Autor"
-        name: "author"
-        widget: "relation"
-        collection: "authors"
-        searchFields: [ "name" ]
-        valueField: "id"
-        displayFields: [ "name" ]
+      - { label: 'Link', name: 'link', widget: 'string' }
       - label: "Manager"
         name: "manager"
         widget: "relation"

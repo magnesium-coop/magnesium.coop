@@ -313,3 +313,8 @@ Indicadores abajo
 .element-name {
     font-size: larger;
 }
+
+.proyecto-body p a {
+    @apply text-blanco;
+    @apply no-underline;
+}
