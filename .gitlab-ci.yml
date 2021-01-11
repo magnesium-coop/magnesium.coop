@@ -3,8 +3,7 @@ image: docker:19.03.0-dind
 variables:
   DOCKER_TLS_CERTDIR: ""
 
-before_script:
-  - docker info
+
 stages:
   - build
   - deploy
