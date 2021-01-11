@@ -342,7 +342,7 @@ const BlogIndex = ({ data }) => {
         zIndex: 100
       }}
     >
-      <SEO title={'Magnesium.coop'}/>
+      <SEO title={currentSlide.title} image={currentSlide.image && currentSlide.image.childImageSharp ? currentSlide.image.childImageSharp.fluid.src : currentSlide.image}/>
       <span>|</span>
     </div>)
   else
