@@ -29,6 +29,7 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaTitle = title || site.siteMetadata.title
   let defaultImage = site.siteMetadata.siteUrl + '/intro01.png'
   const defaultProyectosImage = site.siteMetadata.siteUrl + '/proyectos.png'
   const defaultNosotrosImage = site.siteMetadata.siteUrl + '/nosotros.png'
@@ -44,7 +45,7 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
       htmlAttributes={{
         lang
       }}
-      title={title}
+      title={metaTitle}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -53,7 +54,7 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
         },
         {
           property: `og:title`,
-          content: title
+          content: metaTitle
         },
         {
           property: `og:description`,
@@ -85,7 +86,7 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
         },
         {
           name: `twitter:title`,
-          content: title
+          content: metaTitle
         },
         {
           name: `twitter:description`,
