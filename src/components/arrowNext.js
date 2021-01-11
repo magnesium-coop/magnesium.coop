@@ -6,7 +6,7 @@ const ArrowNext = ({ arrow, anchor, fullPageApi }) => {
     return (
       <div
         className={"flex items-center customArrow customArrowNext my-auto w-8 h-32 md:w-10 md:h-20 lg:w-24 lg:h-48 bg-" + arrow.colors.backgroundColor}>
-        <a href={"#" + anchor + "/" + arrow.anchor + "/"}
+        <a href={"#" + anchor + "/" + arrow.anchor}
            className={"h-full w-full no-underline text-2xl md:text-4xl lg:text-5xl text-" + arrow.colors.textColor}>
           <div className="h-full w-full flex flex-wrap lg:flex-no-wrap justify-around align-center content-center">
             <span className="mx-auto mb-1 md:my-auto">

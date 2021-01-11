@@ -342,13 +342,13 @@ const BlogIndex = ({ data }) => {
         zIndex: 100
       }}
     >
-      <SEO title={currentSlide.title} image={currentSlide.image && currentSlide.image.childImageSharp ? currentSlide.image.childImageSharp.fluid.src : currentSlide.image}/>
+      <SEO/>
       <span>|</span>
     </div>)
   else
     return (
       <div style={{backgroundColor:"black"}}>
-        <SEO title={currentSlide.title} image={currentSlide.image && currentSlide.image.childImageSharp ? currentSlide.image.childImageSharp.fluid.src : currentSlide.image}/>
+        <SEO/>
         <Header pages={fullpages}
                 colors={floatingComponentsColors}
                 currentSlide={currentSlide}

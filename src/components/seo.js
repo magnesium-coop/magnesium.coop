@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
 
-const SEO = ({ description, lang, meta, title, image, anchor }) => {
-  const { site } = useStaticQuery(
+const SEO = ({ description, lang, meta }) => {
+  const { site, blogPosts } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,20 +24,39 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
             }
           }
         }
+        blogPosts: allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {regex: "/(blog)/.*\\\\.md$/"}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                featuredimage {
+                  publicURL
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
+  const url = typeof window !== 'undefined' ? window.location.href : '#intro';
+  const slug = url.split('#')[1]
+  console.log(slug)
 
   const metaDescription = description || site.siteMetadata.description
-  const metaTitle = title || site.siteMetadata.title
+  let metaTitle = site.siteMetadata.title
   let defaultImage = site.siteMetadata.siteUrl + '/intro01.png'
   const defaultProyectosImage = site.siteMetadata.siteUrl + '/proyectos.png'
   const defaultNosotrosImage = site.siteMetadata.siteUrl + '/nosotros.png'
 
-  if (anchor === 'proyectos') {
+  if (slug.includes('proyectos')) {
     defaultImage = defaultProyectosImage
-  } else if (anchor === 'nosotros') {
+    metaTitle = 'Proyectos'
+  } else if (slug.includes('nosotros')) {
     defaultImage = defaultNosotrosImage
+    metaTitle = 'Nosotros'
   }
 
   return (
@@ -57,16 +76,20 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
           content: metaTitle
         },
         {
+          property: `og:url`,
+          content: site.siteMetadata.siteUrl
+        },
+        {
           property: `og:description`,
           content: metaDescription
         },
         {
           property: `og:image`,
-          content: image || defaultImage,
+          content: defaultImage,
         },
         {
           property: `og:image:secure_url`,
-          content: image || defaultImage,
+          content: defaultImage,
         },
         {
           property: `og:type`,
@@ -78,7 +101,7 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
         },
         {
           property: `twitter:image`,
-          content: image || defaultImage,
+          content: defaultImage,
         },
         {
           name: `twitter:creator`,
