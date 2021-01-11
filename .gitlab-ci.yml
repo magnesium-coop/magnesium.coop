@@ -61,7 +61,7 @@ deploy_prod:
     - ssh-add /tmp/key.pem
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - URL_LIST=$URLS DOCKER_IMAGE=$CI_REGISTRY_IMAGE DOCKER_TAG=$CI_COMMIT_SHORT_SHA DOCKER_STACK=$CI_PROJECT_TITLE DEPLOY_ENV=$CI_ENVIRONMENT_SLUG docker stack deploy --with-registry-auth -c docker-compose.$CI_ENVIRONMENT_SLUG.yml magnesium_web
   environment:
     name: prod
