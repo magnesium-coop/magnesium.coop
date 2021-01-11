@@ -233,7 +233,7 @@ const BlogIndex = ({ data }) => {
         anchor: removeSlash(node.fields.slug),
         prev: {
           anchor: index === 0 ? "" : removeSlash(initialFullPages[2]["slides"][index].slug),
-          colors: index === 0 ? colorsNaranja : colorsBlack,
+          colors: index === 0 ? colorsNaranja : colorsWhite,
           title: "Anterior"
         },
         next: null
@@ -243,7 +243,7 @@ const BlogIndex = ({ data }) => {
     for (let index = 0; index < initialFullPages[2].slides.length - 1; index++) {
       initialFullPages[2].slides[index].next = {
         anchor: removeSlash(initialFullPages[2]["slides"][index + 1].slug),
-        colors: colorsBlack,
+        colors: index === 0 ? colorsBlack : colorsWhite,
         title: "Siguiente"
       }
     }
