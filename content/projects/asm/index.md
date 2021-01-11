@@ -13,7 +13,7 @@ technologies:
 name: Archivo Sociedades en Movimiento
 author: raul
 client: Udelar
-startdate: 2019-09-15T17:43:52.122Z
+startdate: Setiembre 2019
 manager: raul
 satisfactionletter: NO
 duration: 3 meses

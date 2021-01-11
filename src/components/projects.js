@@ -71,7 +71,7 @@ const ProjectsPage = (props) => {
                          dangerouslySetInnerHTML={{ __html: slide.html }}/>
                     <span className={"font-mgblack " + slide.titleColor}>
                   </span>
-                    <table className="mt-5 table-fixed p-5 w-full">
+                    <table className="mt-5 table-auto text-sm md:text-base md:table-fixed p-5 w-full">
                       <thead>
                       <tr>
                         <th className="w-1/2"></th>
@@ -80,38 +80,38 @@ const ProjectsPage = (props) => {
                       </thead>
                       <tbody>
                       <tr className="border">
-                        <td className="border py-2 px-5">Comienzo</td>
-                        <td className="border py-2 px-5">{slide.startdate}</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Comienzo</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">{slide.startdate}</td>
                       </tr>
                       <tr className="border">
-                        <td className="border py-2 px-5">Duración</td>
-                        <td className="border py-2 px-5">{slide.duration}</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Duración</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">{slide.duration}</td>
                       </tr>
                     {/*  <tr className="border">
-                        <td className="border py-2 px-5">Presupuesto</td>
-                        <td className="border py-2 px-5">{slide.totalbudget}</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Presupuesto</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">{slide.totalbudget}</td>
                       </tr>*/}
                       <tr className="border">
-                        <td className="border py-2 px-5">Cliente</td>
-                        <td className="border py-2 px-5">{slide.client}</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Cliente</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">{slide.client}</td>
                       </tr>
                       <tr className="border">
-                        <td className="border py-2 px-5">Tecnologías</td>
-                        <td className="border py-2 px-5">{slide.technologies.map((tecno, index) => {
+                        <td className="border py-1 md:py-2 px-3 md:px-5">Tecnologías</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-5">{slide.technologies.map((tecno, index) => {
                           let tec = tecno.technology
                           return tec.name + " (" + tec.version + ")"
                         }).join(", ")}</td>
                       </tr>
                       <tr className="border">
-                        <td className="border py-2 px-5">Link</td>
-                        <td className="border py-2 px-5"><a className="no-underline text-blanco" href={slide.link} target={"_blank"}>{slide.link}</a></td>
+                        <td className="border py-1 md:py-2 px-3 md:px-3">Link</td>
+                        <td className="border py-1 md:py-2 px-3 md:px-3"><a className="no-underline text-blanco" href={slide.link} target={"_blank"}>{slide.link}</a></td>
                       </tr>
                    {/*   {slide.managers.map((data, index) => {
                         let man = data.manager.frontmatter
                         return (
                           <tr className="border">
-                            <td className="border py-2 px-5">Responsable</td>
-                            <td className="border py-2 px-5"><a className="no-underline text-blanco"
+                            <td className="border py-1 md:py-2 px-3 md:px-3 md:px-5">Responsable</td>
+                            <td className="border py-1 md:py-2 px-3 md:px-3 md:px-5"><a className="no-underline text-blanco"
                                                                 href={"mailto:" + man.email} target="_blank">{man.name}</a>
                             </td>
                           </tr>

@@ -11,7 +11,7 @@ technologies:
 name: Marcha Virtual
 author: raul
 client: MarQ
-startdate: 2020-02-01T03:00:00.000Z
+startdate: Setiembre 2020
 manager: raul
 satisfactionletter: NO
 duration: 1 meses
