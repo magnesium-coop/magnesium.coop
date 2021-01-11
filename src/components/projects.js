@@ -87,10 +87,10 @@ const ProjectsPage = (props) => {
                         <td className="border py-2 px-5">Duración</td>
                         <td className="border py-2 px-5">{slide.duration}</td>
                       </tr>
-                      <tr className="border">
+                    {/*  <tr className="border">
                         <td className="border py-2 px-5">Presupuesto</td>
                         <td className="border py-2 px-5">{slide.totalbudget}</td>
-                      </tr>
+                      </tr>*/}
                       <tr className="border">
                         <td className="border py-2 px-5">Cliente</td>
                         <td className="border py-2 px-5">{slide.client}</td>
@@ -106,7 +106,7 @@ const ProjectsPage = (props) => {
                         <td className="border py-2 px-5">Link</td>
                         <td className="border py-2 px-5"><a className="no-underline text-blanco" href={slide.link} target={"_blank"}>{slide.link}</a></td>
                       </tr>
-                      {slide.managers.map((data, index) => {
+                   {/*   {slide.managers.map((data, index) => {
                         let man = data.manager.frontmatter
                         return (
                           <tr className="border">
@@ -116,7 +116,7 @@ const ProjectsPage = (props) => {
                             </td>
                           </tr>
                         )
-                      })}
+                      })}*/}
 
 
                       </tbody>
