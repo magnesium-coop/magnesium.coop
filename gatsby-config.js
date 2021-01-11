@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/magnesium.coop`,
   siteMetadata: {
     title: `Magnesium.coop`,
     description: `Desarrollamos y diseñamos software, aplicaciones y páginas web para solucionar problemas y mejorar procesos.`,
