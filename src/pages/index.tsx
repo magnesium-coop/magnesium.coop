@@ -385,7 +385,6 @@ const BlogIndex = ({ data }) => {
                            fullPageApi={fullpageApi}/>
                 <ProjectsPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="2"
                               fullPageApi={fullpageApi}/>
-
                 <BlogPage pages={fullpages} currentPage={currentPage} currentSlide={currentSlide} pagePos="3"
                           fullPageApi={fullpageApi}/>
               </ReactFullpage.Wrapper>

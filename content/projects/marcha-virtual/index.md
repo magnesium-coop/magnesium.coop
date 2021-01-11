@@ -6,8 +6,8 @@ managers:
 elementname: Arsenic
 totalbudget: USD 0
 technologies:
-  - technology: java
-  - technology: angular
+  - technology: javascript
+  - technology: python
 name: Marcha Virtual
 author: raul
 client: MarQ

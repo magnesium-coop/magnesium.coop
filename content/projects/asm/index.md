@@ -8,8 +8,7 @@ managers:
 elementname: Nickel
 totalbudget: NC
 technologies:
-  - technology: java
-  - technology: angular
+  - technology: php
 name: Archivo Sociedades en Movimiento
 author: raul
 client: Udelar
