@@ -40,7 +40,7 @@ const ProjectsPage = (props) => {
             <div key={"proyectos_page" + index}>
               <Slide currentSlide={slide}>
                 <div className="h-full flex flex-wrap justify-around lg:pt-32">
-                  <div className="my-auto w-11/12 sm:w-7/12 md:w-8/12 lg:w-8/12 xl:w-6/12 lg:px-10 lg:text-base">
+                  <div className="mt-0 mb-auto w-11/12 sm:w-7/12 md:w-8/12 lg:w-8/12 xl:w-6/12 lg:px-10 lg:text-base">
                     <div className="w-full lg:mb-10 mt-0 items-center md:mt-auto flex ">
                     <div className="bg-negro w-1/4 lg:w-1/6 xl:w-1/7">
                       <svg version="1.1"
