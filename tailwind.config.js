@@ -4,7 +4,12 @@ module.exports = {
     removeDeprecatedGapUtilities: true
   },
   purge: {
+    preserveHtmlElements: false,
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      keyframes: true,
+      fontFace: true,
+    },
   } ,
   theme: {
     fontFamily: {

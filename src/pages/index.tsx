@@ -342,6 +342,7 @@ const BlogIndex = ({ data }) => {
         zIndex: 100
       }}
     >
+      <SEO title={'Magnesium.coop'}/>
       <span>|</span>
     </div>)
   else

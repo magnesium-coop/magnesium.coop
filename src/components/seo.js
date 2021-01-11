@@ -28,8 +28,6 @@ const SEO = ({ description, lang, meta, title, image, anchor }) => {
     `
   )
 
-  console.log(image)
-
   const metaDescription = description || site.siteMetadata.description
   let defaultImage = site.siteMetadata.siteUrl + '/intro01.png'
   const defaultProyectosImage = site.siteMetadata.siteUrl + '/proyectos.png'
