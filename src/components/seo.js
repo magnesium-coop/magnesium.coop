@@ -42,8 +42,7 @@ const SEO = ({ description, lang, meta }) => {
     `
   )
   const url = typeof window !== 'undefined' ? window.location.href : '#intro';
-  const slug = url.split('#')[1]
-  console.log(slug)
+  const slug = url.split('#')[1] || 'intro'
 
   const metaDescription = description || site.siteMetadata.description
   let metaTitle = site.siteMetadata.title
