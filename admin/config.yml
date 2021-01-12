@@ -1,0 +1,107 @@
+backend:
+  name: gitlab
+  branch: master
+  repo: magnesiumcoop/magnesium.coop # Path to your GitLab repository
+  auth_type: implicit # Required for implicit grant
+  app_id: 520d5837a9edf88f329edde57d63b0b9cf0c645ec3551382844a4210e45a3f96 # Application ID from your GitLab settings
+
+media_folder: static/img
+public_folder: /img
+locale: 'es'
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    label_singular: 'Post'
+    description: 'Posts del Blog'
+    folder: 'content/blog'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Descripción', name: 'description', widget: 'string' }
+      - { label: 'Fecha', name: 'date', widget: 'datetime' }
+      - { label: 'Foto', name: 'featuredimage', widget: image }
+      - label: "Autor"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: [ "name" ]
+        valueField: "id"
+        displayFields: [ "name" ]
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'projects'
+    label: 'Proyectos'
+    label_singular: 'Proyecto'
+    description: 'Proyectos del Portfolio'
+    folder: 'content/projects'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Element name', name: 'elementname', widget: 'string' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Short description', name: 'shortdescription', widget: 'string' }
+      - { label: 'Start date', name: 'startdate', widget: 'datetime' }
+      - { label: 'Duration', name: 'duration', widget: 'string' }
+      - { label: 'Total budget', name: 'totalbudget', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string' }
+      - label: "Manager"
+        name: "manager"
+        widget: "relation"
+        collection: "authors"
+        searchFields: [ "name" ]
+        valueField: "id"
+        displayFields: [ "name" ]
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'authors'
+    label: 'Equipo'
+    label_singular: 'Socio'
+    description: 'Socios de Magnesium'
+    folder: 'content/data/authors'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{id}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Id', name: 'id', widget: 'string' }
+      - { label: 'Email', name: 'email', widget: 'string' }
+      - { label: 'Nombre', name: 'name', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+      - { label: 'Foto', name: 'profilepicture', widget: image }
+  - name: 'colaborators'
+    label: 'Colaboradores'
+    label_singular: 'Colaborador'
+    description: 'Colaboradores de Magnesium'
+    folder: 'content/data/colaborators'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{id}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Id', name: 'id', widget: 'string' }
+      - { label: 'Email', name: 'email', widget: 'string' }
+      - { label: 'Nombre', name: 'name', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Gitlab', name: 'gitlab', widget: 'string' }
+      - { label: 'Foto', name: 'profilepicture', widget: image }
