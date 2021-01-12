@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { FiGitlab, FiTwitter } from "react-icons/fi"
+import { FiGitlab, FiLinkedin, FiTwitter } from "react-icons/fi"
 import { FaRegEnvelope } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import Image from "gatsby-image/index"
@@ -46,21 +46,28 @@ const TeamGrid = ({ team, title, titleColor }) => {
                 <IconContext.Provider value={{ color: "white", className: "mt-1 mx-1 text-xs lg:text-sm" }}>
                   <div className="flex items-center justify-center md:justify-end">
                     <div>
-                      <a href={"mailto:" + author.email} className={"no-underline text-white "}>
+                      <a href={"mailto:" + author.email} target="_blank" className={"no-underline text-white "}>
                         <FaRegEnvelope/>
                       </a>
                     </div>
                     <div>
                       {author.twitter &&
-                      <a href={author.twitter}>
+                      <a target="_blank" href={'https://twitter.com/'+author.twitter}>
                         <FiTwitter/>
                       </a>
                       }
                     </div>
                     <div>
                       {author.gitlab &&
-                      <a href={author.gitlab}>
+                      <a target="_blank" href={'https://gitlab.com/'+author.gitlab}>
                         <FiGitlab/>
+                      </a>
+                      }
+                    </div>
+                    <div>
+                      {author.linkedin &&
+                      <a target="_blank" href={'https://www.linkedin.com/in/'+author.linkedin}>
+                        <FiLinkedin/>
                       </a>
                       }
                     </div>

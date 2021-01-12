@@ -431,6 +431,7 @@ export const pageQuery = graphql`
             email
             gitlab
             twitter
+            linkedin
             profilepicture {
               childImageSharp {
                 fluid {
@@ -457,6 +458,7 @@ export const pageQuery = graphql`
             email
             gitlab
             twitter
+            linkedin
             profilepicture {
               childImageSharp {
                 fluid {
